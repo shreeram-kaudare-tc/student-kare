@@ -1,0 +1,14 @@
+<div class="flex gap-3 justify-center">
+  @for (digit of digits; track trackByIndex($index)) {
+    <input
+      #otpBox
+      type="text"
+      inputmode="numeric"
+      maxlength="1"
+      [value]="digit"
+      (input)="onInput($event, $index)"
+      (keydown)="onKeydown($event, $index)"
+      class="w-14 h-14 text-center text-xl font-bold border-2 border-gray-200 rounded-2xl focus:outline-none focus:border-orange-400 focus:ring-2 focus:ring-orange-100 bg-white text-gray-800 transition"
+    />
+  }
+</div>

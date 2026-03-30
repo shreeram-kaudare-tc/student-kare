@@ -1,0 +1,21 @@
+<div class="bg-white rounded-3xl shadow-sm p-4">
+  <div class="flex items-center justify-between mb-3">
+    <div>
+      <p class="text-xs text-gray-400">Order #{{ order.id }}</p>
+      <p class="text-xs text-gray-500 mt-0.5">{{ order.date }}</p>
+    </div>
+    <span [class]="'text-xs font-semibold px-3 py-1 rounded-full ' + statusColor">{{ statusLabel }}</span>
+  </div>
+  <div class="border-t border-gray-100 pt-3 space-y-1">
+    @for (item of order.items; track item.name) {
+      <div class="flex justify-between text-sm">
+        <span class="text-gray-600">{{ item.name }} x{{ item.quantity }}</span>
+        <span class="text-gray-800 font-medium">₹{{ item.price * item.quantity }}</span>
+      </div>
+    }
+  </div>
+  <div class="flex justify-between items-center mt-3 pt-3 border-t border-gray-100">
+    <span class="text-sm font-semibold text-gray-700">Total</span>
+    <span class="text-base font-bold text-orange-500">₹{{ order.total }}</span>
+  </div>
+</div>

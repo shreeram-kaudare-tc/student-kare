@@ -1,0 +1,29 @@
+<div class="bg-white rounded-3xl shadow-sm overflow-hidden cursor-pointer hover:shadow-md transition-shadow">
+  <div class="relative">
+    <img [src]="product.image" [alt]="product.name" class="w-full h-36 object-cover" />
+    @if (product.inStock === false) {
+      <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
+        <span class="text-white font-semibold text-sm">Out of Stock</span>
+      </div>
+    }
+  </div>
+  <div class="p-3">
+    <p class="text-xs text-orange-500 font-medium mb-0.5">{{ product.category }}</p>
+    <h3 class="text-sm font-semibold text-gray-800 leading-tight line-clamp-2 mb-2">{{ product.name }}</h3>
+    <div class="flex items-center justify-between">
+      <div>
+        <span class="text-base font-bold text-gray-900">₹{{ product.price }}</span>
+        @if (product.originalPrice) {
+          <span class="text-xs text-gray-400 line-through ml-1">₹{{ product.originalPrice }}</span>
+        }
+      </div>
+      <button
+        (click)="onAddToCart($event)"
+        [disabled]="product.inStock === false"
+        class="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center hover:bg-orange-600 active:scale-95 transition disabled:opacity-40"
+      >
+        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M12 4v16m8-8H4" /></svg>
+      </button>
+    </div>
+  </div>
+</div>
