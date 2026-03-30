@@ -26,14 +26,14 @@ export class Button {
     };
 
     const variants: Record<string, string> = {
-      primary:   'bg-[#3E63DD] text-white hover:bg-blue-700',
+      primary: 'bg-[#3E63DD] text-white hover:bg-blue-700',
       secondary: 'bg-[#22C55E] text-white hover:bg-green-600',
-      outline:   'bg-white text-[#3E63DD] border border-[#3E63DD] hover:bg-blue-50',
-      ghost:     'text-[#3E63DD] hover:bg-blue-50',
+      outline: 'bg-white text-[#3E63DD] border border-[#3E63DD] hover:bg-blue-50',
+      ghost: 'text-[#3E63DD] hover:bg-blue-50',
     };
 
     const width = this.fullWidth ? 'w-full' : '';
-    const dis   = this.disabled || this.loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer';
+    const dis = this.disabled || this.loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer';
 
     return [base, sizes[this.size], variants[this.variant], width, dis].join(' ');
   }
