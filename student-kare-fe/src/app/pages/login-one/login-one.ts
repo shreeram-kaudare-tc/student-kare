@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { Button } from '../../components/button/button';
 
 @Component({
   selector: 'app-login-one',
-  imports: [CommonModule],
+  imports: [CommonModule, Button],
   templateUrl: './login-one.html',
   styleUrl: './login-one.css',
 })

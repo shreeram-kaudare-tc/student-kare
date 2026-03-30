@@ -8,7 +8,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './button.css',
 })
 export class Button {
-  @Input() label: string = 'Button';
+  @Input() label: string = '';
   @Input() variant: 'primary' | 'secondary' | 'outline' | 'ghost' = 'primary';
   @Input() size: 'sm' | 'md' | 'lg' = 'md';
   @Input() fullWidth: boolean = false;
@@ -17,24 +17,24 @@ export class Button {
   @Input() type: 'button' | 'submit' = 'button';
 
   get classes(): string {
-    const base = 'inline-flex items-center justify-center font-semibold rounded-2xl transition-all duration-200 focus:outline-none';
+    const base = 'inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 focus:outline-none active:scale-95';
 
     const sizes: Record<string, string> = {
-      sm: 'px-4 py-2 text-sm',
-      md: 'px-6 py-3 text-base',
-      lg: 'px-8 py-4 text-lg',
+      sm: 'px-4 h-10 text-sm',
+      md: 'px-6 h-[50px] text-sm',
+      lg: 'px-8 h-14 text-base',
     };
 
     const variants: Record<string, string> = {
-      primary:   'bg-[#FF5A1F] text-white hover:bg-orange-600 active:scale-95 shadow-md',
-      secondary: 'bg-[#22C55E] text-white hover:bg-green-600 active:scale-95 shadow-md',
-      outline:   'border-2 border-[#FF5A1F] text-[#FF5A1F] hover:bg-orange-50 active:scale-95',
-      ghost:     'text-[#FF5A1F] hover:bg-orange-50 active:scale-95',
+      primary:   'bg-[#3E63DD] text-white hover:bg-blue-700',
+      secondary: 'bg-[#22C55E] text-white hover:bg-green-600',
+      outline:   'bg-white text-[#3E63DD] border border-[#3E63DD] hover:bg-blue-50',
+      ghost:     'text-[#3E63DD] hover:bg-blue-50',
     };
 
     const width = this.fullWidth ? 'w-full' : '';
     const dis   = this.disabled || this.loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer';
 
-    return `${base} ${sizes[this.size]} ${variants[this.variant]} ${width} ${dis}`;
+    return [base, sizes[this.size], variants[this.variant], width, dis].join(' ');
   }
 }

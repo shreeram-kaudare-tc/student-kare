@@ -112,14 +112,14 @@
       <div class="flex flex-col gap-3">
 
         <!-- Log In with Vibgyor -->
-        <button (click)="loginWithVibgyor()" class="w-full flex items-center justify-center h-[50px] rounded-full bg-[#3E63DD] text-white text-sm font-semibold active:scale-95 transition-transform">
+        <app-button variant="primary" [fullWidth]="true" (click)="loginWithVibgyor()">
           Log In <span class="font-bold ml-1">with Vibgyor</span>
-        </button>
+        </app-button>
 
         <!-- Log In without Vibgyor -->
-        <button (click)="loginWithoutVibgyor()" class="w-full flex items-center justify-center h-[50px] rounded-full bg-white text-[#3E63DD] text-sm font-semibold border border-[#3E63DD] active:scale-95 transition-transform">
+        <app-button variant="outline" [fullWidth]="true" (click)="loginWithoutVibgyor()">
           Log In <span class="font-bold ml-1">without Vibgyor</span>
-        </button>
+        </app-button>
 
         <!-- or login with phone number -->
         <div class="flex justify-center pt-1">
