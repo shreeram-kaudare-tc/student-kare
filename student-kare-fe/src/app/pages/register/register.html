@@ -1,0 +1,93 @@
+<app-auth-layout1>
+
+    <!-- Content -->
+    <div class="h-full relative  flex flex-col pt-[52px]  gap-[20px]">
+
+        <div class="flex flex-col gap-[24px]">
+            <!-- Back Button -->
+            <p (click)="goBack()" class="  cursor-pointer px-4">
+                <img class="h-[8px] w-[14px]" src="/images/login/back-arrow.png" alt="Back">
+            </p>
+
+            <!-- Title -->
+            <div class="flex flex-col px-4 gap-[12px]">
+                <h1 class=" text-[32px] font-bold leading-[130%] tracking-[-0.02em] text-[#5732EE] align-middle">Register</h1>
+                <p class="text-[12px] leading-[16.8px] text-[#6C7278] font-medium tracking-[-0.01em]">Already have an account?<a (click)="goToLogin()" class="text-[#3E63DD] font-semibold hover:underline cursor-pointer"> Log In </a></p>
+            </div>
+        </div>
+
+        <!-- Form Card -->
+        <div class="bg-white  border border-dashed border-[#B8C7E8]  flex flex-col p-[16px] gap-[16px]">
+
+            <!-- First Name + Last Name -->
+            <div class="flex gap-[12px]">
+                <div class="flex flex-col gap-[6px] flex-1">
+                    <label class="text-[12px] font-normal leading-[18px] text-[#8F99B3]">First Name</label>
+                    <app-input-field type="text" placeholder="Lois" [(ngModel)]="firstName" class="w-full">
+                    </app-input-field>
+                </div>
+                <div class="flex flex-col gap-[6px] flex-1">
+                    <label class="text-[12px] font-normal leading-[18px] text-[#8F99B3]">Last Name</label>
+                    <app-input-field type="text" placeholder="Becket" [(ngModel)]="lastName" class="w-full">
+                    </app-input-field>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="flex flex-col gap-[6px]">
+                <label class="text-[12px] font-normal leading-[18px] text-[#8F99B3]">Email</label>
+                <app-input-field type="email" placeholder="Loisbecket@gmail.com" [(ngModel)]="email" class="w-full">
+                </app-input-field>
+            </div>
+
+            <!-- Birth of date -->
+            <div class="flex flex-col gap-[6px]">
+                <label class="text-[12px] font-normal leading-[18px] text-[#8F99B3]">Birth of date</label>
+                <div class="relative flex items-center">
+                    <input type="text" [(ngModel)]="birthDate" placeholder="DD/MM/YYYY" class="w-full h-[52px] border border-[#E9EAF2] rounded-[14px] pl-[16px] pr-[48px] text-[14px] text-[#1A1C1E] bg-white focus:outline-none focus:ring-2 focus:ring-[#3E63DD]/30 placeholder:text-[#C4C8D4]" />
+                    <span class="absolute right-[14px] text-[#9BA4B5]">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+                            <line x1="16" y1="2" x2="16" y2="6" />
+                            <line x1="8" y1="2" x2="8" y2="6" />
+                            <line x1="3" y1="10" x2="21" y2="10" />
+                        </svg>
+                    </span>
+                </div>
+            </div>
+
+            <!-- Phone Number -->
+            <div class="flex flex-col gap-[6px]">
+                <label class="text-[12px] font-normal leading-[18px] text-[#8F99B3]">Phone Number</label>
+                <div class="flex items-center h-[52px] border border-[#E9EAF2] rounded-[14px] bg-white px-[14px] gap-[10px]">
+                    <!-- Flag + Dropdown -->
+                    <div class="flex items-center gap-[4px] pr-[10px] border-r border-[#E9EAF2] flex-shrink-0">
+                        <span class="text-[18px] leading-none">🇺🇸</span>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9BA4B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <polyline points="6 9 12 15 18 9" />
+                        </svg>
+                    </div>
+                    <!-- Phone Input -->
+                    <input type="tel" [(ngModel)]="phoneNumber" placeholder="(454) 726-0592" class="flex-1 text-[14px] text-[#1A1C1E] bg-transparent focus:outline-none placeholder:text-[#C4C8D4]" />
+                </div>
+            </div>
+
+            <!-- Set Password -->
+            <div class="flex flex-col gap-[6px]">
+                <label class="text-[12px] font-normal leading-[18px] text-[#8F99B3]">Set Password</label>
+                <app-input-field type="password" placeholder="••••••••" [(ngModel)]="password" class="w-full">
+                </app-input-field>
+            </div>
+
+            <!-- Register Button -->
+            <app-button variant="primary" [fullWidth]="true" (click)="register()">Register</app-button>
+
+            <!-- Already have account -->
+            <p class="text-[12px] leading-[16.8px] text-[#6C7278] text-center font-medium tracking-[-0.01em]">
+                Already have an account?
+                <span (click)="goToLogin()" class="text-[#3E63DD] font-semibold cursor-pointer hover:underline">Log In</span>
+            </p>
+
+        </div>
+    </div>
+</app-auth-layout1>
