@@ -159,29 +159,30 @@
       }
     </div>
 
-    <!-- Subtotal + Delivery -->
-    <div class="bg-white px-[20px] pt-[16px] pb-[8px] mt-[8px]">
-      <div class="flex items-center justify-between py-[10px]">
+    <!-- Subtotal + Delivery + Checkout (scrollable) -->
+    <div class="bg-white mt-[8px]" style="border-top: 1px solid #F0F0F0;">
+      <div class="flex items-center justify-between px-[20px] py-[10px]">
         <span class="text-[14px] text-[#1A1C1E]">Subtotal</span>
         <span class="text-[14px] font-semibold text-[#1A1C1E]">₹{{ subtotal | number:'1.2-2' }}</span>
       </div>
-      <div class="h-[1px] bg-[#F0F0F0]"></div>
-      <div class="flex items-center justify-between py-[10px]">
+      <div class="h-[1px] bg-[#F0F0F0] mx-[20px]"></div>
+      <div class="flex items-center justify-between px-[20px] py-[10px]">
         <span class="text-[14px] font-medium text-[#1A1C1E]">Total Delivery Charges</span>
         <span class="text-[14px] font-bold text-[#22C55E]">FREE</span>
+      </div>
+      <div class="flex justify-center py-[16px]">
+        <button (click)="checkout()"
+                class="text-white text-[16px] font-semibold flex items-center justify-center"
+                style="width:327px; height:48px; border-radius:24px;
+                       background: linear-gradient(90deg, #5B51E8 0%, #3E63DD 50%, #795BF1 100%);">
+          Checkout
+        </button>
       </div>
     </div>
 
   </div>
 
-  <!-- Bottom nav (renders fixed at bottom via its own CSS) -->
+  <!-- Bottom nav -->
   <app-bottom-nav></app-bottom-nav>
-
-  <!-- Checkout button fixed just above bottom nav (nav is h-16 = 64px) -->
-  <div class="fixed inset-x-0 z-40 px-[16px] py-[10px] bg-white" style="bottom: 64px; border-top: 1px solid #F0F0F0;">
-    <button (click)="checkout()" class="w-full h-[52px] rounded-full text-white text-[16px] font-semibold" style="background: linear-gradient(90deg, #5B3EEE 0%, #9B6BE8 100%);">
-      Checkout
-    </button>
-  </div>
 
 </div>
