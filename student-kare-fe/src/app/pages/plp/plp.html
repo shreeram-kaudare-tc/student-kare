@@ -76,9 +76,9 @@
         </button>
       </div>
 
-      <!-- Product Grid -->
-      <div class="flex-1 overflow-y-auto px-[10px] pt-[10px]" [class.pb-[90px]]="cartCount > 0" [class.pb-[16px]]="cartCount === 0">
-        <div class="grid grid-cols-2 gap-[8px]">
+      <!-- Product Grid (Figma Specs: 284px width, 6px col-gap, 11px row-gap) -->
+      <div class="flex-1 overflow-y-auto pt-[10px] flex justify-center" [class.pb-[90px]]="cartCount > 0" [class.pb-[16px]]="cartCount === 0">
+        <div class="grid grid-cols-2 gap-x-[6px] gap-y-[11px] w-[284px]">
           @for (product of products; track product.id) {
           <app-plp-product-card 
             [product]="product" 

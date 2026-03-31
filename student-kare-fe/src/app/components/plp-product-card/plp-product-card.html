@@ -1,4 +1,5 @@
-<div class="relative flex flex-col bg-white rounded-[8px] border border-[#EAEAEA] overflow-hidden" style="padding: 5px 6px; gap: 7px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
+<div class="relative flex flex-col bg-white rounded-[8px] border border-[#EAEAEA] overflow-hidden" 
+     style="width: 139px; height: 168px; padding: 5px 6px; gap: 7px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
 
   <!-- Wishlist heart -->
   <button (click)="onWishlist($event)" class="absolute top-[8px] right-[8px] z-10 w-[20px] h-[20px] flex items-center justify-center">
@@ -8,9 +9,9 @@
     </svg>
   </button>
 
-  <!-- Product image -->
-  <div class="w-full bg-[#F5F6F9] rounded-[6px] flex items-center justify-center overflow-hidden" style="height: 110px;">
-    <img [src]="product.image" [alt]="product.name" class="w-full h-full object-cover" />
+  <!-- Product image container -->
+  <div class="w-full bg-[#E2E8F0] rounded-[6px] flex items-center justify-center overflow-hidden" style="height: 101px;">
+    <img [src]="product.image" [alt]="product.name" class="object-contain" style="width: 119px; height: 101px;" />
   </div>
 
   <!-- Product name -->
