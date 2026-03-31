@@ -45,6 +45,7 @@ export class HomePage {
   constructor(public router: Router) {}
 
   setBanner(i: number) { this.bannerIndex = i; }
-  shopNow() {}
+  shopNow() { this.router.navigate(['/plp']); }
   addToCart(product: any) {}
+  goToPlp(catIndex: number) { this.router.navigate(['/plp'], { queryParams: { cat: catIndex } }); }
 }

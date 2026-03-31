@@ -1,0 +1,42 @@
+<div class="relative flex flex-col bg-white rounded-[8px] border border-[#EAEAEA] overflow-hidden"
+     style="padding: 5px 6px; gap: 7px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
+
+  <!-- Wishlist heart -->
+  <button (click)="onWishlist($event)"
+          class="absolute top-[8px] right-[8px] z-10 w-[20px] h-[20px] flex items-center justify-center">
+    <svg width="16" height="15" viewBox="0 0 24 22" fill="none"
+         [attr.stroke]="product.wishlisted ? '#5732EE' : '#C4C8D4'"
+         [attr.fill]="product.wishlisted ? '#5732EE' : 'none'"
+         stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+    </svg>
+  </button>
+
+  <!-- Product image -->
+  <div class="w-full bg-[#F5F6F9] rounded-[6px] flex items-center justify-center overflow-hidden"
+       style="height: 110px;">
+    <img [src]="product.image" [alt]="product.name"
+         class="w-full h-full object-cover" />
+  </div>
+
+  <!-- Product name -->
+  <p class="text-[10px] font-medium text-[#1A1C1E] leading-[14px] line-clamp-2 px-[2px]">
+    {{ product.name }}
+  </p>
+
+  <!-- Price + Add button -->
+  <div class="flex items-center justify-between px-[2px]">
+    <span class="text-[12px] font-bold text-[#5732EE]">Rs. {{ product.price }}</span>
+    <button (click)="onAdd($event)"
+            class="flex items-center gap-[4px] h-[24px] px-[10px] rounded-full border border-[#5732EE] text-[#5732EE] text-[10px] font-medium active:scale-95 transition-transform">
+      Add
+      <svg width="12" height="11" viewBox="0 0 24 22" fill="none" stroke="#5732EE"
+           stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/>
+        <line x1="3" y1="6" x2="21" y2="6"/>
+        <path d="M16 10a4 4 0 01-8 0"/>
+      </svg>
+    </button>
+  </div>
+
+</div>

@@ -1,0 +1,37 @@
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* ── Flying product drop animation ── */
+.flying-item {
+  position: fixed;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid white;
+  background: white;
+  z-index: 9999;
+  pointer-events: none;
+  animation: flyToCart 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes flyToCart {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 1;
+  }
+  40% {
+    /* arc upward then curve toward target */
+    transform: translate(calc(var(--tx) * 0.3), calc(var(--ty) * 0.2 - 30px)) scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(var(--tx), var(--ty)) scale(0.35);
+    opacity: 0;
+  }
+}

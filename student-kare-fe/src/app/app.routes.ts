@@ -5,6 +5,7 @@ import { LoginThree } from './pages/login-three/login-three';
 import { Register } from './pages/register/register';
 import { Onboarding } from './pages/onboarding/onboarding';
 import { HomePage } from './pages/home-page/home-page';
+import { PlpPage } from './pages/plp/plp';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -14,4 +15,5 @@ export const routes: Routes = [
     { path: 'login4', component: LoginFour },
     { path: 'register', component: Register },
     { path: 'home', component: HomePage },
+    { path: 'plp', component: PlpPage },
 ];
