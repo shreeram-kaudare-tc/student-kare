@@ -7,7 +7,7 @@ import { Onboarding } from './pages/onboarding/onboarding';
 import { HomePage } from './pages/home-page/home-page';
 
 export const routes: Routes = [
-    { path: '', redirectTo: 'onboarding', pathMatch: 'full' },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
     { path: 'onboarding', component: Onboarding },
     { path: 'login', component: LoginOne },
     { path: 'login3', component: LoginThree },
