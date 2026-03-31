@@ -6,6 +6,7 @@ import { Register } from './pages/register/register';
 import { Onboarding } from './pages/onboarding/onboarding';
 import { HomePage } from './pages/home-page/home-page';
 import { PlpPage } from './pages/plp/plp';
+import { MyOrderPage } from './pages/my-order/my-order';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -16,4 +17,5 @@ export const routes: Routes = [
     { path: 'register', component: Register },
     { path: 'home', component: HomePage },
     { path: 'plp', component: PlpPage },
+    { path: 'my-order', component: MyOrderPage },
 ];
