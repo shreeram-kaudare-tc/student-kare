@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PlpProductCard, PlpProduct } from '../../components/plp-product-card/plp-product-card';
 import { CategoryChip } from '../../components/category-chip/category-chip';
+import { FilterSheet } from '../../components/filter-sheet/filter-sheet';
 
 interface SideCategory {
   label: string;
@@ -20,7 +21,7 @@ interface FlyingItem {
 
 @Component({
   selector: 'app-plp',
-  imports: [CommonModule, PlpProductCard, CategoryChip],
+  imports: [CommonModule, PlpProductCard, CategoryChip, FilterSheet],
   templateUrl: './plp.html',
   styleUrl: './plp.css',
 })
@@ -30,6 +31,7 @@ export class PlpPage implements OnInit {
   cartCount = 0;
   cartItems: PlpProduct[] = [];
   flyingItems: FlyingItem[] = [];
+  filterSheetOpen = false;
 
   filters = ['All', 'Regular', 'Winter', 'Sports'];
 
@@ -107,6 +109,8 @@ export class PlpPage implements OnInit {
   }
 
   viewCart() { this.router.navigate(['/cart']); }
+  openFilter() { this.filterSheetOpen = true; }
+  onFilterClosed() { this.filterSheetOpen = false; }
 
   flyStyle(item: FlyingItem): string {
     return `left:${item.startX}px; top:${item.startY}px; --tx:${item.dx}px; --ty:${item.dy}px`;
