@@ -3,61 +3,69 @@
     <!-- Scrollable Content -->
     <div class="flex-1 overflow-y-auto pb-[72px]">
 
-        <!-- Status Bar -->
-        <div class="flex items-center justify-between px-[20px] h-[44px] bg-white">
-            <span class="text-[14px] font-semibold text-[#021433]">9:41</span>
-            <div class="flex items-center gap-1.5">
-                <svg width="18" height="12" viewBox="0 0 18 12" fill="none">
-                    <rect x="0" y="8" width="3" height="4" rx="1" fill="#021433" />
-                    <rect x="5" y="6" width="3" height="6" rx="1" fill="#021433" />
-                    <rect x="10" y="3" width="3" height="9" rx="1" fill="#021433" />
-                    <rect x="15" y="0" width="3" height="12" rx="1" fill="#021433" />
-                </svg>
-                <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
-                    <circle cx="8" cy="10" r="1.5" fill="#021433" />
-                    <path d="M4.5 7.5C5.5 6.5 6.7 6 8 6s2.5.5 3.5 1.5" stroke="#021433" stroke-width="1.5" stroke-linecap="round" />
-                    <path d="M1.5 4.5C3.2 2.8 5.5 2 8 2s4.8.8 6.5 2.5" stroke="#021433" stroke-width="1.5" stroke-linecap="round" />
-                </svg>
-                <svg width="28" height="14" viewBox="0 0 28 14" fill="none">
-                    <rect x="0.5" y="0.5" width="24" height="13" rx="3" stroke="#021433" stroke-opacity="0.35" />
-                    <rect x="2" y="2" width="20" height="10" rx="2" fill="#021433" />
-                    <path d="M26 5v4a2 2 0 000-4z" fill="#021433" fill-opacity="0.4" />
-                </svg>
-            </div>
-        </div>
+        <!-- Gradient Header Block -->
+        <div class="w-full rounded-b-[40px] pb-[20px]" style="background: linear-gradient(104.94deg, #3E63DD 3.61%, #9A84F5 80.46%);">
 
-        <!-- Header: Hello James! -->
-        <div class="flex items-center justify-between px-[20px] pt-[8px] pb-[12px]">
-            <h1 class="text-[18px] font-bold text-[#1A1C1E] leading-[24px]">Hello James!</h1>
-            <div class="flex items-center gap-[10px]">
-                <!-- Heart icon -->
-                <button class="w-[36px] h-[36px] flex items-center justify-center">
-                    <svg width="22" height="20" viewBox="0 0 24 22" fill="none" stroke="#1A1C1E" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+            <!-- Status Bar -->
+            <div class="flex items-center justify-between px-[20px] h-[44px]">
+                <span class="text-[14px] font-semibold text-white">9:41</span>
+                <div class="flex items-center gap-1.5">
+                    <svg width="18" height="12" viewBox="0 0 18 12" fill="none">
+                        <rect x="0" y="8" width="3" height="4" rx="1" fill="white" />
+                        <rect x="5" y="6" width="3" height="6" rx="1" fill="white" />
+                        <rect x="10" y="3" width="3" height="9" rx="1" fill="white" />
+                        <rect x="15" y="0" width="3" height="12" rx="1" fill="white" />
                     </svg>
-                </button>
-                <!-- Avatar -->
-                <div class="w-[36px] h-[36px] rounded-full bg-[#5732EE] flex items-center justify-center">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
-                        <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
+                    <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
+                        <circle cx="8" cy="10" r="1.5" fill="white" />
+                        <path d="M4.5 7.5C5.5 6.5 6.7 6 8 6s2.5.5 3.5 1.5" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+                        <path d="M1.5 4.5C3.2 2.8 5.5 2 8 2s4.8.8 6.5 2.5" stroke="white" stroke-width="1.5" stroke-linecap="round" />
+                    </svg>
+                    <svg width="28" height="14" viewBox="0 0 28 14" fill="none">
+                        <rect x="0.5" y="0.5" width="24" height="13" rx="3" stroke="white" stroke-opacity="0.5" />
+                        <rect x="2" y="2" width="20" height="10" rx="2" fill="white" />
+                        <path d="M26 5v4a2 2 0 000-4z" fill="white" fill-opacity="0.5" />
                     </svg>
                 </div>
             </div>
-        </div>
 
-        <!-- Search Bar -->
-        <div class="px-[20px] mb-[16px]">
-            <div class="flex items-center gap-[10px] bg-[#F5F6F9] rounded-full h-[44px] px-[16px]">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#5732EE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8" />
-                    <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                </svg>
-                <span class="text-[13px] text-[#C4C8D4] font-normal">Search for groceries and more</span>
+            <!-- Header: Hello James! -->
+            <div class="flex items-center justify-between px-[20px] pt-[8px] pb-[12px]">
+                <h1 class="text-[18px] font-medium text-white leading-[18px] tracking-[0%] font-jakarta">Hello James!</h1>
+                <div class="flex items-center gap-[10px]">
+                    <!-- Heart icon -->
+                    <button class="w-[26px] h-[26px] flex items-center justify-center">
+                        <svg width="22" height="20" viewBox="0 0 24 22" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+                        </svg>
+                    </button>
+                    <!-- Avatar -->
+                    <div class="w-[26px] h-[26px] rounded-full bg-opacity-30 flex items-center justify-center">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M14 8C14 9.06087 13.5786 10.0783 12.8284 10.8284C12.0783 11.5786 11.0609 12 10 12C8.93913 12 7.92172 11.5786 7.17157 10.8284C6.42143 10.0783 6 9.06087 6 8C6 6.93913 6.42143 5.92172 7.17157 5.17157C7.92172 4.42143 8.93913 4 10 4C11.0609 4 12.0783 4.42143 12.8284 5.17157C13.5786 5.92172 14 6.93913 14 8Z" fill="white" />
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                                d="M9.592 19.992C4.2585 19.778 0 15.386 0 10C0 4.477 4.477 0 10 0C15.523 0 20 4.477 20 10C20 15.523 15.523 20 10 20H9.863C9.77233 20 9.682 19.9973 9.592 19.992ZM3.583 16.31C3.50823 16.0953 3.48278 15.8665 3.50854 15.6406C3.5343 15.4147 3.6106 15.1975 3.73179 15.0051C3.85298 14.8128 4.01593 14.6502 4.20856 14.5294C4.40119 14.4086 4.61855 14.3328 4.8445 14.3075C8.7425 13.876 11.2815 13.915 15.1605 14.3165C15.3868 14.3401 15.6046 14.4149 15.7976 14.5354C15.9905 14.6559 16.1534 14.8189 16.2739 15.0119C16.3943 15.2048 16.4691 15.4227 16.4927 15.649C16.5162 15.8753 16.4877 16.1039 16.4095 16.3175C18.0721 14.6355 19.0031 12.365 19 10C19 5.0295 14.9705 1 10 1C5.0295 1 1 5.0295 1 10C1 12.458 1.9855 14.686 3.583 16.31Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                </div>
             </div>
+
+            <!-- Search Bar -->
+            <div class="px-[20px]">
+                <div class="flex items-center gap-[10px] rounded-xl h-[44px] px-[16px]" style="background: rgba(255, 255, 255, 1)">
+                    <input type="text" placeholder="Search for groceries and more" class="flex-1 bg-transparent text-[13px] text-[#1A1C1E] placeholder-[#C4C8D4] font-normal outline-none border-none" />
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                    </svg>
+                </div>
+            </div>
+
         </div>
 
         <!-- Banner Carousel -->
-        <div class="px-[20px] mb-[20px]">
+        <div class="px-[20px] mb-[20px] mt-6">
             <div class="relative w-full rounded-[20px] overflow-hidden">
                 <img [src]="banners[bannerIndex].image" alt="Banner" class="w-full object-cover rounded-[20px]" />
             </div>
