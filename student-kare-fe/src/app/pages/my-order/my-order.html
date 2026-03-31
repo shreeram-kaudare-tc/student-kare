@@ -34,7 +34,7 @@
           <path d="M19 12H5M12 5l-7 7 7 7"/>
         </svg>
       </button>
-      <span class="text-[16px] font-normal text-[#4B4B4B]">My Order</span>
+      <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:500; line-height:100%; color:#000000; text-align:center;">My Order</span>
       <button class="w-[32px] h-[32px] flex items-center justify-center">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E"
              stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -91,12 +91,12 @@
                class="w-full h-full object-contain" />
         </div>
 
-        <!-- Content box: 207px fixed, vertical, gap 21px -->
-        <div class="flex flex-col" style="width: 207px; flex: 1; gap: 21px;">
+        <!-- Content box: Width Fill(207px), Height Hug(77px), Gap 7px -->
+        <div class="flex flex-col" style="width: 207px; flex: 1; gap: 7px;">
 
-          <!-- Text group: name + size/qty, gap 4px, height ~20px hug -->
-          <div class="flex flex-col" style="gap: 4px;">
-            <p class="text-[15px] font-semibold text-[#1A1C1E] leading-[20px] truncate">
+          <!-- Text group: name + size/qty, Width Fill(207px), Height Hug(20px), Gap 4px -->
+          <div class="flex flex-col w-full" style="gap: 4px; min-height: 20px;">
+            <p class="text-[15px] font-medium text-[#1A1C1E] leading-[20px] truncate w-full">
               {{ order.name }}
             </p>
             <div class="flex items-center gap-[16px]">
@@ -107,19 +107,14 @@
 
           <!-- Price + Track Order button -->
           <div class="flex items-center justify-between">
-            <span class="text-[15px] font-bold text-[#4252D3]">₹{{ order.price | number }}</span>
-            @if (i === 0) {
-            <!-- Filled button with underline on text -->
+            <div style="width:54px; height:18px; gap:10px; display:flex; align-items:center;">
+              <span class="text-[13px] font-semibold text-[#3E63DD] leading-[18px] whitespace-nowrap">₹{{ order.price | number }}</span>
+            </div>
             <button (click)="trackOrder(order)"
-                    class="h-[32px] px-[18px] rounded-full bg-[#4252D3] text-white text-[13px] font-semibold whitespace-nowrap">
-              <span style="text-decoration: underline; text-underline-offset: 3px; text-decoration-color: rgba(255,255,255,0.7);">Track Order</span>
-            </button>
-            } @else {
-            <button (click)="trackOrder(order)"
-                    class="h-[32px] px-[18px] rounded-full border border-[#4252D3] text-[#4252D3] text-[13px] font-medium whitespace-nowrap">
+                    class="text-white text-[12px] font-medium whitespace-nowrap"
+                    style="height:23px; border-radius:99px; padding:0 16px; background:#3E63DD; border:1px solid #3E63DD;">
               Track Order
             </button>
-            }
           </div>
 
         </div>
