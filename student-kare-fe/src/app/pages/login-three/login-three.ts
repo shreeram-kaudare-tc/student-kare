@@ -24,15 +24,15 @@ export class LoginThree {
   }
 
   resendOtp() {
-    // TODO: resend OTP API
+    this.router.navigate(['/login4']);
   }
 
   login() {
     // TODO: integrate login API
-    this.router.navigate(['/home']);
+    this.router.navigate(['/onboarding']);
   }
 
   register() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/register']);
   }
 }

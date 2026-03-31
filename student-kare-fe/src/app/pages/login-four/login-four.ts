@@ -28,10 +28,10 @@ export class LoginFour {
       return;
     }
     // TODO: integrate OTP API
-    this.router.navigate(['/home']);
+    this.router.navigate(['/login3']);
   }
 
   register() {
-    this.router.navigate(['/home']);
+    this.router.navigate(['/register']);
   }
 }
