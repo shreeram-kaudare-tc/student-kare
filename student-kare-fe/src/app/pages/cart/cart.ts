@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
-import { BottomNav } from '../../components/bottom-nav/bottom-nav';
 
 export interface CartItem {
   id: number;
@@ -17,7 +16,7 @@ export interface CartItem {
 
 @Component({
   selector: 'app-cart',
-  imports: [CommonModule, BottomNav],
+  imports: [CommonModule],
   templateUrl: './cart.html',
   styleUrl: './cart.css',
 })
@@ -29,7 +28,7 @@ export class CartPage {
     { id: 4, name: 'Wireless Headphone', price: 65, image: '/images/home/prod-literacy.png', quantity: 1, reviews: 379, wishlisted: false, swipeOffset: 0, swipeStartX: 0 },
   ];
 
-  constructor(private router: Router) {}
+  constructor(public router: Router) {}
 
   get subtotal(): number {
     return this.items.reduce((sum, i) => sum + i.price * i.quantity, 0);
