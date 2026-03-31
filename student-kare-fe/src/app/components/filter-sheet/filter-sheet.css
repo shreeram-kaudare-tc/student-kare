@@ -1,0 +1,115 @@
+/* ── Backdrop animations ── */
+.backdrop-fade-in  { animation: fadeIn  0.3s ease forwards; }
+.backdrop-fade-out { animation: fadeOut 0.32s ease forwards; }
+
+@keyframes fadeIn  { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeOut { from { opacity: 1; } to { opacity: 0; } }
+
+/* ── Sheet slide animations ── */
+.sheet-slide-up   { animation: slideUp   0.32s cubic-bezier(0.32, 0.72, 0, 1) forwards; }
+.sheet-slide-down { animation: slideDown 0.30s cubic-bezier(0.32, 0.72, 0, 1) forwards; }
+
+@keyframes slideUp   { from { transform: translateY(100%); } to { transform: translateY(0); } }
+@keyframes slideDown { from { transform: translateY(0);    } to { transform: translateY(100%); } }
+
+/* ── Checkbox ── */
+.check-box {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: 1.8px solid #5732EE;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.15s;
+  flex-shrink: 0;
+}
+.check-box.checked {
+  background: #5732EE;
+  border-color: #5732EE;
+}
+
+/* ── Radio button ── */
+.radio-btn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.8px solid #5732EE;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+/* ── Dual range slider ── */
+.dual-range-wrapper {
+  position: relative;
+  height: 20px;
+}
+
+.range-track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  transform: translateY(-50%);
+  background: #E0E0E0;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.range-fill {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  background: #5732EE;
+  border-radius: 2px;
+}
+
+.range-input {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  height: 4px;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+  pointer-events: none;
+  outline: none;
+}
+
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  border: 2.5px solid #5732EE;
+  cursor: pointer;
+  pointer-events: all;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+
+.range-input::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: white;
+  border: 2.5px solid #5732EE;
+  cursor: pointer;
+  pointer-events: all;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+
+/* Scrollbar styling for right panel */
+.overflow-y-auto::-webkit-scrollbar        { width: 3px; }
+.overflow-y-auto::-webkit-scrollbar-track  { background: transparent; }
+.overflow-y-auto::-webkit-scrollbar-thumb  { background: #5732EE; border-radius: 2px; }

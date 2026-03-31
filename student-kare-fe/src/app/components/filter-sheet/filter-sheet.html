@@ -1,0 +1,228 @@
+@if (visible) {
+<!-- Backdrop -->
+<div class="fixed inset-0 z-30 bg-black/40"
+     [class.backdrop-fade-in]="!isClosing"
+     [class.backdrop-fade-out]="isClosing"
+     (click)="close()">
+</div>
+
+<!-- Full Screen Sheet -->
+<div class="fixed inset-0 z-40 bg-white flex flex-col"
+     [class.sheet-slide-up]="!isClosing"
+     [class.sheet-slide-down]="isClosing">
+
+  <!-- Header -->
+  <div class="flex items-center justify-between px-[20px] pt-[18px] pb-[12px] flex-shrink-0">
+    <span class="text-[16px] font-semibold text-[#1A1C1E]">Filter</span>
+    <button (click)="clearAll()"
+            class="text-[14px] font-medium text-[#5732EE]">Clear all</button>
+  </div>
+  <div class="h-[1px] bg-[#EFEFEF] flex-shrink-0"></div>
+
+  <!-- Body: left sections + right content -->
+  <div class="flex flex-1 overflow-hidden">
+
+    <!-- Left section list -->
+    <div class="flex-shrink-0 border-r border-[#EFEFEF] overflow-y-auto"
+         style="width: 157px;">
+      @for (sec of sections; track sec.key) {
+      <button (click)="activeSection = sec.key"
+              class="w-full text-left px-[16px] flex items-center border-b border-[#F0F0F0]"
+              style="height: 50px;"
+              [class.bg-[#E8E4F9]]="activeSection === sec.key">
+        <span class="text-[14px]"
+              [class.text-[#5732EE]]="activeSection === sec.key"
+              [class.font-medium]="activeSection === sec.key"
+              [class.text-[#1A1C1E]]="activeSection !== sec.key">
+          {{ sec.label }}
+        </span>
+      </button>
+      }
+    </div>
+
+    <!-- Right filter content -->
+    <div class="flex-1 overflow-y-auto px-[14px] pt-[14px] pb-[8px]">
+
+      <!-- ── PRICE ── -->
+      @if (activeSection === 'price') {
+      <div class="flex flex-col gap-[20px]">
+
+        <!-- Slider track row -->
+        <div class="relative pt-[8px]">
+          <!-- Value labels above track -->
+          <div class="flex justify-between text-[12px] text-[#1A1C1E] mb-[6px]">
+            <span>{{ priceAbsMin }}</span>
+            <span class="px-[8px] py-[2px] rounded-full bg-[#E8E4F9] text-[#5732EE] font-medium">{{ priceMin }}</span>
+            <span class="px-[8px] py-[2px] rounded-full bg-[#E8E4F9] text-[#5732EE] font-medium">{{ priceMax }}</span>
+            <span>{{ priceAbsMax }}</span>
+          </div>
+
+          <!-- Dual range slider -->
+          <div class="dual-range-wrapper">
+            <div class="range-track">
+              <div class="range-fill"
+                   [style.left.%]="minThumbPct"
+                   [style.width.%]="maxThumbPct - minThumbPct">
+              </div>
+            </div>
+            <input type="range" class="range-input range-min"
+                   [min]="priceAbsMin" [max]="priceAbsMax"
+                   [value]="priceMin"
+                   (input)="onMinChange(+$any($event.target).value)" />
+            <input type="range" class="range-input range-max"
+                   [min]="priceAbsMin" [max]="priceAbsMax"
+                   [value]="priceMax"
+                   (input)="onMaxChange(+$any($event.target).value)" />
+          </div>
+        </div>
+
+        <!-- From / To inputs -->
+        <div class="flex items-start gap-[12px]">
+          <div class="flex flex-col gap-[6px] flex-1">
+            <span class="text-[13px] text-[#1A1C1E]">From</span>
+            <input type="number" [(ngModel)]="priceMin"
+                   class="w-full h-[40px] border border-[#DADADA] rounded-[8px] px-[12px] text-[14px] text-[#1A1C1E] outline-none focus:border-[#5732EE]" />
+          </div>
+          <div class="flex flex-col gap-[6px] flex-1">
+            <span class="text-[13px] text-[#1A1C1E]">To</span>
+            <input type="number" [(ngModel)]="priceMax"
+                   class="w-full h-[40px] border border-[#DADADA] rounded-[8px] px-[12px] text-[14px] text-[#1A1C1E] outline-none focus:border-[#5732EE]" />
+          </div>
+        </div>
+      </div>
+      }
+
+      <!-- ── BRANDS ── -->
+      @if (activeSection === 'brands') {
+      <div class="flex flex-col gap-[12px]">
+        <!-- Search -->
+        <div class="flex items-center gap-[8px] border border-[#DADADA] rounded-[20px] h-[38px] px-[12px]">
+          <input type="text" [(ngModel)]="brandSearch" placeholder="Search"
+                 class="flex-1 text-[13px] text-[#1A1C1E] outline-none bg-transparent placeholder-[#ADADAD]" />
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ADADAD" stroke-width="2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+        <!-- List -->
+        @for (item of filteredBrands(); track item.name) {
+        <label class="flex items-center gap-[12px] cursor-pointer py-[4px]">
+          <div class="check-box flex-shrink-0" [class.checked]="item.checked"
+               (click)="item.checked = !item.checked">
+            @if (item.checked) {
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2 7 5.5 10.5 12 3.5"/>
+            </svg>
+            }
+          </div>
+          <span class="text-[14px] text-[#1A1C1E]">{{ item.name }}</span>
+        </label>
+        }
+      </div>
+      }
+
+      <!-- ── SCHOOL ── -->
+      @if (activeSection === 'school') {
+      <div class="flex flex-col gap-[12px]">
+        <div class="flex items-center gap-[8px] border border-[#DADADA] rounded-[20px] h-[38px] px-[12px]">
+          <input type="text" [(ngModel)]="schoolSearch" placeholder="Search"
+                 class="flex-1 text-[13px] text-[#1A1C1E] outline-none bg-transparent placeholder-[#ADADAD]" />
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ADADAD" stroke-width="2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+        @for (item of filteredSchools(); track item.name) {
+        <label class="flex items-center gap-[12px] cursor-pointer py-[4px]">
+          <div class="check-box flex-shrink-0" [class.checked]="item.checked"
+               (click)="item.checked = !item.checked">
+            @if (item.checked) {
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2 7 5.5 10.5 12 3.5"/>
+            </svg>
+            }
+          </div>
+          <span class="text-[13px] text-[#1A1C1E] leading-[18px]">{{ item.name }}</span>
+        </label>
+        }
+      </div>
+      }
+
+      <!-- ── GRADE ── -->
+      @if (activeSection === 'grade') {
+      <div class="flex flex-col gap-[12px]">
+        <div class="flex items-center gap-[8px] border border-[#DADADA] rounded-[20px] h-[38px] px-[12px]">
+          <input type="text" [(ngModel)]="gradeSearch" placeholder="Search"
+                 class="flex-1 text-[13px] text-[#1A1C1E] outline-none bg-transparent placeholder-[#ADADAD]" />
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ADADAD" stroke-width="2" stroke-linecap="round">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+        </div>
+        @for (item of filteredGrades(); track item.name) {
+        <label class="flex items-center gap-[12px] cursor-pointer py-[4px]">
+          <div class="check-box flex-shrink-0" [class.checked]="item.checked"
+               (click)="item.checked = !item.checked">
+            @if (item.checked) {
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2 7 5.5 10.5 12 3.5"/>
+            </svg>
+            }
+          </div>
+          <span class="text-[14px] text-[#1A1C1E]">{{ item.name }}</span>
+        </label>
+        }
+      </div>
+      }
+
+      <!-- ── HOUSE ── -->
+      @if (activeSection === 'house') {
+      <div class="flex flex-col gap-[12px]">
+        @for (item of houses; track item.name) {
+        <label class="flex items-center gap-[12px] cursor-pointer py-[4px]">
+          <div class="check-box flex-shrink-0" [class.checked]="item.checked"
+               (click)="item.checked = !item.checked">
+            @if (item.checked) {
+            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="2 7 5.5 10.5 12 3.5"/>
+            </svg>
+            }
+          </div>
+          <div class="w-[16px] h-[16px] rounded-full flex-shrink-0" [style.background]="item.color"></div>
+          <span class="text-[14px] text-[#1A1C1E]">{{ item.name }}</span>
+        </label>
+        }
+      </div>
+      }
+
+      <!-- ── GENDER ── -->
+      @if (activeSection === 'gender') {
+      <div class="flex flex-col gap-[16px]">
+        @for (opt of ['Male', 'Female']; track opt) {
+        <label class="flex items-center gap-[12px] cursor-pointer py-[4px]">
+          <div class="radio-btn flex-shrink-0" [class.selected]="gender === opt"
+               (click)="gender = opt">
+            @if (gender === opt) {
+            <div class="w-[8px] h-[8px] rounded-full bg-[#5732EE]"></div>
+            }
+          </div>
+          <span class="text-[14px] text-[#1A1C1E]">{{ opt }}</span>
+        </label>
+        }
+      </div>
+      }
+
+    </div>
+  </div>
+
+  <!-- Footer buttons -->
+  <div class="flex-shrink-0 flex items-center gap-[12px] px-[16px] py-[14px] border-t border-[#EFEFEF]">
+    <button (click)="close()"
+            class="flex-1 h-[44px] rounded-full border border-[#5732EE] text-[#5732EE] text-[14px] font-medium bg-white">
+      Close
+    </button>
+    <button (click)="apply()"
+            class="flex-1 h-[44px] rounded-full bg-[#4252D3] text-white text-[14px] font-semibold">
+      Apply
+    </button>
+  </div>
+
+</div>
+}

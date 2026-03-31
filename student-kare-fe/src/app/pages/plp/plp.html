@@ -71,7 +71,8 @@
           </app-category-chip>
           }
         </div>
-        <button class="flex-shrink-0 w-[28px] h-[28px] flex items-center justify-center">
+        <button (click)="openFilter()"
+                class="flex-shrink-0 w-[28px] h-[28px] flex items-center justify-center">
           <svg width="20" height="18" viewBox="0 0 22 20" fill="none" stroke="#0D1B4B" stroke-width="2"
                stroke-linecap="round">
             <line x1="2" y1="5" x2="20" y2="5"/>
@@ -143,6 +144,12 @@
   }
 
 </div>
+
+<!-- ── Filter Bottom Sheet ── -->
+<app-filter-sheet
+  [visible]="filterSheetOpen"
+  (closed)="onFilterClosed()">
+</app-filter-sheet>
 
 <!-- ── Flying product animation (fixed overlay) ── -->
 @for (item of flyingItems; track item.id) {
