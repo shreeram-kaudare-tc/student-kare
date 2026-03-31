@@ -55,7 +55,7 @@ export class Onboarding {
     if (this.currentIndex < this.slides.length - 1) {
       this.currentIndex++;
     } else {
-      this.router.navigate(['/login']);
+      this.router.navigate(['/home']);
     }
   }
 

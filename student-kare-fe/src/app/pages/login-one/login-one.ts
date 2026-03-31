@@ -33,6 +33,6 @@ export class LoginOne {
   ];
 
   loginWithVibgyor()    { this.router.navigate(['/home']);   }
-  loginWithoutVibgyor() { this.router.navigate(['/login3']); }
+  loginWithoutVibgyor() { this.router.navigate(['/login4']); }
   loginWithPhone()      { this.router.navigate(['/login3']); }
 }
