@@ -1,0 +1,32 @@
+.bottom-nav-container {
+  height: 68px;
+  background: #ffffff;
+  box-shadow: 0px -2px 4.5px rgba(0, 0, 0, 0.11); /* Switched to Y: -2 for top shadow as per visual */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 42px;
+  gap: 48px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 52px;
+  gap: 4px;
+}
+
+.nav-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  line-height: normal;
+}

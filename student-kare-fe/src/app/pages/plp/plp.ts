@@ -48,14 +48,14 @@ export class PlpPage implements OnInit {
   ];
 
   products: PlpProduct[] = [
-    { id: 1, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
-    { id: 2, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
-    { id: 3, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
-    { id: 4, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
-    { id: 5, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
-    { id: 6, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
-    { id: 7, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
-    { id: 8, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
+    { id: 1, name: 'VIBGYOR High Primary and Secondar Red', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
+    { id: 2, name: 'Foundational Literacy (Edition 24–25)', price: 400, image: '/images/home/prod-literacy.png', quantity: 0 },
+    { id: 3, name: 'War Engine Mechanical Kit', price: 800, image: '/images/home/prod-war-engine.png', quantity: 0 },
+    { id: 4, name: 'Eco-Friendly School Bag', price: 1200, image: '/images/home/cat-bag.png', quantity: 0 },
+    { id: 5, name: 'Cotton Uniform Shirt', price: 300, image: '/images/home/cat-shirt.png', quantity: 0 },
+    { id: 6, name: 'VIBGYOR Standard Red Shoes', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
+    { id: 7, name: 'VIBGYOR Standard Red Shoes 2', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
+    { id: 8, name: 'VIBGYOR Standard Red Shoes 3', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
   ];
 
   constructor(private router: Router, private route: ActivatedRoute) {}
@@ -124,6 +124,21 @@ export class PlpPage implements OnInit {
         this.cartItems = this.cartItems.filter(p => p.id !== product.id);
       }
       this.updateCartCount();
+    }
+  }
+
+  isRotating = false;
+  rotateCartThumbnails() {
+    if (this.cartItems.length > 1 && !this.isRotating) {
+      this.isRotating = true;
+      
+      // Delay the actual data shift to let CSS animation run
+      setTimeout(() => {
+        const first = this.cartItems.shift()!;
+        this.cartItems.push(first);
+        this.cartItems = [...this.cartItems];
+        this.isRotating = false;
+      }, 300);
     }
   }
 

@@ -20,6 +20,21 @@
   animation: flyToCart 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
+/* ── Thumbnail Rotation Animation ── */
+/* Target the actual circles, not the wrapper */
+.thumbnails-rotating > div > div {
+  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+.thumbnails-rotating > div > div:first-child {
+  transform: translateX(-35px) scale(0.8);
+  opacity: 0;
+}
+
+.thumbnails-rotating > div > div:nth-child(n+2) {
+  transform: translateX(-28px); 
+}
+
 @keyframes flyToCart {
   0% {
     transform: translate(0, 0) scale(1);

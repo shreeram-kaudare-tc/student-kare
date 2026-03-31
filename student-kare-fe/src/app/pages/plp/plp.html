@@ -88,15 +88,17 @@
   <!-- ── View Cart floating pill ── -->
   @if (cartCount > 0) {
   <div class="absolute bottom-[16px] z-20" style="left: 109px; right: 16px;">
-    <button (click)="viewCart()" class="w-full flex items-center gap-[10px] rounded-[58px] bg-[#795BF1] px-[10px]" style="height: 62px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
+    <div class="w-full flex items-center gap-[10px] rounded-[58px] bg-[#795BF1] px-[10px]" style="height: 62px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
 
       <!-- Overlapping product thumbnails -->
-      <div class="flex items-center flex-shrink-0" style="margin-left: 4px;">
-        @for (item of cartItems.slice(0, 3); track item.id; let i = $index) {
-        <div class="rounded-full border-2 border-white bg-white overflow-hidden flex-shrink-0" style="width: 38px; height: 38px; margin-left: -10px; box-shadow: 0 1px 4px rgba(0,0,0,0.15);">
-          <img [src]="item.image" [alt]="item.name" class="w-full h-full object-contain" />
+      <div class="flex items-center flex-shrink-0 overflow-hidden w-[100px] relative px-[4px]" style="margin-left: 16px;" [class.thumbnails-rotating]="isRotating">
+        <div class="flex items-center translate-x-[10px]">
+          @for (item of cartItems.slice(0, 3); track item.id; let i = $index) {
+          <div class="rounded-full border-2 border-white bg-white overflow-hidden flex-shrink-0 transition-all duration-300" style="width: 38px; height: 38px; margin-left: -10px; box-shadow: 0 1px 4px rgba(0,0,0,0.15);">
+            <img [src]="item.image" [alt]="item.name" class="w-full h-full object-contain" />
+          </div>
+          }
         </div>
-        }
       </div>
 
       <!-- Text -->
@@ -110,13 +112,13 @@
       </div>
 
       <!-- Arrow circle -->
-      <div class="flex-shrink-0 flex items-center justify-center rounded-full bg-[#241562]" style="width: 30px; height: 30px;">
+      <button (click)="rotateCartThumbnails()" class="flex-shrink-0 flex items-center justify-center rounded-full bg-[#241562] cursor-pointer active:scale-90 transition-transform z-30" style="width: 30px; height: 30px;">
         <svg width="7" height="10" viewBox="0 0 7 10" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M6.16667 5L1.16667 10L0 8.83333L3.8125 5L0 1.16667L1.16667 0L6.16667 5Z" fill="white" />
         </svg>
-      </div>
+      </button>
 
-    </button>
+    </div>
   </div>
   }
 

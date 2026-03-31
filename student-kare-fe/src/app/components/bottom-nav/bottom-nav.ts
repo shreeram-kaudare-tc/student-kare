@@ -17,5 +17,7 @@ export class BottomNav {
     { label: 'Orders',     route: '/my-order', icon: 'orders' },
   ];
   constructor(public router: Router) {}
-  isActive(route: string): boolean { return this.router.url === route; }
+  isActive(route: string): boolean {
+    return this.router.url.split('?')[0] === route;
+  }
 }
