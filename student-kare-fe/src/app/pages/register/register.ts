@@ -27,7 +27,7 @@ export class Register {
   }
 
   goToLogin() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login4']);
   }
 
   register() {
