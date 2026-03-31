@@ -32,7 +32,7 @@ export class LoginOne {
     { img: 'images/login/img-space-kit.png', name: 'Space Kit' },
   ];
 
-  loginWithVibgyor()    { this.router.navigate(['/home']);   }
+  loginWithVibgyor()    { this.router.navigate(['/login4']); }
   loginWithoutVibgyor() { this.router.navigate(['/login4']); }
-  loginWithPhone()      { this.router.navigate(['/login3']); }
+  loginWithPhone()      { this.router.navigate(['/login4']); }
 }

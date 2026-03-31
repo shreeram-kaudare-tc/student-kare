@@ -23,15 +23,15 @@ export class Register {
   constructor(private router: Router) {}
 
   goBack() {
-    this.router.navigate(['/login3']);
+    this.router.navigate(['/login']);
   }
 
   goToLogin() {
-    this.router.navigate(['/login3']);
+    this.router.navigate(['/login']);
   }
 
   register() {
     // TODO: integrate register API
-    this.router.navigate(['/home']);
+    this.router.navigate(['/onboarding']);
   }
 }

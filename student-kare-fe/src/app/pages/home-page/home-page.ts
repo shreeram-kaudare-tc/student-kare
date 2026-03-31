@@ -38,14 +38,14 @@ export class HomePage {
 
   products = [
     { name: 'Foundational Literacy', image: '/images/home/prod-literacy.png', price: 400 },
-    { name: 'VIBGYOR High Premium Shoes', image: '/images/home/prod-reebok.png', price: 400 },
+    { name: 'VIBGYOR High Premium', image: '/images/home/prod-reebok.png', price: 400 },
     { name: 'War Engine Kit', image: '/images/home/prod-war-engine.png', price: 400 },
   ];
 
-  constructor(public router: Router) {}
+  constructor(public router: Router) { }
 
   setBanner(i: number) { this.bannerIndex = i; }
   shopNow() { this.router.navigate(['/plp']); }
-  addToCart(product: any) {}
+  addToCart(product: any) { }
   goToPlp(catIndex: number) { this.router.navigate(['/plp'], { queryParams: { cat: catIndex } }); }
 }
