@@ -1,24 +1,24 @@
 <app-auth-layout1>
 
     <!-- Content -->
-    <div class="w-full min-h-screen relative flex flex-col pt-[52px]">
+    <div class="w-full min-w-full h-[100dvh] overflow-y-auto relative flex flex-col pt-[24px]">
 
         <!-- Header Area (with bottom margin to separate from the white card) -->
-        <div class="flex flex-col gap-[24px] mb-[20px]">
+        <div class="flex flex-col gap-[20px] mb-[12px]">
             <!-- Back Button -->
             <p (click)="goBack()" class="cursor-pointer px-4">
                 <img class="h-[8px] w-[14px]" src="/images/login/back-arrow.png" alt="Back">
             </p>
 
             <!-- Title -->
-            <div class="flex flex-col px-4 gap-[12px]">
+            <div class="flex flex-col px-4 gap-[8px]">
                 <h1 class=" text-[32px] font-bold leading-[130%] tracking-[-0.02em] text-[#5732EE] align-middle">Register</h1>
                 <p class="text-[12px] leading-[16.8px] text-[#6C7278] font-medium tracking-[-0.01em]">Already have an account?<a (click)="goToLogin()" class="text-[#3E63DD] font-semibold hover:underline cursor-pointer"> Log In </a></p>
             </div>
         </div>
 
         <!-- Form Card (flex-1 makes it push to the very bottom, creating the solid white area) -->
-        <div class="bg-white flex-1 w-full flex flex-col p-[20px] pb-[40px] gap-[16px]">
+        <div class="bg-white flex-1 w-full flex flex-col p-[20px] pb-[32px] gap-[14px]">
 
             <!-- First Name + Last Name -->
             <div class="flex gap-[12px]">
