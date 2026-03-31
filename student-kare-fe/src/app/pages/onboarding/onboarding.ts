@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 
 interface Slide {
   image: string;
+  bgSvg: string;
   title: string;
   description: string;
 }
@@ -20,24 +21,28 @@ export class Onboarding {
   slides: Slide[] = [
     {
       image: 'images/onboarding/slide-1.png',
+      bgSvg: 'images/svg/onboarding-one.svg',
       title: 'Choose your order',
       description:
         'Regular Fit Half Sleeve Polo T-Shirt made of comfortable Cotton Polyester Pique fabric with Embroidered logo at left',
     },
     {
       image: 'images/onboarding/slide-2.png',
+      bgSvg: 'images/svg/onboarding-two.svg',
       title: 'Choose your product',
       description:
         'Regular Fit Half Sleeve Polo T-Shirt made of comfortable Cotton Polyester Pique fabric with Embroidered logo at left',
     },
     {
       image: 'images/onboarding/slide-3.png',
+      bgSvg: 'images/svg/onboarding-three.svg',
       title: 'Fast Delivery',
       description:
         'Regular Fit Half Sleeve Polo T-Shirt made of comfortable Cotton Polyester Pique fabric with Embroidered logo at left',
     },
     {
       image: 'images/onboarding/slide-4.png',
+      bgSvg: 'images/svg/onboarding-four.svg',
       title: 'Promotions',
       description:
         'Regular Fit Half Sleeve Polo T-Shirt made of comfortable Cotton Polyester Pique fabric with Embroidered logo at left',

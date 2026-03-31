@@ -1,46 +1,44 @@
 <div class="relative w-full h-screen bg-white flex flex-col overflow-hidden font-jakarta">
 
-
-
     <!-- Slides Wrapper -->
     <div class="flex-1 flex flex-col overflow-hidden">
         @for (slide of slides; track slide.title; let i = $index) {
         @if (i === currentIndex) {
         <div class="flex flex-col h-full slide-enter">
 
-            <!-- Illustration Area -->
+            <!-- Illustration Area with SVG Background -->
             <div class="relative flex-1 flex items-center justify-center overflow-hidden">
-                <!-- Blob BG -->
-                <div class="absolute w-[320px] h-[320px] rounded-full" style="background: linear-gradient(90deg, #6B61FD 1%, #4E75F4 32.5%, #8060FF 90%); opacity: 0.19;"></div>
-                <!-- Image -->
-                <img [src]="slide.image" [alt]="slide.title" class="relative z-10 w-[280px] h-[280px] object-contain" />
+                <!-- SVG Background -->
+                <img [src]="slide.bgSvg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" />
+                <!-- Illustration Image -->
+                <img [src]="slide.image" [alt]="slide.title" class="relative z-10 w-[65vw] max-w-[280px] h-auto object-contain" />
             </div>
 
             <!-- Bottom Content -->
-            <div class="flex flex-col items-center px-[32px] pb-[40px] gap-[16px]">
+            <div class="flex flex-col items-center px-8 pb-10 gap-4">
 
                 <!-- Title -->
-                <h2 class="text-[22px] font-bold leading-[130%] text-[#5732EE] text-center tracking-[-0.01em]">
+                <h2 class="text-xl sm:text-[22px] font-bold leading-[130%] text-[#5732EE] text-center tracking-[-0.01em]">
                     {{ slide.title }}
                 </h2>
 
                 <!-- Description -->
-                <p class="text-[13px] leading-[20px] text-[#6C7278] text-center font-normal">
+                <p class="text-[13px] leading-5 text-[#6C7278] text-center font-normal px-2">
                     {{ slide.description }}
                 </p>
 
                 <!-- Dot Indicators -->
-                <div class="flex items-center gap-[6px] mt-[4px]">
+                <div class="flex items-center gap-[6px] mt-1">
                     @for (dot of slides; track dot.title; let j = $index) {
                     <button (click)="goToSlide(j)" [class]="j === currentIndex
-                                        ? 'h-[8px] w-[24px] rounded-full bg-[#3E63DD] transition-all duration-300'
-                                        : 'h-[8px] w-[8px] rounded-full bg-[#D1D5DB] transition-all duration-300'">
+                                        ? 'h-2 w-6 rounded-full bg-[#3E63DD] transition-all duration-300'
+                                        : 'h-2 w-2 rounded-full bg-[#D1D5DB] transition-all duration-300'">
                     </button>
                     }
                 </div>
 
                 <!-- Next Button -->
-                <button (click)="next()" class="w-full h-[52px] rounded-full bg-[#3E63DD] text-white text-[16px] font-semibold hover:bg-[#2d52cc] active:scale-95 transition-all duration-200 cursor-pointer mt-[8px]">
+                <button (click)="next()" class="w-full max-w-[320px] h-[52px] rounded-full bg-[#3E63DD] text-white text-base font-semibold hover:bg-[#2d52cc] active:scale-95 transition-all duration-200 cursor-pointer mt-2">
                     Next
                 </button>
 
@@ -49,6 +47,5 @@
         }
         }
     </div>
-
 
 </div>
