@@ -11,10 +11,10 @@ import { Router, RouterModule } from '@angular/router';
 export class BottomNav {
   @Input() cartCount: number = 0;
   navItems = [
-    { label: 'Home',   route: '/home',     icon: 'home'   },
-    { label: 'Shop',   route: '/plp',      icon: 'shop'   },
-    { label: 'Cart',   route: '/cart',     icon: 'cart'   },
-    { label: 'Orders', route: '/my-order', icon: 'orders' },
+    { label: 'Home',       route: '/home',     icon: 'home'   },
+    { label: 'Categories', route: '/plp',      icon: 'shop'   },
+    { label: 'Cart',       route: '/cart',     icon: 'cart'   },
+    { label: 'Orders',     route: '/my-order', icon: 'orders' },
   ];
   constructor(public router: Router) {}
   isActive(route: string): boolean { return this.router.url === route; }

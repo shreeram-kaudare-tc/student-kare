@@ -7,6 +7,7 @@ import { Onboarding } from './pages/onboarding/onboarding';
 import { HomePage } from './pages/home-page/home-page';
 import { PlpPage } from './pages/plp/plp';
 import { MyOrderPage } from './pages/my-order/my-order';
+import { CartPage } from './pages/cart/cart';
 
 export const routes: Routes = [
     { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -18,4 +19,5 @@ export const routes: Routes = [
     { path: 'home', component: HomePage },
     { path: 'plp', component: PlpPage },
     { path: 'my-order', component: MyOrderPage },
+    { path: 'cart', component: CartPage },
 ];
