@@ -71,7 +71,12 @@
       <div class="flex-1 overflow-y-auto px-[10px] pt-[10px]" [class.pb-[90px]]="cartCount > 0" [class.pb-[16px]]="cartCount === 0">
         <div class="grid grid-cols-2 gap-[8px]">
           @for (product of products; track product.id) {
-          <app-plp-product-card [product]="product" (addToCart)="addToCart($event)" (toggleWishlist)="toggleWishlist($event)">
+          <app-plp-product-card 
+            [product]="product" 
+            (addToCart)="addToCart($event)" 
+            (increaseQuantity)="increaseProductQuantity($event)"
+            (decreaseQuantity)="decreaseProductQuantity($event)"
+            (toggleWishlist)="toggleWishlist($event)">
           </app-plp-product-card>
           }
         </div>

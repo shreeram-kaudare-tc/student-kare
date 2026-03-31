@@ -48,14 +48,14 @@ export class PlpPage implements OnInit {
   ];
 
   products: PlpProduct[] = [
-    { id: 1, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
-    { id: 2, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
-    { id: 3, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
-    { id: 4, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
-    { id: 5, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
-    { id: 6, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
-    { id: 7, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
-    { id: 8, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
+    { id: 1, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
+    { id: 2, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
+    { id: 3, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
+    { id: 4, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
+    { id: 5, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
+    { id: 6, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
+    { id: 7, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
+    { id: 8, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png', quantity: 0 },
   ];
 
   constructor(private router: Router, private route: ActivatedRoute) {}
@@ -73,6 +73,7 @@ export class PlpPage implements OnInit {
 
   addToCart(payload: { product: PlpProduct; event: MouseEvent }) {
     const { product, event } = payload;
+    product.quantity = 1;
     const btn = event.currentTarget as HTMLElement;
     const btnRect = btn.getBoundingClientRect();
 
@@ -93,14 +94,37 @@ export class PlpPage implements OnInit {
     // Update cart mid-animation
     setTimeout(() => {
       const existing = this.cartItems.find(p => p.id === product.id);
-      if (!existing) this.cartItems = [...this.cartItems, { ...product }];
-      this.cartCount = this.cartItems.length;
+      if (!existing) {
+        this.cartItems = [...this.cartItems, product];
+      }
+      this.updateCartCount();
     }, 280);
 
     // Remove flying element after animation
     setTimeout(() => {
       this.flyingItems = this.flyingItems.filter(f => f.id !== flyId);
     }, 500);
+  }
+
+  private updateCartCount() {
+    this.cartCount = this.cartItems.reduce((acc, item) => acc + (item.quantity || 0), 0);
+  }
+
+  increaseProductQuantity(product: PlpProduct) {
+    if (product.quantity !== undefined) {
+      product.quantity++;
+      this.updateCartCount();
+    }
+  }
+
+  decreaseProductQuantity(product: PlpProduct) {
+    if (product.quantity !== undefined && product.quantity > 0) {
+      product.quantity--;
+      if (product.quantity === 0) {
+        this.cartItems = this.cartItems.filter(p => p.id !== product.id);
+      }
+      this.updateCartCount();
+    }
   }
 
   toggleWishlist(product: PlpProduct) {

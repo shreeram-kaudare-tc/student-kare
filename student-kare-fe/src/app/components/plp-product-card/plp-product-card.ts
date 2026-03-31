@@ -7,6 +7,7 @@ export interface PlpProduct {
   price: number;
   image: string;
   wishlisted?: boolean;
+  quantity?: number;
 }
 
 @Component({
@@ -19,10 +20,22 @@ export class PlpProductCard {
   @Input() product!: PlpProduct;
   @Output() addToCart = new EventEmitter<{ product: PlpProduct; event: MouseEvent }>();
   @Output() toggleWishlist = new EventEmitter<PlpProduct>();
+  @Output() decreaseQuantity = new EventEmitter<PlpProduct>();
+  @Output() increaseQuantity = new EventEmitter<PlpProduct>();
 
   onAdd(e: MouseEvent) {
     e.stopPropagation();
     this.addToCart.emit({ product: this.product, event: e });
+  }
+
+  onDecrease(e: MouseEvent) {
+    e.stopPropagation();
+    this.decreaseQuantity.emit(this.product);
+  }
+
+  onIncrease(e: MouseEvent) {
+    e.stopPropagation();
+    this.increaseQuantity.emit(this.product);
   }
 
   onWishlist(e: Event) {

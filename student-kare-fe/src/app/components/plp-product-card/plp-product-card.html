@@ -19,16 +19,26 @@
   </p>
 
   <!-- Price + Add button -->
-  <div class="flex items-center justify-between px-[2px]">
+  <div class="flex items-center justify-between px-[2px] mt-auto">
     <span class="text-[12px] font-bold text-[#5732EE]">Rs. {{ product.price }}</span>
-    <button (click)="onAdd($event)" class="flex items-center gap-[4px] h-[24px] px-[10px] rounded-full border border-[#5732EE] text-[#5732EE] text-[10px] font-medium active:scale-95 transition-transform">
-      Add
-      <svg width="11" height="10" viewBox="0 0 11 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1.68343 1.68333H9.68343L8.68343 6.01667H2.68343M8.68343 7.35H3.01676L1.3501 0.35H0.350098" stroke="#3E63DD" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M8.01676 9.35C8.38495 9.35 8.68343 9.05152 8.68343 8.68333C8.68343 8.31514 8.38495 8.01667 8.01676 8.01667C7.64857 8.01667 7.3501 8.31514 7.3501 8.68333C7.3501 9.05152 7.64857 9.35 8.01676 9.35Z" stroke="#3E63DD" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M3.68351 9.35C4.0517 9.35 4.35018 9.05152 4.35018 8.68333C4.35018 8.31514 4.0517 8.01667 3.68351 8.01667C3.31532 8.01667 3.01685 8.31514 3.01685 8.68333C3.01685 9.05152 3.31532 9.35 3.68351 9.35Z" stroke="#3E63DD" stroke-width="0.7" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-    </button>
+    
+    <div class="h-[24px] w-[60px]">
+      @if (!product.quantity) {
+        <button (click)="onAdd($event)" class="w-full h-full rounded-full border border-[#5732EE] bg-white text-[#5732EE] text-[10px] font-medium flex items-center justify-center gap-[4px] cursor-pointer hover:bg-blue-50 active:scale-95 transition-all">
+          Add
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
+            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+          </svg>
+        </button>
+      } @else {
+        <div class="w-full h-full rounded-full bg-[#3E63DD] text-white flex items-center justify-between px-[6px] shadow-sm select-none">
+          <button (click)="onDecrease($event)" class="text-[14px] font-medium cursor-pointer w-[14px] flex justify-center items-center h-full active:opacity-70">&minus;</button>
+          <span class="text-[12px] font-medium tracking-tight">{{ product.quantity }}</span>
+          <button (click)="onIncrease($event)" class="text-[14px] font-medium cursor-pointer w-[14px] flex justify-center items-center h-full active:opacity-70">+</button>
+        </div>
+      }
+    </div>
   </div>
 
 </div>
