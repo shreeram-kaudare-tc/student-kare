@@ -53,6 +53,7 @@
         class="absolute -top-[2px] -right-[5px] bg-[#EE4D4D] text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center border-2 border-white shadow-sm">{{
         cartCount }}</span>
       }
+      <div class="active-indicator" [class.visible]="isActive(item.route)"></div>
     </div>
     }
 
@@ -93,6 +94,8 @@
     </svg>
     }
 
+    <div class="active-indicator" [class.visible]="isActive(item.route)"></div>
+    
     <span class="nav-label">
       {{ item.label }}
     </span>

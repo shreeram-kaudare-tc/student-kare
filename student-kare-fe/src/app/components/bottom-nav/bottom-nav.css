@@ -28,7 +28,7 @@
   justify-content: center;
   width: 48px;
   height: 52px;
-  gap: 10px;
+  gap: 6px;
   cursor: pointer;
 }
 
@@ -47,4 +47,17 @@
 .nav-item.active .nav-label {
   color: #000000;
   /* Designer Active Color (Black) */
+}
+
+.active-indicator {
+  width: 24px;
+  height: 2px;
+  background: linear-gradient(104.94deg, #3E63DD 44.59%, #9A84F5 100%);
+  border-radius: 2px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.active-indicator.visible {
+  opacity: 1;
 }
