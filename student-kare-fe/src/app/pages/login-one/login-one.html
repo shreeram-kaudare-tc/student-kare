@@ -6,9 +6,19 @@
     <div class="absolute bottom-0 left-0 right-0 z-10 h-12 bg-gradient-to-t from-white to-transparent"></div>
     <div class="flex flex-col gap-2 py-2 h-full justify-center">
 
-      <!-- Row 1 static (no scroll) -->
-      <div class="w-full flex justify-center">
-        <div class="flex gap-2">
+      <!-- Row 1 scroll left -->
+      <div class="overflow-hidden w-full">
+        <div class="marquee-track scroll-left">
+          @for(item of row1; track item.name) {
+          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+            <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
+          </div>
+          }
+          @for(item of row1; track item.name) {
+          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+            <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
+          </div>
+          }
           @for(item of row1; track item.name) {
           <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
             <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
