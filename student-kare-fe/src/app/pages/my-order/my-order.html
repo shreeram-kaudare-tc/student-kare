@@ -90,8 +90,10 @@
               <span class="text-[13px] font-semibold text-[#3E63DD] leading-[18px] whitespace-nowrap">₹{{ order.price | number }}</span>
             </div>
             <button (click)="trackOrder(order)"
-                    class="text-white text-[12px] font-medium whitespace-nowrap"
-                    style="height:23px; border-radius:99px; padding:0 16px; background:#3E63DD; border:1px solid #3E63DD;">
+                    class="text-[12px] font-medium whitespace-nowrap"
+                    [style]="i % 2 === 0
+                      ? 'height:23px; border-radius:99px; padding:0 16px; background:#3E63DD; border:1px solid #3E63DD; color:white;'
+                      : 'height:23px; border-radius:99px; padding:0 16px; background:white; border:1px solid #3E63DD; color:#3E63DD;'">
               Track Order
             </button>
           </div>
