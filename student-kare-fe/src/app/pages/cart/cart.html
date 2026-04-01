@@ -105,10 +105,19 @@
 
             <div class="flex items-center justify-between mt-auto">
               <span class="text-[14px] font-semibold text-[#3E63DD]">${{ item.price }}.00</span>
-              <div class="flex items-center gap-[10px] bg-[#F5F6F9] rounded-full px-[10px] py-[4px]">
-                <button (click)="decrement(item); $event.stopPropagation()" class="text-[#363431] text-[18px] select-none">−</button>
-                <span class="text-[13px] font-bold text-[#363431] min-w-[12px] text-center">{{ item.quantity }}</span>
-                <button (click)="increment(item); $event.stopPropagation()" class="text-[18px] select-none">+</button>
+              <div class="flex items-center w-[74px] h-[20px] bg-white border border-[#DADADA] rounded-[70px] overflow-hidden">
+                <button (click)="decrement(item); $event.stopPropagation()" class="flex items-center justify-center w-[26px] h-full bg-[#F8F8F8] text-[#363431] transition-colors hover:bg-[#F2F2F2]">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </button>
+                <span class="flex-1 text-[11px] font-bold text-[#363431] text-center leading-none">{{ item.quantity }}</span>
+                <button (click)="increment(item); $event.stopPropagation()" class="flex items-center justify-center w-[26px] h-full bg-[#F8F8F8] text-[#363431] transition-colors hover:bg-[#F2F2F2]">
+                  <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="12" y1="5" x2="12" y2="19"></line>
+                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                  </svg>
+                </button>
               </div>
             </div>
           </div>
