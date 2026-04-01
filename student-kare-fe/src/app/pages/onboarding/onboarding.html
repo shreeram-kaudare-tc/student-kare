@@ -5,27 +5,24 @@
 
       <!-- Hero Section -->
       <div class="relative flex-1 min-h-0 overflow-hidden flex items-center justify-center">
-        <img [src]="slide.bgSvg" alt="" class="absolute w-full h-auto left-0" style="top: clamp(40px, 6vh, 60px);" />
-        <img [src]="slide.image" [alt]="slide.title" class="relative z-[1] max-h-[80%] h-auto object-contain" style="width: clamp(260px, 85vw, 400px);" />
+        <img [src]="slide.bgSvg" alt="" class="absolute w-full h-auto left-0 top-[clamp(40px,6vh,60px)]" />
+        <img [src]="slide.image" [alt]="slide.title" class="relative z-[1] w-[clamp(260px,85vw,400px)] max-h-[80%] h-auto object-contain" />
       </div>
 
       <!-- Content Section -->
-      <div class="bg-white flex flex-col items-center text-center" style="gap: clamp(8px, 1.5vh, 14px); padding: clamp(12px, 2.5vh, 20px) clamp(16px, 5vw, 24px) max(16px, env(safe-area-inset-bottom));">
+      <div class="bg-white flex flex-col items-center text-center gap-[clamp(8px,1.5vh,14px)] pt-[clamp(12px,2.5vh,20px)] px-[clamp(16px,5vw,24px)] pb-[max(16px,env(safe-area-inset-bottom))]">
 
-        <div class="w-full max-w-[320px]">
-          <h2 class="text-[#5e4db2] font-medium leading-[1.2]" style="font-size: clamp(18px, 5.2vw, 24px);">{{ slide.title }}</h2>
-          <p class="text-[#0f0f0f] leading-[1.5]" style="margin-top: clamp(6px, 1vh, 10px); font-size: clamp(12px, 3.4vw, 14px);">{{ slide.description }}</p>
+        <div class="w-full justify-center items-center flex flex-col ">
+          <h2 class="font-['Plus_Jakarta_Sans'] font-medium text-[18px] leading-[100%] tracking-[0%] text-center  text-[#5e4db2]">{{ slide.title }}</h2>
+          <p class="font-['Plus_Jakarta_Sans'] font-normal text-[12px] leading-[21px] tracking-[0%] text-center  text-black mt-[clamp(6px,1vh,10px)]">{{ slide.description }}</p>
         </div>
 
-        <div class="w-full flex flex-col items-center" style="margin-top: clamp(6px, 1vh, 10px); gap: clamp(10px, 1.8vh, 16px); padding-bottom: clamp(10px, 1.5vh, 16px);">
+        <div class="w-full flex flex-col items-center mt-[clamp(6px,1vh,10px)] gap-[clamp(10px,1.8vh,16px)] pb-[clamp(10px,1.5vh,16px)]">
 
           <!-- Dots -->
           <div class="flex items-center gap-[8px]">
             @for (dot of slides; track dot.title; let j = $index) {
-            <button
-              (click)="goToSlide(j)"
-              class="border-none cursor-pointer transition-all duration-[250ms]"
-              [class]="j === currentIndex
+            <button (click)="goToSlide(j)" class="border-none cursor-pointer transition-all duration-[250ms]" [class]="j === currentIndex
                 ? 'w-[24px] h-[6px] rounded-full bg-[#5732ee]'
                 : 'w-[8px] h-[8px] rounded-full bg-[#5732ee]/20'">
             </button>
@@ -33,7 +30,7 @@
           </div>
 
           <!-- Next Button -->
-          <button (click)="next()" class="btn-primary-gradient border-none rounded-full text-white font-semibold cursor-pointer active:scale-[0.96] transition-transform duration-200" style="width: clamp(160px, 50vw, 200px); height: clamp(42px, 5.5vh, 50px); font-size: clamp(15px, 4.6vw, 17px);">
+          <button (click)="next()" class="btn-primary-gradient border-none rounded-full text-white font-semibold cursor-pointer active:scale-[0.96] transition-transform duration-200 w-[clamp(160px,50vw,200px)] h-[clamp(42px,5.5vh,50px)] text-[clamp(15px,4.6vw,17px)]">
             Next
           </button>
 
