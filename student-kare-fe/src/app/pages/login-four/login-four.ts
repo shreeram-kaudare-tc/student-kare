@@ -23,9 +23,9 @@ export class LoginFour {
   }
 
   sendOtp() {
-
+    const randomOtp = Math.floor(100000 + Math.random() * 900000).toString();
     // TODO: integrate OTP API
-    this.router.navigate(['/login3']);
+    this.router.navigate(['/login3'], { queryParams: { mobile: this.mobileNumber, otp: randomOtp } });
   }
 
   register() {

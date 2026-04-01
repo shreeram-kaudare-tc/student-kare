@@ -1,7 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthLayout1 } from '../../components/auth-layout1/auth-layout1';
 import { InputField } from '../../components/input-field/input-field';
 import { Button } from '../../components/button/button';
@@ -12,12 +12,23 @@ import { Button } from '../../components/button/button';
   templateUrl: './login-three.html',
   styleUrl: './login-three.css',
 })
-export class LoginThree {
+export class LoginThree implements OnInit {
   loginMode: 'vibgyor' | 'without' = 'vibgyor';
   mobileNumber = '';
   otp = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private route: ActivatedRoute) {}
+
+  ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      if (params['mobile']) {
+        this.mobileNumber = params['mobile'];
+      }
+      if (params['otp']) {
+        this.otp = params['otp'];
+      }
+    });
+  }
 
   setLoginMode(mode: 'vibgyor' | 'without') {
     this.loginMode = mode;
