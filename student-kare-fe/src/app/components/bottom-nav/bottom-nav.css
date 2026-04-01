@@ -41,6 +41,7 @@
   /* Designer Unselected Color */
   transition: all 0.2s ease;
   color: #000000;
+
 }
 
 .nav-item.active .nav-label {
