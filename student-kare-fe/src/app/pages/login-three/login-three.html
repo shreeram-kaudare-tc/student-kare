@@ -1,5 +1,5 @@
 <app-auth-layout1>
-    <div class="flex flex-col w-full items-center justify-between px-4 pb-4">
+    <div class="flex flex-col items-center justify-center px-4 pb-4">
 
 
 
@@ -26,16 +26,12 @@
 
             <!-- Toggle: With Vibgyor / Without Vibgyor -->
             <div class="flex items-center justify-between h-[36px] rounded-[7px] gap-[1px] p-[2px] bg-[#F5F6F9] border border-[#F5F6F9] shadow-[inset_0px_3px_6px_0px_rgba(0,0,0,0.02)]">
-                <button
-                    (click)="setLoginMode('vibgyor')"
-                    [class]="loginMode === 'vibgyor'
+                <button (click)="setLoginMode('vibgyor')" [class]="loginMode === 'vibgyor'
                         ? 'w-[130px] h-[32px] rounded-[7px] bg-white text-[14px] font-medium text-[#232447] text-center'
                         : 'w-[130px] h-[32px] rounded-[6px] bg-[#F5F6F9] text-[14px] font-medium text-[#7D7D91] text-center'">
                     With Vibgyor
                 </button>
-                <button
-                    (click)="setLoginMode('without')"
-                    [class]="loginMode === 'without'
+                <button (click)="setLoginMode('without')" [class]="loginMode === 'without'
                         ? 'w-[130px] h-[32px] rounded-[7px] bg-white text-[14px] font-medium text-[#232447] text-center'
                         : 'w-[130px] h-[32px] rounded-[6px] bg-[#F5F6F9] text-[14px] font-medium text-[#7D7D91] text-center'">
                     Without Vibgyor
@@ -45,29 +41,19 @@
             <!-- Mobile Number -->
             <div class="flex flex-col gap-[6px]">
                 <label class="block text-[12px] font-normal leading-[18px] text-[#556087]">Mobile Number</label>
-                <app-input-field
-                    type="text"
-                    placeholder="89765434567"
-                    [(ngModel)]="mobileNumber"
-                    class="w-full">
+                <app-input-field type="text" placeholder="Enter your mobile number" [(ngModel)]="mobileNumber" class="w-full">
                 </app-input-field>
             </div>
 
             <!-- OTP -->
             <div class="flex flex-col gap-[6px]">
-                 <label class="block text-[12px] font-normal leading-[18px] text-[#556087]"> OTP</label>
-                <app-input-field
-                    type="password"
-                    placeholder="••••••••"
-                    [(ngModel)]="otp"
-                    class="w-full">
+                <label class="block text-[12px] font-normal leading-[18px] text-[#556087]"> OTP</label>
+                <app-input-field type="password" placeholder="Enter OTP" [(ngModel)]="otp" class="w-full">
                 </app-input-field>
 
                 <!-- Resend OTP -->
                 <div class="flex justify-end">
-                    <button
-                        (click)="resendOtp()"
-                        class="text-[12px] font-semibold text-[#3E63DD] hover:underline">
+                    <button (click)="resendOtp()" class="text-[12px] font-semibold text-[#3E63DD] hover:underline">
                         Resend OTP
                     </button>
                 </div>

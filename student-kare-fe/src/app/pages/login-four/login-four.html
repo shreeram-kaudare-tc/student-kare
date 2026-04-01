@@ -1,39 +1,60 @@
 <app-auth-layout1>
-    <div class="flex flex-col items-center  justify-between px-4 pb-4">
+    <div class="flex flex-col items-center justify-center   px-4 pb-4">
 
-        <div class="flex flex-col w-full  bg-white rounded-[30px] border border-[#E9EAF2] shadow-[0_20px_38px_rgba(24,25,70,0.16)]  px-[15px] py-[15px] gap-[24px]">
+        <!-- Card -->
+        <div class="flex flex-col w-full bg-white rounded-[30px] border border-[#E9EAF2] shadow-[0_20px_38px_rgba(24,25,70,0.16)] px-[15px] py-[15px] gap-[24px]">
+
+            <!-- Logo -->
             <div class="flex flex-col items-center">
                 <div class="flex items-baseline gap-[4px]">
                     <span class="text-[32px] leading-[40px] font-bold text-[#3E63DD]">Student</span>
-                    <span class="text-[32px] leading-[40px] font-bold text-[#F15A24]">Kare<sup class="text-[10px] font-semibold align-super">®</sup></span>
+                    <span class="text-[32px] leading-[40px] font-bold text-[#F15A24]">Kare<sup class="text-[10px] font-semibold align-super">&#174;</sup></span>
                 </div>
-                <p class="text-[13px] leading-[18px] text-[#8F99B3] ">Broaden your child's horizon</p>
+                <p class="text-[13px] leading-[18px] text-[#8F99B3]">Broaden your child's horizon</p>
             </div>
 
+            <!-- Heading -->
             <div class="flex flex-col gap-[12px]">
-                <h1 class="h-[42px] mx-auto text-[32px] leading-[42px] font-bold text-[#1A1C1E] text-center">Get Started now</h1>
+                <h1 class="text-[32px] leading-[42px] font-bold text-[#1A1C1E] text-center">Get Started now</h1>
                 <div class="flex flex-col">
-                    <span class="text-[12px] leading-[18px] font-normal text-[#6C7278]  text-center ">Create an account or log in to explore </span>
-                    <span class="text-[12px]  font-normal text-[#6C7278]  text-center">about our app</span>
+                    <span class="text-[12px] leading-[18px] font-normal text-[#6C7278] text-center">Create an account or log in to explore</span>
+                    <span class="text-[12px] leading-[18px] font-normal text-[#6C7278] text-center">about our app</span>
                 </div>
             </div>
-            <div class="flex items-center justify-between  h-[36px] rounded-[7px] gap-[1px] p-[2px] bg-[#F5F6F9] border border-[#F5F6F9] shadow-[inset_0px_3px_6px_0px_rgba(0,0,0,0.02)]">
-                <button (click)="setLoginMode('vibgyor')" [class]="loginMode==='vibgyor' ? 'w-[130px] h-[32px] rounded-[7px] bg-white text-[14px]  font-medium text-[#232447] text-center' : 'w-[130px] h-[32px] rounded-[6px] bg-[#F5F6F9] border border-[#EFF0F6]/50 shadow-[inset_0px_-2px_2px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(228,229,231,0.24)] text-[14px]  font-medium text-[#7D7D91] text-center'">With Vibgyor</button>
-                <button (click)="setLoginMode('without')" [class]="loginMode==='without' ? 'w-[130px] h-[32px] rounded-[7px] bg-white text-[14px]  font-medium text-[#232447] text-center' : 'w-[130px] h-[32px] rounded-[6px] bg-[#F5F6F9] border border-[#EFF0F6]/50 shadow-[inset_0px_-2px_2px_0px_rgba(0,0,0,0.03),0px_1px_2px_0px_rgba(228,229,231,0.24)] text-[14px]  font-semibold text-[#7D7D91] text-center'">Without Vibgyor</button>
+
+            <!-- Toggle: With Vibgyor / Without Vibgyor -->
+            <div class="flex items-center justify-between h-[36px] rounded-[7px] gap-[1px] p-[2px] bg-[#F5F6F9] border border-[#F5F6F9] shadow-[inset_0px_3px_6px_0px_rgba(0,0,0,0.02)]">
+                <button (click)="setLoginMode('vibgyor')" [class]="loginMode === 'vibgyor'
+                        ? 'w-[130px] h-[32px] rounded-[7px] bg-white text-[14px] font-medium text-[#232447] text-center'
+                        : 'w-[130px] h-[32px] rounded-[6px] bg-[#F5F6F9] text-[14px] font-medium text-[#7D7D91] text-center'">
+                    With Vibgyor
+                </button>
+                <button (click)="setLoginMode('without')" [class]="loginMode === 'without'
+                        ? 'w-[130px] h-[32px] rounded-[7px] bg-white text-[14px] font-medium text-[#232447] text-center'
+                        : 'w-[130px] h-[32px] rounded-[6px] bg-[#F5F6F9] text-[14px] font-medium text-[#7D7D91] text-center'">
+                    Without Vibgyor
+                </button>
             </div>
 
+            <!-- Mobile Number -->
             <div class="flex flex-col gap-[6px]">
-                <label class="block text-[12px] font-normal leading-[18px] text-[#556087] ">Mobile Number</label>
-                <app-input-field type="tel" placeholder="89765434567" [(ngModel)]="mobileNumber" class="w-full h-[52px] rounded-[14px] ">
+                <label class="block text-[12px] font-normal leading-[18px] text-[#556087]">Mobile Number</label>
+                <app-input-field type="text" placeholder="Enter your mobile number" [(ngModel)]="mobileNumber" class="w-full">
                 </app-input-field>
             </div>
 
+
+
+            <!-- Login Button + Register link -->
             <div class="flex flex-col gap-[24px]">
-                <div class="flex justify-center items-center ">
-                    <app-button class="w-[186px]" variant="primary" [fullWidth]="true" (click)="sendOtp()"> Send OTP </app-button>
+                <div class="flex justify-center items-center">
+                    <app-button class="w-[186px]" variant="primary" [fullWidth]="true" (click)="sendOtp()">Send OTP</app-button>
                 </div>
 
-                <p class="text-[12px] leading-[16.8px] text-[#6C7278] text-center font-medium tracking-[-0.01em]">Don't have an account? <a (click)="register()" class="text-[#3E63DD] font-semibold hover:underline cursor-pointer">Register</a></p>
+                <p class="text-[12px] leading-[16.8px] text-[#6C7278] text-center font-medium tracking-[-0.01em]">
+                    Don't have an account?
+                    <a (click)="register()" class="text-[#3E63DD] font-semibold hover:underline cursor-pointer">Register</a>
+                </p>
             </div>
 
         </div>
