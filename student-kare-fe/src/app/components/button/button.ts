@@ -21,7 +21,7 @@ export class Button {
 
     const sizes: Record<string, string> = {
       sm: 'px-4 h-10 text-sm',
-      md: 'px-6 h-[50px] text-sm',
+      md: 'px-6 h-[48px] text-sm',
       lg: 'px-8 h-14 text-base',
     };
 
