@@ -1,18 +1,16 @@
 <div class="h-full bg-white flex flex-col overflow-hidden">
 
-
-
   <!-- Scrolling Product Images -->
-  <div class="relative overflow-hidden flex-shrink-0 h-[370px]">
+  <div class="relative overflow-hidden flex-shrink-0 image-rows-container">
     <div class="absolute top-0 left-0 right-0 z-10 h-8 bg-gradient-to-b from-white to-transparent"></div>
     <div class="absolute bottom-0 left-0 right-0 z-10 h-12 bg-gradient-to-t from-white to-transparent"></div>
-    <div class="flex flex-col gap-3 py-2">
+    <div class="flex flex-col gap-2 py-2 h-full justify-center">
 
       <!-- Row 1 static (no scroll) -->
       <div class="w-full flex justify-center">
-        <div class="flex gap-3">
+        <div class="flex gap-2">
           @for(item of row1; track item.name) {
-          <div class="w-[110px] h-[110px] rounded-[25px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
             <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
           </div>
           }
@@ -23,17 +21,17 @@
       <div class="overflow-hidden w-full">
         <div class="marquee-track scroll-right">
           @for(item of row2; track item.name) {
-          <div class="w-[110px] h-[110px] rounded-[25px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
             <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
           </div>
           }
           @for(item of row2; track item.name) {
-          <div class="w-[110px] h-[110px] rounded-[25px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
             <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
           </div>
           }
           @for(item of row2; track item.name) {
-          <div class="w-[110px] h-[110px] rounded-[25px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
             <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
           </div>
           }
@@ -44,17 +42,17 @@
       <div class="overflow-hidden w-full">
         <div class="marquee-track scroll-left">
           @for(item of row3; track item.name) {
-          <div class="w-[110px] h-[110px] rounded-[25px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
             <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
           </div>
           }
           @for(item of row3; track item.name) {
-          <div class="w-[110px] h-[110px] rounded-[25px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
             <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
           </div>
           }
           @for(item of row3; track item.name) {
-          <div class="w-[110px] h-[110px] rounded-[25px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
             <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
           </div>
           }
@@ -65,19 +63,19 @@
   </div>
 
   <!-- Bottom: Logo + Card -->
-  <div class="flex-1 flex flex-col items-center justify-center px-6 pb-6">
+  <div class="flex-1 flex flex-col items-center justify-center px-4 pb-4">
 
     <!-- Logo -->
-    <div class="flex flex-col items-center mb-5">
+    <div class="flex flex-col items-center mb-4">
       <div class="flex items-baseline">
-        <span class="text-3xl font-bold text-[#3E63DD]">Student</span>
-        <span class="text-3xl font-bold text-[#F15A24]">Kare<sup class="text-[10px] font-normal align-super">®</sup></span>
+        <span class="text-2xl font-bold text-[#3E63DD]">Student</span>
+        <span class="text-2xl font-bold text-[#F15A24]">Kare<sup class="text-[10px] font-normal align-super">®</sup></span>
       </div>
       <p class="text-xs text-gray-400 mt-1">Broaden your child's horizon</p>
     </div>
 
     <!-- White Card -->
-    <div class="w-full rounded-3xl p-6 bg-white shadow-lg border border-gray-100">
+    <div class="w-full max-w-[360px] rounded-3xl p-5 bg-white shadow-lg border border-gray-100">
       <div class="flex flex-col gap-3">
 
         <!-- Log In with Vibgyor -->
