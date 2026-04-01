@@ -2,7 +2,7 @@
     <div class="flex flex-col items-center justify-center   px-4 pb-4">
 
         <!-- Card -->
-        <div class="flex flex-col w-full bg-white rounded-[30px] border border-[#E9EAF2] shadow-[0_20px_38px_rgba(24,25,70,0.16)] px-[15px] py-[15px] gap-[24px]">
+        <div class="flex flex-col w-full bg-white rounded-[30px] border border-[#E9EAF2] shadow-[0_20px_38px_rgba(24,25,70,0.16)] px-[24px] py-[28px] gap-[28px]">
 
             <!-- Logo -->
             <div class="flex flex-col items-center">
@@ -48,12 +48,11 @@
             <!-- Login Button + Register link -->
             <div class="flex flex-col gap-[24px]">
                 <div class="flex justify-center items-center">
-                    <app-button class="w-[186px]" variant="primary" [fullWidth]="true" (click)="sendOtp()">Send OTP</app-button>
+                    <app-button class="w-[186px]" variant="primary" size="lg" [fullWidth]="true" (click)="sendOtp()">Send OTP</app-button>
                 </div>
 
                 <p class="text-[12px] leading-[16.8px] text-[#6C7278] text-center font-medium tracking-[-0.01em]">
-                    Don't have an account?
-                    <a (click)="register()" class="text-[#3E63DD] font-semibold hover:underline cursor-pointer">Register</a>
+                    Don't have an account? <a (click)="register()" class="text-[#3E63DD] font-semibold hover:underline cursor-pointer ml-2">Register</a>
                 </p>
             </div>
 
