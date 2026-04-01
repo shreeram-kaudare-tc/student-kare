@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "studentkare-fe"
-  }
+    "default": "studentkaretc"
+  },
+  "targets": {},
+  "etags": {}
 }
