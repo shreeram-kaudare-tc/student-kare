@@ -1,6 +1,6 @@
 <div class="bg-white rounded-3xl shadow-sm overflow-hidden cursor-pointer hover:shadow-md transition-shadow">
-  <div class="relative">
-    <img [src]="product.image" [alt]="product.name" class="w-full h-36 object-cover" />
+  <div class="relative flex items-center justify-center" style="background: linear-gradient(291.8deg, #EEEAFD 10.92%, #8C6DFF 134.69%); width: 81px; height: 69px; border-top-right-radius: 40px; border-bottom-right-radius: 40px;">
+    <img [src]="product.image" [alt]="product.name" class="w-[60px] h-[60px] object-contain" />
     @if (product.inStock === false) {
       <div class="absolute inset-0 bg-black/40 flex items-center justify-center">
         <span class="text-white font-semibold text-sm">Out of Stock</span>
