@@ -1,0 +1,37 @@
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    opacity: 0 !important;
+    -webkit-appearance: none !important;
+    z-index: 2;
+}
+
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-clear-button {
+    display: none !important;
+    -webkit-appearance: none !important;
+}
+
+input[type="date"] {
+    position: relative;
+    display: flex;
+    align-items: center;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+input[type="date"]::before {
+    content: attr(placeholder);
+    width: 100%;
+    color: #C4C8D4;
+}
+
+input[type="date"]:focus::before,
+input[type="date"]:not(:placeholder-shown)::before {
+    display: none;
+}

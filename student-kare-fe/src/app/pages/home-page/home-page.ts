@@ -16,6 +16,12 @@ export class HomePage {
     {
       image: '/images/home/banner-school-bags.png',
     },
+    {
+      image: '/images/home/banner-school-bags.png',
+    },
+    {
+      image: '/images/home/banner-school-bags.png',
+    },
   ];
 
   categories = [

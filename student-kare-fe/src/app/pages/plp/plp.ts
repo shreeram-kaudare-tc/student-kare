@@ -33,29 +33,28 @@ export class PlpPage implements OnInit {
   flyingItems: FlyingItem[] = [];
   filterSheetOpen = false;
 
-  filters = ['All', 'Regular', 'Winter', 'Sports'];
-
-  sideCategories: SideCategory[] = [
-    { label: 'Uniforms',   image: '/images/home/cat-shirt.png' },
-    { label: 'Schoolbags', image: '/images/home/cat-bag.png' },
-    { label: 'Books',      image: '/images/home/cat-abc.png' },
-    { label: 'Shoes',      image: '/images/home/cat-shoes.png' },
-    { label: 'Study',      image: '/images/home/cat-books-glasses.png' },
-    { label: 'Gadgets',    image: '/images/home/cat-drone.png' },
-    { label: 'Sports',     image: '/images/home/cat-football.png' },
-    { label: 'ID Cards',   image: '/images/home/cat-idcard.png' },
-    { label: 'Stationery', image: '/images/home/cat-books.png' },
+  sideCategories = [
+    { label: 'Uniforms',   image: 'images/home/cat-shirt.png' },
+    { label: 'Schoolbags', image: 'images/home/cat-bag.png' },
+    { label: 'Books',      image: 'images/home/cat-books.png' },
+    { label: 'Footwear',   image: 'images/home/cat-shoes.png' },
+    { label: 'Skill Kits', image: 'images/home/prod-war-engine.png' },
+    { label: 'Sports',     image: 'images/home/cat-football.png' },
+    { label: 'IDs',        image: 'images/home/cat-idcard.png' },
+    { label: 'Stationery', image: 'images/home/cat-books-glasses.png' },
   ];
 
+  filters = ['All', 'Regular', 'Winter', 'Sports'];
+
   products: PlpProduct[] = [
-    { id: 1, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
-    { id: 2, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
-    { id: 3, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
-    { id: 4, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
-    { id: 5, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
-    { id: 6, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
-    { id: 7, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
-    { id: 8, name: 'VIBGYOR High Primary and Secondar Red (Edition 24–25)....', price: 600, image: '/images/home/prod-reebok.png' },
+    { id: 1, name: 'VIBGYOR High Primary and Secondar Red', price: 600, image: 'images/home/prod-reebok.png', quantity: 0 },
+    { id: 2, name: 'Foundational Literacy (Edition 24–25)', price: 400, image: 'images/home/prod-literacy.png', quantity: 0 },
+    { id: 3, name: 'War Engine Mechanical Kit', price: 800, image: 'images/home/prod-war-engine.png', quantity: 0 },
+    { id: 4, name: 'Eco-Friendly School Bag', price: 1200, image: 'images/home/cat-bag.png', quantity: 0 },
+    { id: 5, name: 'Cotton Uniform Shirt', price: 300, image: 'images/home/cat-shirt.png', quantity: 0 },
+    { id: 6, name: 'Standard School Uniform', price: 600, image: 'images/home/cat-shirt.png', quantity: 0 },
+    { id: 7, name: 'School Sports Kit', price: 600, image: 'images/home/cat-football.png', quantity: 0 },
+    { id: 8, name: 'Regular School Shoes', price: 600, image: 'images/home/cat-shoes.png', quantity: 0 },
   ];
 
   constructor(private router: Router, private route: ActivatedRoute) {}
@@ -73,6 +72,7 @@ export class PlpPage implements OnInit {
 
   addToCart(payload: { product: PlpProduct; event: MouseEvent }) {
     const { product, event } = payload;
+    product.quantity = 1;
     const btn = event.currentTarget as HTMLElement;
     const btnRect = btn.getBoundingClientRect();
 
@@ -93,14 +93,52 @@ export class PlpPage implements OnInit {
     // Update cart mid-animation
     setTimeout(() => {
       const existing = this.cartItems.find(p => p.id === product.id);
-      if (!existing) this.cartItems = [...this.cartItems, { ...product }];
-      this.cartCount = this.cartItems.length;
+      if (!existing) {
+        this.cartItems = [...this.cartItems, product];
+      }
+      this.updateCartCount();
     }, 280);
 
     // Remove flying element after animation
     setTimeout(() => {
       this.flyingItems = this.flyingItems.filter(f => f.id !== flyId);
     }, 500);
+  }
+
+  private updateCartCount() {
+    this.cartCount = this.cartItems.reduce((acc, item) => acc + (item.quantity || 0), 0);
+  }
+
+  increaseProductQuantity(product: PlpProduct) {
+    if (product.quantity !== undefined) {
+      product.quantity++;
+      this.updateCartCount();
+    }
+  }
+
+  decreaseProductQuantity(product: PlpProduct) {
+    if (product.quantity !== undefined && product.quantity > 0) {
+      product.quantity--;
+      if (product.quantity === 0) {
+        this.cartItems = this.cartItems.filter(p => p.id !== product.id);
+      }
+      this.updateCartCount();
+    }
+  }
+
+  isRotating = false;
+  rotateCartThumbnails() {
+    if (this.cartItems.length > 1 && !this.isRotating) {
+      this.isRotating = true;
+      
+      // Delay the actual data shift to let CSS animation run
+      setTimeout(() => {
+        const first = this.cartItems.shift()!;
+        this.cartItems.push(first);
+        this.cartItems = [...this.cartItems];
+        this.isRotating = false;
+      }, 300);
+    }
   }
 
   toggleWishlist(product: PlpProduct) {

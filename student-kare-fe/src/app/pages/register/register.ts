@@ -23,11 +23,11 @@ export class Register {
   constructor(private router: Router) {}
 
   goBack() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login4']);
   }
 
   goToLogin() {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login4']);
   }
 
   register() {

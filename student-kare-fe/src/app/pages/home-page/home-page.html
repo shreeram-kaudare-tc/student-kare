@@ -6,28 +6,7 @@
         <!-- Gradient Header Block -->
         <div class="w-full rounded-b-[40px] pb-[20px]" style="background: linear-gradient(104.94deg, #3E63DD 3.61%, #9A84F5 80.46%);">
 
-            <!-- Status Bar -->
-            <div class="flex items-center justify-between px-[20px] h-[44px]">
-                <span class="text-[14px] font-semibold text-white">9:41</span>
-                <div class="flex items-center gap-1.5">
-                    <svg width="18" height="12" viewBox="0 0 18 12" fill="none">
-                        <rect x="0" y="8" width="3" height="4" rx="1" fill="white" />
-                        <rect x="5" y="6" width="3" height="6" rx="1" fill="white" />
-                        <rect x="10" y="3" width="3" height="9" rx="1" fill="white" />
-                        <rect x="15" y="0" width="3" height="12" rx="1" fill="white" />
-                    </svg>
-                    <svg width="16" height="12" viewBox="0 0 16 12" fill="none">
-                        <circle cx="8" cy="10" r="1.5" fill="white" />
-                        <path d="M4.5 7.5C5.5 6.5 6.7 6 8 6s2.5.5 3.5 1.5" stroke="white" stroke-width="1.5" stroke-linecap="round" />
-                        <path d="M1.5 4.5C3.2 2.8 5.5 2 8 2s4.8.8 6.5 2.5" stroke="white" stroke-width="1.5" stroke-linecap="round" />
-                    </svg>
-                    <svg width="28" height="14" viewBox="0 0 28 14" fill="none">
-                        <rect x="0.5" y="0.5" width="24" height="13" rx="3" stroke="white" stroke-opacity="0.5" />
-                        <rect x="2" y="2" width="20" height="10" rx="2" fill="white" />
-                        <path d="M26 5v4a2 2 0 000-4z" fill="white" fill-opacity="0.5" />
-                    </svg>
-                </div>
-            </div>
+
 
             <!-- Header: Hello James! -->
             <div class="flex items-center justify-between px-[20px] pt-[8px] pb-[12px]">
@@ -70,12 +49,14 @@
                 <img [src]="banners[bannerIndex].image" alt="Banner" class="w-full object-cover rounded-[20px]" />
             </div>
             <!-- Dots -->
-            <div class="flex items-center justify-center gap-[6px] mt-[10px]">
+            <div class="flex items-center justify-center gap-[6px] mt-[10px] h-[9px]">
                 @for (b of banners; track $index; let i = $index) {
-                <button (click)="setBanner(i)" [class]="i === bannerIndex
-                            ? 'h-[6px] w-[18px] rounded-full bg-[#3E63DD]'
-                            : 'h-[6px] w-[6px] rounded-full bg-[#D1D5DB]'">
-                </button>
+                <div [class]="i === bannerIndex
+                            ? 'h-[5px] w-[44px] rounded-full bg-[#4628BE] transition-all duration-300'
+                            : (i === bannerIndex + 1 || i === bannerIndex - 1
+                                ? 'h-[9px] w-[9px] rounded-full bg-[#9A84F5] transition-all duration-300'
+                                : 'h-[9px] w-[9px] rounded-full bg-[#DDD6FC] transition-all duration-300')">
+                </div>
                 }
             </div>
         </div>
@@ -125,6 +106,13 @@
                 </div>
                 <img src="/images/home/offer-bags.png" alt="offer" class="h-[90px] w-[100px] object-contain" />
             </div>
+
+            <!-- Banner Dots -->
+            <div class="flex items-center justify-center gap-[6px] mt-[10px] h-[9px]">
+                <div class="h-[5px] w-[44px] rounded-full bg-[#4628BE] transition-all duration-300"></div>
+                <div class="h-[9px] w-[9px] rounded-full bg-[#9A84F5] transition-all duration-300"></div>
+                <div class="h-[9px] w-[9px] rounded-full bg-[#DDD6FC] transition-all duration-300"></div>
+            </div>
         </div>
 
         <!-- Product Cards -->
@@ -145,13 +133,6 @@
                 </div>
                 }
             </div>
-        </div>
-
-        <!-- Scroll Dots -->
-        <div class="flex items-center justify-center gap-[6px] mb-[16px]">
-            <div class="h-[6px] w-[18px] rounded-full bg-[#3E63DD]"></div>
-            <div class="h-[6px] w-[6px] rounded-full bg-[#D1D5DB]"></div>
-            <div class="h-[6px] w-[6px] rounded-full bg-[#D1D5DB]"></div>
         </div>
 
     </div>
