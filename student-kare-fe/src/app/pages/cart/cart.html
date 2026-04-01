@@ -78,8 +78,8 @@
         <!-- Card Body (Slideable) -->
         <div class="absolute inset-0 bg-white flex items-center px-[10px] gap-[12px] transition-transform duration-200" [style.transform]="'translateX(' + item.swipeOffset + 'px)'" (touchstart)="onSwipeStart(item, $event)" (touchmove)="onSwipeMove(item, $event)" (touchend)="onSwipeEnd(item)">
 
-          <div class="w-[90px] h-[90px] bg-[#F5F5F5] rounded-[12px] flex items-center justify-center overflow-hidden flex-shrink-0">
-            <img [src]="item.image" [alt]="item.name" class="w-[70px] h-[70px] object-contain" />
+          <div class="w-[84px] h-[91px] bg-[#F5F5F5] rounded-[12px] flex items-center justify-center overflow-hidden flex-shrink-0">
+            <img [src]="item.image" [alt]="item.name" class="w-full h-full object-cover" />
           </div>
 
           <div class="flex-1 flex flex-col justify-between h-[90px] py-[2px]">
