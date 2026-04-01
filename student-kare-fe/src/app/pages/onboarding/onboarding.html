@@ -1,4 +1,4 @@
-<div class="relative w-full h-screen bg-white flex flex-col overflow-hidden font-jakarta">
+<div class="relative w-full h-[100dvh] bg-white flex flex-col overflow-hidden font-jakarta">
 
     <!-- Slides Wrapper -->
     <div class="flex-1 flex flex-col overflow-hidden">
@@ -7,15 +7,16 @@
         <div class="flex flex-col h-full slide-enter">
 
             <!-- Illustration Area with SVG Background -->
-            <div class="relative flex-1 flex items-center justify-center overflow-hidden">
+            <div class="relative flex-1 flex items-center justify-center overflow-hidden min-h-0 max-h-[55vh]">
                 <!-- SVG Background -->
                 <img [src]="slide.bgSvg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" />
                 <!-- Illustration Image -->
-                <img [src]="slide.image" [alt]="slide.title" class="relative z-10 w-[65vw] max-w-[280px] h-auto object-contain" />
+                <img [src]="slide.image" [alt]="slide.title" class="relative z-10 w-[60vw] max-w-[240px] h-auto max-h-[80%] object-contain" />
             </div>
 
             <!-- Bottom Content -->
-            <div class="w-[273px] mx-auto flex flex-col items-center gap-[25px] pb-[42px] z-10">
+            <div class="w-[300px] mx-auto flex flex-col items-center gap-[20px] pb-[80px] z-10" 
+                 style="padding-bottom: calc(80px + env(safe-area-inset-bottom))">
 
                 <!-- Text Block -->
                 <div class="flex flex-col items-center gap-[8px] w-full text-center">
