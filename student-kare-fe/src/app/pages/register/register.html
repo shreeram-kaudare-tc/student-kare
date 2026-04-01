@@ -1,10 +1,10 @@
 <app-auth-layout1>
 
     <!-- Content -->
-    <div class="w-full min-w-full h-[100dvh] overflow-y-auto relative flex flex-col pt-[24px]">
+    <div class="w-full min-w-full h-[100dvh] gap-[24px] overflow-y-auto relative flex flex-col pt-[24px]">
 
         <!-- Header Area (with bottom margin to separate from the white card) -->
-        <div class="flex flex-col gap-[20px] mb-[12px]">
+        <div class="flex flex-col gap-[20px] mb-[24px]">
             <!-- Back Button -->
             <p (click)="goBack()" class="cursor-pointer px-4">
                 <img class="h-[8px] w-[14px]" src="/images/login/back-arrow.png" alt="Back">
@@ -12,7 +12,7 @@
 
             <!-- Title -->
             <div class="flex flex-col px-4 gap-[8px]">
-                <h1 class=" text-[32px] font-bold leading-[130%] tracking-[-0.02em] text-[#5732EE] align-middle">Register</h1>
+                <h1 class="font-['Inter'] text-[32px] font-bold leading-[130%] tracking-[-0.02em] text-[#5732EE] align-middle">Register</h1>
                 <p class="text-[12px] leading-[16.8px] text-[#6C7278] font-medium tracking-[-0.01em]">Already have an account?<a (click)="goToLogin()" class="text-[#3E63DD] font-semibold hover:underline cursor-pointer"> Log In </a></p>
             </div>
         </div>
@@ -24,12 +24,12 @@
             <div class="flex gap-[12px]">
                 <div class="flex flex-col gap-[6px] flex-1">
                     <label class="text-[12px] font-normal leading-[18px] text-[#8F99B3]">First Name</label>
-                    <app-input-field type="text" placeholder="Lois" [(ngModel)]="firstName" class="w-full">
+                    <app-input-field type="text" placeholder="Enter First Name" [(ngModel)]="firstName" class="w-full">
                     </app-input-field>
                 </div>
                 <div class="flex flex-col gap-[6px] flex-1">
                     <label class="text-[12px] font-normal leading-[18px] text-[#8F99B3]">Last Name</label>
-                    <app-input-field type="text" placeholder="Becket" [(ngModel)]="lastName" class="w-full">
+                    <app-input-field type="text" placeholder="Enter Last Name" [(ngModel)]="lastName" class="w-full">
                     </app-input-field>
                 </div>
             </div>
@@ -37,14 +37,14 @@
             <!-- Email -->
             <div class="flex flex-col gap-[6px]">
                 <label class="text-[12px] font-normal leading-[18px] text-[#8F99B3]">Email</label>
-                <app-input-field type="email" placeholder="Loisbecket@gmail.com" [(ngModel)]="email" class="w-full">
+                <app-input-field type="email" placeholder="Enter Email" [(ngModel)]="email" class="w-full">
                 </app-input-field>
             </div>
 
             <div class="flex flex-col gap-[6px]">
                 <label class="text-[12px] font-normal leading-[18px] text-[#8F99B3]">Birth of date</label>
                 <div class="relative flex items-center" (click)="birthDateInput.showPicker()">
-                    <input #birthDateInput type="date" [(ngModel)]="birthDate" placeholder="18/03/2024" class="w-full h-[52px] border border-[#E9EAF2] rounded-[14px] pl-[16px] pr-[48px] text-[14px] text-[#1A1C1E] bg-white focus:outline-none focus:ring-2 focus:ring-[#3E63DD]/30 placeholder:text-[#C4C8D4]" />
+                    <input #birthDateInput type="date" [(ngModel)]="birthDate" placeholder="Enter Birth Date" class="w-full h-[52px] border border-[#E9EAF2] rounded-[14px] pl-[16px] pr-[48px] text-[14px] text-[#1A1C1E] bg-white focus:outline-none focus:ring-2 focus:ring-[#3E63DD]/30 placeholder:text-[#C4C8D4]" />
                     <span class="absolute right-[14px] text-[#9BA4B5] cursor-pointer">
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
@@ -64,14 +64,14 @@
                     <div class="flex items-center gap-[7px] pr-[10px] border-r border-[#EDF1F3] flex-shrink-0">
                         <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="rounded-full shadow-sm flex-shrink-0">
                             <mask id="flag-mask" maskUnits="userSpaceOnUse" x="0" y="0" width="18" height="18">
-                                <circle cx="9" cy="9" r="9" fill="white"/>
+                                <circle cx="9" cy="9" r="9" fill="white" />
                             </mask>
                             <g mask="url(#flag-mask)">
-                                <rect width="18" height="6" fill="#FF9933"/>
-                                <rect y="6" width="18" height="6" fill="#FFFFFF"/>
-                                <rect y="12" width="18" height="6" fill="#138808"/>
-                                <circle cx="9" cy="9" r="2.2" fill="none" stroke="#000080" stroke-width="0.7"/>
-                                <circle cx="9" cy="9" r="0.6" fill="#000080"/>
+                                <rect width="18" height="6" fill="#FF9933" />
+                                <rect y="6" width="18" height="6" fill="#FFFFFF" />
+                                <rect y="12" width="18" height="6" fill="#138808" />
+                                <circle cx="9" cy="9" r="2.2" fill="none" stroke="#000080" stroke-width="0.7" />
+                                <circle cx="9" cy="9" r="0.6" fill="#000080" />
                             </g>
                         </svg>
                         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#9BA4B5" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -79,7 +79,7 @@
                         </svg>
                     </div>
                     <!-- Phone Input -->
-                    <input type="tel" [(ngModel)]="phoneNumber" placeholder="(454) 726-0592" class="flex-1 text-[14px] text-[#1A1C1E] bg-transparent focus:outline-none placeholder:text-[#C4C8D4]" />
+                    <input type="tel" [(ngModel)]="phoneNumber" placeholder="Enter Phone Number" class="flex-1 text-[14px] text-[#1A1C1E] bg-transparent focus:outline-none placeholder:text-[#C4C8D4]" />
                 </div>
             </div>
 
@@ -87,7 +87,7 @@
             <div class="flex flex-col gap-[6px]">
                 <label class="text-[12px] font-normal leading-[18px] text-[#8F99B3]">Set Password</label>
                 <div class="relative flex items-center">
-                    <app-input-field type="password" placeholder="••••••••" [(ngModel)]="password" class="w-full">
+                    <app-input-field type="password" placeholder="Enter Password" [(ngModel)]="password" class="w-full">
                     </app-input-field>
                 </div>
             </div>
