@@ -34,13 +34,13 @@ export class PlpPage implements OnInit {
   filterSheetOpen = false;
 
   sideCategories = [
-    { label: 'Uniforms',   image: 'images/home/cat-shirt.png' },
+    { label: 'Uniforms', image: 'images/home/cat-shirt.png' },
     { label: 'Schoolbags', image: 'images/home/cat-bag.png' },
-    { label: 'Books',      image: 'images/home/cat-books.png' },
-    { label: 'Footwear',   image: 'images/home/cat-shoes.png' },
+    { label: 'Books', image: 'images/home/cat-books.png' },
+    { label: 'Footwear', image: 'images/home/cat-shoes.png' },
     { label: 'Skill Kits', image: 'images/home/prod-war-engine.png' },
-    { label: 'Sports',     image: 'images/home/cat-football.png' },
-    { label: 'IDs',        image: 'images/home/cat-idcard.png' },
+    { label: 'Sports', image: 'images/home/cat-football.png' },
+    { label: 'IDs', image: 'images/home/cat-idcard.png' },
     { label: 'Stationery', image: 'images/home/cat-books-glasses.png' },
   ];
 
@@ -49,7 +49,7 @@ export class PlpPage implements OnInit {
   products: PlpProduct[] = [
     { id: 1, name: 'VIBGYOR High Primary and Secondar Red', price: 600, image: 'images/home/prod-reebok.png', quantity: 0 },
     { id: 2, name: 'Foundational Literacy (Edition 24–25)', price: 400, image: 'images/home/prod-literacy.png', quantity: 0 },
-    { id: 3, name: 'War Engine Mechanical Kit', price: 800, image: 'images/home/prod-war-engine.png', quantity: 0 },
+    { id: 3, name: 'War Engine Mechanical', price: 800, image: 'images/home/prod-war-engine.png', quantity: 0 },
     { id: 4, name: 'Eco-Friendly School Bag', price: 1200, image: 'images/home/cat-bag.png', quantity: 0 },
     { id: 5, name: 'Cotton Uniform Shirt', price: 300, image: 'images/home/cat-shirt.png', quantity: 0 },
     { id: 6, name: 'Standard School Uniform', price: 600, image: 'images/home/cat-shirt.png', quantity: 0 },
@@ -57,7 +57,7 @@ export class PlpPage implements OnInit {
     { id: 8, name: 'Regular School Shoes', price: 600, image: 'images/home/cat-shoes.png', quantity: 0 },
   ];
 
-  constructor(private router: Router, private route: ActivatedRoute) {}
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.route.queryParams.subscribe(params => {
@@ -130,7 +130,7 @@ export class PlpPage implements OnInit {
   rotateCartThumbnails() {
     if (this.cartItems.length > 1 && !this.isRotating) {
       this.isRotating = true;
-      
+
       // Delay the actual data shift to let CSS animation run
       setTimeout(() => {
         const first = this.cartItems.shift()!;
