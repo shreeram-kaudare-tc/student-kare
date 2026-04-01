@@ -1,8 +1,8 @@
 <app-auth-layout1>
-    <div class="flex flex-col items-center justify-center   px-4 pb-4">
+    <div class="flex flex-col items-center justify-center w-full px-4 pb-4">
 
         <!-- Card -->
-        <div class="flex flex-col w-full bg-white rounded-[30px] border border-[#E9EAF2] shadow-[0_20px_38px_rgba(24,25,70,0.16)] px-[24px] py-[28px] gap-[28px]">
+        <div class="flex flex-col w-full bg-white rounded-[30px] border border-[#E9EAF2] shadow-[0_20px_38px_rgba(24,25,70,0.16)] px-[20px] py-[24px] gap-[24px]">
 
             <!-- Logo -->
             <div class="flex flex-col items-center">
@@ -25,20 +25,20 @@
             <!-- Toggle: With Vibgyor / Without Vibgyor -->
             <div class="flex items-center justify-between h-[36px] rounded-[7px] gap-[1px] p-[2px] bg-[#F5F6F9] border border-[#F5F6F9] shadow-[inset_0px_3px_6px_0px_rgba(0,0,0,0.02)]">
                 <button (click)="setLoginMode('vibgyor')" [class]="loginMode === 'vibgyor'
-                        ? 'w-[130px] h-[32px] rounded-[7px] bg-white text-[14px] font-medium text-[#232447] text-center'
-                        : 'w-[130px] h-[32px] rounded-[6px] bg-[#F5F6F9] text-[14px] font-medium text-[#7D7D91] text-center'">
+                        ? 'flex-1 h-[32px] rounded-[7px] bg-white text-[14px] font-medium text-[#232447] text-center'
+                        : 'flex-1 h-[32px] rounded-[6px] bg-[#F5F6F9] text-[14px] font-medium text-[#7D7D91] text-center'">
                     With Vibgyor
                 </button>
                 <button (click)="setLoginMode('without')" [class]="loginMode === 'without'
-                        ? 'w-[130px] h-[32px] rounded-[7px] bg-white text-[14px] font-medium text-[#232447] text-center'
-                        : 'w-[130px] h-[32px] rounded-[6px] bg-[#F5F6F9] text-[14px] font-medium text-[#7D7D91] text-center'">
+                        ? 'flex-1 h-[32px] rounded-[7px] bg-white text-[14px] font-medium text-[#232447] text-center'
+                        : 'flex-1 h-[32px] rounded-[6px] bg-[#F5F6F9] text-[14px] font-medium text-[#7D7D91] text-center'">
                     Without Vibgyor
                 </button>
             </div>
 
             <!-- Mobile Number -->
             <div class="flex flex-col gap-[6px]">
-                <label class="block text-[12px] font-normal leading-[18px] text-[#556087]">Mobile Number</label>
+                <label class="block text-[12px] font-normal leading-[18px] text-[#1A1C1E]">Mobile Number</label>
                 <app-input-field type="text" placeholder="Enter your mobile number" [(ngModel)]="mobileNumber" class="w-full">
                 </app-input-field>
             </div>
