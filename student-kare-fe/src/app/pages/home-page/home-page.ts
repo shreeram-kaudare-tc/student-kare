@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { BottomNav } from '../../components/bottom-nav/bottom-nav';
@@ -9,8 +9,9 @@ import { BottomNav } from '../../components/bottom-nav/bottom-nav';
   templateUrl: './home-page.html',
   styleUrl: './home-page.css',
 })
-export class HomePage {
+export class HomePage implements OnInit, OnDestroy {
   bannerIndex = 0;
+  private bannerInterval: any;
 
   banners = [
     {
@@ -50,7 +51,25 @@ export class HomePage {
 
   constructor(public router: Router) { }
 
-  setBanner(i: number) { this.bannerIndex = i; }
+  ngOnInit() {
+    this.startBannerAutoScroll();
+  }
+
+  ngOnDestroy() {
+    clearInterval(this.bannerInterval);
+  }
+
+  startBannerAutoScroll() {
+    this.bannerInterval = setInterval(() => {
+      this.bannerIndex = (this.bannerIndex + 1) % this.banners.length;
+    }, 3000);
+  }
+
+  setBanner(i: number) {
+    this.bannerIndex = i;
+    clearInterval(this.bannerInterval);
+    this.startBannerAutoScroll();
+  }
   shopNow() { this.router.navigate(['/plp']); }
   addToCart(product: any) { }
   goToPlp(catIndex: number) { this.router.navigate(['/plp'], { queryParams: { cat: catIndex } }); }

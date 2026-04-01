@@ -44,16 +44,17 @@
         <!-- Banner Carousel -->
         <div class="px-[20px] mb-[20px] mt-6">
             <div class="relative w-full rounded-[20px] overflow-hidden">
-                <img [src]="banners[bannerIndex].image" alt="Banner" class="w-full object-cover rounded-[20px]" />
+                <img [src]="banners[bannerIndex].image" alt="Banner" class="w-full object-cover rounded-[20px] transition-opacity duration-500" />
             </div>
             <!-- Dots -->
             <div class="flex items-center justify-center gap-[6px] mt-[10px] h-[9px]">
                 @for (b of banners; track $index; let i = $index) {
-                <div [class]="i === bannerIndex
-                            ? 'h-[5px] w-[44px] rounded-full bg-[#4628BE] transition-all duration-300'
+                <div (click)="setBanner(i)" class="cursor-pointer transition-all duration-300"
+                    [class]="i === bannerIndex
+                            ? 'h-[5px] w-[44px] rounded-full bg-[#4628BE] cursor-pointer transition-all duration-300'
                             : (i === bannerIndex + 1 || i === bannerIndex - 1
-                                ? 'h-[9px] w-[9px] rounded-full bg-[#9A84F5] transition-all duration-300'
-                                : 'h-[9px] w-[9px] rounded-full bg-[#DDD6FC] transition-all duration-300')">
+                                ? 'h-[9px] w-[9px] rounded-full bg-[#9A84F5] cursor-pointer transition-all duration-300'
+                                : 'h-[9px] w-[9px] rounded-full bg-[#DDD6FC] cursor-pointer transition-all duration-300')">
                 </div>
                 }
             </div>
