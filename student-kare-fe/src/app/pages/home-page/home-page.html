@@ -116,18 +116,20 @@
 
         <!-- Product Cards -->
         <div class="mb-[16px]">
-            <div class="flex gap-[12px] px-[20px] overflow-x-auto scrollbar-hide pb-[4px]">
+            <div class="flex gap-[10px] px-[20px] overflow-x-auto scrollbar-hide pb-[4px]">
                 @for (p of products; track p.name) {
-                <div class="flex-shrink-0 w-[130px] bg-white rounded-[16px] border border-[#F0F1F5] shadow-sm overflow-hidden">
-                    <div class="w-full h-[90px] bg-[#F5F6F9] flex items-center justify-center">
-                        <img [src]="p.image" [alt]="p.name" class="w-[70px] h-[70px] object-contain" />
+                <div class="flex-shrink-0 w-[160px] bg-white rounded-[16px] border border-[#F0F1F5] shadow-sm overflow-hidden flex flex-col">
+                    <div class="w-full h-[120px] bg-[#F5F6F9] flex items-center justify-center p-[10px]">
+                        <img [src]="p.image" [alt]="p.name" class="max-w-full max-h-full object-contain" />
                     </div>
-                    <div class="p-[8px] flex flex-col gap-[4px]">
-                        <span class="text-[10px] font-medium text-[#1A1C1E] leading-[14px] line-clamp-2">{{ p.name }}</span>
-                        <span class="text-[12px] font-bold text-[#1A1C1E]">₹ {{ p.price }}</span>
-                        <button (click)="addToCart(p)" class="w-full h-[26px] rounded-full bg-[#3E63DD] text-white text-[9px] font-semibold">
-                            Add to Cart
-                        </button>
+                    <div class="p-[10px] flex flex-col gap-[6px] flex-1">
+                        <span class="text-[12px] font-medium text-[#1A1C1E] leading-[16px] line-clamp-2 h-[32px]">{{ p.name }}</span>
+                        <div class="flex items-center justify-between mt-auto">
+                            <span class="text-[13px] font-bold text-[#3E63DD] whitespace-nowrap">Rs. {{ p.price }}</span>
+                            <button (click)="addToCart(p)" class="h-[28px] px-[10px] rounded-full bg-[#3E63DD] text-white text-[10px] font-semibold whitespace-nowrap">
+                                Add To Cart
+                            </button>
+                        </div>
                     </div>
                 </div>
                 }
