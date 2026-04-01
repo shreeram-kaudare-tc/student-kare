@@ -1,10 +1,7 @@
 <div class="relative w-full h-[100dvh] overflow-hidden font-jakarta">
 
-    <!-- Fixed Blur BG -->
-    <div class="fixed inset-0 z-0 pointer-events-none">
-        <div class="absolute w-[120vw] h-[120vw] max-w-[582px] max-h-[582px] top-[-15%] left-[-30%] bg-[#EBC894]/80 rounded-full blur-[180px]"></div>
-        <div class="absolute w-[120vw] h-[120vw] max-w-[534px] max-h-[534px] top-[40%] right-[-30%] bg-[#B49EF4]/80 rounded-full blur-[250px]"></div>
-    </div>
+    <!-- Fixed Blur BG — uses radial-gradient for iOS Safari compatibility -->
+    <div class="fixed inset-0 z-0 pointer-events-none auth-gradient-bg"></div>
 
     <!-- Scrollable Content -->
     <div class="relative z-10 h-full overflow-y-auto flex flex-col">
