@@ -23,10 +23,7 @@ export class LoginFour {
   }
 
   sendOtp() {
-    if (!/^[0-9]{10}$/.test(this.mobileNumber)) {
-      alert('Please enter a valid 10-digit mobile number');
-      return;
-    }
+
     // TODO: integrate OTP API
     this.router.navigate(['/login3']);
   }
