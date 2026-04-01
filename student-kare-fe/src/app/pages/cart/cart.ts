@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { BottomNav } from '../../components/bottom-nav/bottom-nav';
 
 export interface CartItem {
   id: number;
@@ -16,7 +17,7 @@ export interface CartItem {
 
 @Component({
   selector: 'app-cart',
-  imports: [CommonModule],
+  imports: [CommonModule, BottomNav],
   templateUrl: './cart.html',
   styleUrl: './cart.css',
 })
