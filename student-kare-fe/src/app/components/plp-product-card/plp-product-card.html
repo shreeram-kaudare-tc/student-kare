@@ -21,11 +21,11 @@
 
   <!-- Price + Add button -->
   <div class="flex items-center justify-between px-[2px] mt-auto">
-    <span class="text-[12px] font-bold text-[#5732EE]">Rs. {{ product.price }}</span>
+    <span class="text-[12px] font-bold text-[#3E63DD]">Rs. {{ product.price }}</span>
     
     <div class="h-[24px] w-[60px]">
       @if (!product.quantity) {
-        <button (click)="onAdd($event)" class="w-full h-full rounded-full border border-[#5732EE] bg-white text-[#5732EE] text-[10px] font-medium flex items-center justify-center gap-[4px] cursor-pointer hover:bg-blue-50 active:scale-95 transition-all">
+        <button (click)="onAdd($event)" class="w-full h-full rounded-full border border-[#3E63DD] bg-white text-[#3E63DD] text-[10px] font-medium flex items-center justify-center gap-[4px] cursor-pointer hover:bg-blue-50 active:scale-95 transition-all">
           Add
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
