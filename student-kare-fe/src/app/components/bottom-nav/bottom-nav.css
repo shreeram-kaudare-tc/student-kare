@@ -1,11 +1,13 @@
 .bottom-nav-container {
-  height: 68px;
+  height: calc(68px + env(safe-area-inset-bottom));
+  padding-bottom: env(safe-area-inset-bottom);
   background: #ffffff;
   box-shadow: 0px -2px 4.5px rgba(0, 0, 0, 0.11); /* Switched to Y: -2 for top shadow as per visual */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 8px 42px;
+  padding-left: 42px;
+  padding-right: 42px;
   gap: 48px;
   position: fixed;
   bottom: 0;

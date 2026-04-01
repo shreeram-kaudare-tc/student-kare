@@ -96,7 +96,7 @@
   </div>
 
   <!-- View Cart floating pill (Stretched) -->
-  @if (cartCount > 0) {
+  @if (cartCount > 0 && !filterSheetOpen) {
   <div class="absolute z-[100]" 
        style="left: 109px; right: 16px; bottom: calc(32px + env(safe-area-inset-bottom));">
     <div class="w-full flex items-center justify-between bg-[#795BF1] rounded-[58px] px-[10px]" style="height: 62px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
