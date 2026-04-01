@@ -1,4 +1,13 @@
 
+/* Hide scrollbar for manual scroll row */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
 /* Scrolling marquee rows */
 .marquee-row {
   overflow: hidden;
