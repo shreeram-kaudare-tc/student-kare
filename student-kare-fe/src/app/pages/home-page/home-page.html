@@ -1,4 +1,4 @@
-<div class="relative w-full h-screen bg-white flex flex-col overflow-hidden font-jakarta">
+<div class="relative w-full h-[100dvh] bg-white flex flex-col overflow-hidden font-jakarta">
 
     <!-- Scrollable Content -->
     <div class="flex-1 overflow-y-auto pb-[72px]">
@@ -118,7 +118,7 @@
         <div class="mb-[16px]">
             <div class="flex gap-[10px] px-[20px] overflow-x-auto scrollbar-hide pb-[4px]">
                 @for (p of products; track p.name) {
-                <div class="flex-shrink-0 w-[160px] bg-white rounded-[16px] border border-[#F0F1F5] shadow-sm overflow-hidden flex flex-col">
+                <div class="flex-shrink-0 w-[160px] bg-white rounded-[16px] border border-[#E0E0E0] shadow-sm overflow-hidden flex flex-col">
                     <div class="w-full h-[120px] bg-[#F5F6F9] flex items-center justify-center p-[10px]">
                         <img [src]="p.image" [alt]="p.name" class="max-w-full max-h-full object-contain" />
                     </div>
