@@ -16,7 +16,6 @@ export class LoginOne {
     { img: 'images/login/img-jacket.png',       name: 'Jacket' },
     { img: 'images/login/img-shoes.png',        name: 'Shoes' },
     { img: 'images/login/img-activity-kit.png', name: 'Activity Kit' },
-    { img: 'images/login/img-pink.png',         name: 'Item' },
   ];
 
   row2 = [
