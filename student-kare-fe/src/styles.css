@@ -16,6 +16,14 @@ html, body {
   height: 100%;
   width: 100%;
   overflow: hidden;
+  /* Keep normal scroll, but prevent unintended zoom gestures on mobile */
+  touch-action: pan-x pan-y;
+  -ms-touch-action: pan-x pan-y;
+}
+
+/* Prevent double-tap zoom on tappable controls */
+button, a {
+  touch-action: manipulation;
 }
 
 .btn-primary-gradient {

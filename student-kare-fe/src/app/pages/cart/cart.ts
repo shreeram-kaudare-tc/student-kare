@@ -69,5 +69,5 @@ export class CartPage {
     item.swipeOffset = item.swipeOffset < -45 ? -90 : 0;
   }
 
-  checkout() { /* navigate to checkout */ }
+  checkout() { this.router.navigate(['/my-order']); }
 }
