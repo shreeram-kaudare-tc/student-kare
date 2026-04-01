@@ -93,7 +93,7 @@
   <!-- View Cart floating pill (Stretched) -->
   @if (cartCount > 0 && !filterSheetOpen) {
   <div class="absolute z-[100]" style="left: 109px; right: 16px; bottom: calc(32px + env(safe-area-inset-bottom));">
-    <div class="w-full flex items-center justify-between bg-[#795BF1] rounded-[58px] px-[10px]" style="height: 62px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
+    <div (click)="viewCart()" class="w-full flex items-center justify-between bg-[#795BF1] rounded-[58px] px-[10px] cursor-pointer" style="height: 62px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
 
       <!-- Overlapping product thumbnails (Fully visible first circle) -->
       <div class="flex items-center flex-shrink-0 overflow-hidden w-[90px] relative px-[2px]" [class.thumbnails-rotating]="isRotating">
@@ -113,7 +113,7 @@
       </div>
 
       <!-- Arrow circle -->
-      <button (click)="rotateCartThumbnails(); $event.stopPropagation()" class="flex-shrink-0 w-[42px] h-[42px] bg-[#1A0A4B] rounded-full flex items-center justify-center text-white active:scale-95 transition-transform">
+      <button (click)="viewCart(); $event.stopPropagation()" class="flex-shrink-0 w-[42px] h-[42px] bg-[#1A0A4B] rounded-full flex items-center justify-center text-white active:scale-95 transition-transform">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
