@@ -1,52 +1,33 @@
-<div class="relative w-full h-[100dvh] bg-white flex flex-col overflow-hidden font-jakarta">
+<div class="onboarding-page">
+  <div class="onboarding-frame">
+    @for (slide of slides; track slide.title; let i = $index) { @if (i === currentIndex) {
+    <div class="onboarding-slide slide-enter">
+      <div class="hero-section">
+        <img [src]="slide.bgSvg" alt="" class="hero-bg" />
+        <img [src]="slide.image" [alt]="slide.title" class="hero-image" />
+      </div>
 
-    <!-- Slides Wrapper -->
-    <div class="flex-1 flex flex-col overflow-hidden">
-        @for (slide of slides; track slide.title; let i = $index) {
-        @if (i === currentIndex) {
-        <div class="flex flex-col h-full slide-enter">
-
-            <!-- Illustration Area with SVG Background -->
-            <div class="relative flex-1 flex items-center justify-center overflow-hidden min-h-0 max-h-[55vh]">
-                <!-- SVG Background -->
-                <img [src]="slide.bgSvg" alt="" class="absolute inset-0 w-full h-full object-cover object-center" />
-                <!-- Illustration Image -->
-                <img [src]="slide.image" [alt]="slide.title" class="relative z-10 w-[60vw] max-w-[240px] h-auto max-h-[80%] object-contain" />
-            </div>
-
-            <!-- Bottom Content -->
-            <div class="w-[300px] mx-auto flex flex-col items-center gap-[20px] pb-[80px] z-10" 
-                 style="padding-bottom: calc(80px + env(safe-area-inset-bottom))">
-
-                <!-- Text Block -->
-                <div class="flex flex-col items-center gap-[8px] w-full text-center">
-                    <h2 class="text-[18px] font-medium text-[#5E4DB2] leading-none">
-                        {{ slide.title }}
-                    </h2>
-                    <p class="text-[12px] font-normal leading-[21px] text-[#000000]">
-                        {{ slide.description }}
-                    </p>
-                </div>
-
-                <!-- Dot Indicators -->
-                <div class="flex items-center gap-[8px]">
-                    @for (dot of slides; track dot.title; let j = $index) {
-                    <button (click)="goToSlide(j)" [class]="j === currentIndex
-                                        ? 'h-[6px] w-[24px] rounded-full bg-[#5732EE] transition-all duration-300'
-                                        : 'h-[6px] w-[6px] rounded-full bg-[#5732EE]/20 transition-all duration-300'">
-                    </button>
-                    }
-                </div>
-
-                <!-- Next Button -->
-                <button (click)="next()" class="relative overflow-hidden w-[180px] h-[46px] rounded-full bg-[#3E63DD] text-white text-[18px] font-semibold hover:bg-[#2d52cc] active:scale-95 transition-all duration-200 cursor-pointer flex items-center justify-center">
-                    Next
-                </button>
-
-            </div>
+      <div class="content-section">
+        <div class="text-block">
+          <h2>{{ slide.title }}</h2>
+          <p>{{ slide.description }}</p>
         </div>
-        }
-        }
-    </div>
 
+        <div class="action-block">
+          <div class="dots-wrap">
+            @for (dot of slides; track dot.title; let j = $index) {
+            <button
+              (click)="goToSlide(j)"
+              [class.active-dot]="j === currentIndex"
+              [class.inactive-dot]="j !== currentIndex">
+            </button>
+            }
+          </div>
+
+          <button (click)="next()" class="next-btn btn-primary-gradient">Next</button>
+        </div>
+      </div>
+    </div>
+    } }
+  </div>
 </div>
