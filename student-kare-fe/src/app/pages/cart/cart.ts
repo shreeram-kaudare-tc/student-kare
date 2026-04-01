@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 import { BottomNav } from '../../components/bottom-nav/bottom-nav';
 
 export interface CartItem {
@@ -29,7 +30,7 @@ export class CartPage {
     { id: 4, name: 'Wireless Headphone', price: 65, image: '/images/home/prod-literacy.png', quantity: 1, reviews: 379, wishlisted: false, swipeOffset: 0, swipeStartX: 0 },
   ];
 
-  constructor(public router: Router) {}
+  constructor(public router: Router, private location: Location) {}
 
   get subtotal(): number {
     return this.items.reduce((sum, i) => sum + i.price * i.quantity, 0);
@@ -39,7 +40,7 @@ export class CartPage {
     return this.items.reduce((sum, i) => sum + i.quantity, 0);
   }
 
-  goBack() { this.router.navigate(['/home']); }
+  goBack() { this.location.back(); }
 
   increment(item: CartItem) { item.quantity++; this.closeAllSwipes(item.id); }
   decrement(item: CartItem) { if (item.quantity > 1) item.quantity--; this.closeAllSwipes(item.id); }
