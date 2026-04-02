@@ -70,4 +70,5 @@ export class CartPage {
   }
 
   checkout() { this.router.navigate(['/my-order']); }
+  goHome() { this.router.navigate(['/home']); }
 }

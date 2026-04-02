@@ -3,45 +3,48 @@
     <!-- Scrollable Content -->
     <div class="flex-1 overflow-y-auto pb-[72px]">
 
-        <!-- Gradient Header Block -->
-        <div class="w-full rounded-b-[40px] pt-px pb-px gap-[10px] flex flex-col justify-center min-h-[140px] max-h-[170px]" style="background: linear-gradient(104.94deg, #3E63DD 3.61%, #9A84F5 80.46%);">
+        <!-- Gradient Header Block - Hybrid Adaptive Model (Full on Mobile, Centered on Tablet) -->
+        <div class="w-full rounded-b-[40px] pt-[20px] pb-[16px] flex flex-col justify-center min-h-[140px]" style="background: linear-gradient(104.94deg, #3E63DD 3.61%, #9A84F5 80.46%);">
 
-            <!-- Header Container - Figma Level Density (max-393px centered) -->
-            <div class="px-[20px] w-full max-w-[393px] mx-auto">
-                <div class="flex items-center justify-between min-h-[23px] w-full">
-                    <!-- Header: Hello James! (Figma 18px Medium, 100% leading) -->
-                    <h1 class="text-[18px] font-medium text-white leading-[100%] tracking-[0%] font-jakarta">Hello James!</h1>
+            <!-- Responsive Wrapper: Full width on mobile, max-500px centered on larger screens -->
+            <div class="w-full px-[16px] sm:px-[20px] md:px-[30px] md:max-w-[500px] md:mx-auto flex flex-col gap-[12px]">
+                
+                <!-- Greeting Row (Natural Alignment) -->
+                <div class="flex items-center justify-between w-full">
+                    <!-- Heading: Hello James! (Figma 18px Medium) -->
+                    <h1 class="text-[18px] font-medium text-white leading-none tracking-[-0.3px] font-jakarta truncate">Hello James!</h1>
                     
-                    <!-- Header Icons Group - Figma Frame 1686563856 (49px wide, 10px gap) -->
-                    <div class="flex items-center gap-[10px] w-[49px] h-[20px] justify-end">
-                        <button class="w-[19px] h-[20px] flex items-center justify-center">
-                            <svg width="19" height="17" viewBox="0 0 24 22" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                    <!-- Action Icons (Right Anchored) -->
+                    <div class="flex items-center gap-[10px] flex-shrink-0">
+                        <button class="w-[20px] h-[20px] flex items-center justify-center">
+                            <svg width="20" height="18" viewBox="0 0 24 22" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="heart-icon">
                                 <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                             </svg>
                         </button>
-                        <div (click)="router.navigate(['/login-one'])" class="w-[20px] h-[20px] flex items-center justify-center cursor-pointer">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <div (click)="router.navigate(['/login-one'])" class="w-[22px] h-[22px] rounded-full flex items-center justify-center cursor-pointer bg-white/10 border border-white/20 overflow-hidden">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="p-[2px]">
                                 <path d="M14 8C14 9.06087 13.5786 10.0783 12.8284 10.8284C12.0783 11.5786 11.0609 12 10 12C8.93913 12 7.92172 11.5786 7.17157 10.8284C6.42143 10.0783 6 9.06087 6 8C6 6.93913 6.42143 5.92172 7.17157 5.17157C7.92172 4.42143 8.93913 4 10 4C11.0609 4 12.0783 4.42143 12.8284 5.17157C13.5786 5.92172 14 6.93913 14 8Z" fill="white" />
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.592 19.992C4.2585 19.778 0 15.386 0 10C0 4.477 4.477 0 10 0C15.523 0 20 4.477 20 10C20 15.523 15.523 20 10 20H9.863C9.77233 20 9.682 19.9973 9.592 19.992ZM3.583 16.31C3.50823 16.0953 3.48278 15.8665 3.50854 15.6406C3.5343 15.4147 3.6106 15.1975 3.73179 15.0051C3.85298 14.8128 4.01593 14.6502 4.20856 14.5294C4.40119 14.4086 4.61855 14.3328 4.8445 14.3075C8.7425 13.876 11.2815 13.915 15.1605 14.3165C15.3868 14.3401 15.6046 14.4149 15.7976 14.5354C15.9905 14.6559 16.1534 14.8189 16.2739 15.0119C16.3943 15.2048 16.4691 15.4227 16.4927 15.649C16.5162 15.8753 16.4877 16.1039 16.4095 16.3175C18.0721 14.6355 19.0031 12.365 19 10C19 5.0295 14.9705 1 10 1C5.0295 1 1 5.0295 1 10C1 12.458 1.9855 14.686 3.583 16.31Z" fill="white" />
                             </svg>
                         </div>
                     </div>
                 </div>
-            </div>
- 
-            <!-- Search Bar Container (max-393px centered) -->
-            <div class="px-[20px] w-full max-w-[393px] mx-auto mt-[10px]">
-                <div class="flex items-center gap-[12px] rounded-[12px] h-[46px] pl-[16px] pr-[12px] bg-white shadow-sm w-full">
-                    <input type="text" placeholder="Search for groceries and more" class="flex-1 bg-transparent text-[14px] text-[#1A1C1E] placeholder-[#8F99B3] font-normal outline-none border-none font-jakarta" />
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="11" cy="11" r="8" />
-                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
-                    </svg>
+
+                <!-- Full-Width Search Bar Container -->
+                <div class="w-full mt-[8px]">
+                    <div class="flex items-center w-full gap-[10px] rounded-[14px] min-h-[44px] px-[14px] bg-white shadow-lg">
+                        <input type="text" placeholder="Search for groceries and more" class="flex-1 min-w-0 bg-transparent text-[14px] text-[#1A1C1E] placeholder-[#8F99B3] font-normal outline-none border-none font-jakarta" />
+                        <div class="flex-shrink-0 w-[32px] h-[32px] flex items-center justify-center">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8" />
+                                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                            </svg>
+                        </div>
+                    </div>
                 </div>
+
             </div>
-
         </div>
-
         <!-- Banner Carousel -->
         <div class="px-[20px] mb-[20px] mt-6">
             <div class="relative w-full rounded-[20px] overflow-hidden">
