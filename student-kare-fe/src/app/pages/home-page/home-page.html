@@ -6,18 +6,19 @@
         <!-- Gradient Header Block -->
         <div class="w-full rounded-b-[40px] pt-px pb-px gap-[10px] flex flex-col justify-center min-h-[140px] max-h-[170px]" style="background: linear-gradient(104.94deg, #3E63DD 3.61%, #9A84F5 80.46%);">
 
-            <!-- Header: Hello James! -->
-            <div class="flex items-center justify-between px-[20px]">
-                <h1 class="text-[18px] font-medium text-white leading-[22px] tracking-[0%] font-jakarta">Hello James!</h1>
-                <div class="flex items-center gap-[10px]">
-                    <!-- Heart icon -->
-                    <button class="w-[26px] h-[26px] flex items-center justify-center">
-                        <svg width="22" height="20" viewBox="0 0 24 22" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <!-- Header: Hello James! (Figma 18px Medium, 100% leading) -->
+            <div class="flex items-center justify-between px-[20px] w-full max-w-[393px] mx-auto min-h-[23px]">
+                <h1 class="text-[18px] font-medium text-white leading-[100%] tracking-[0%] font-jakarta">Hello James!</h1>
+                <!-- Header Icons Group - Figma Frame 1686563856 (49px wide, 10px gap) -->
+                <div class="flex items-center gap-[10px] w-[49px] h-[20px] justify-end">
+                    <!-- Wishlist/Heart Icon (19x17) -->
+                    <button class="w-[19px] h-[20px] flex items-center justify-center">
+                        <svg width="19" height="17" viewBox="0 0 24 22" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
                             <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
                         </svg>
                     </button>
-                    <!-- Avatar -->
-                    <div class="w-[26px] h-[26px] rounded-full bg-opacity-30 flex items-center justify-center">
+                    <!-- Profile Icon - Figma Frame 1686563783 (20x20, Nav to Login 1) -->
+                    <div (click)="router.navigate(['/login-one'])" class="w-[20px] h-[20px] flex items-center justify-center cursor-pointer">
                         <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M14 8C14 9.06087 13.5786 10.0783 12.8284 10.8284C12.0783 11.5786 11.0609 12 10 12C8.93913 12 7.92172 11.5786 7.17157 10.8284C6.42143 10.0783 6 9.06087 6 8C6 6.93913 6.42143 5.92172 7.17157 5.17157C7.92172 4.42143 8.93913 4 10 4C11.0609 4 12.0783 4.42143 12.8284 5.17157C13.5786 5.92172 14 6.93913 14 8Z" fill="white" />
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -78,9 +79,9 @@
             <img src="/images/home/promo-xmas.png" alt="Promo Code" class="w-full object-contain" />
         </div>
 
-        <!-- You may also like -->
+        <!-- You may also like: Figma 14px Medium Plus Jakarta Sans, 20px leading -->
         <div class="mb-[16px]">
-            <h2 class="text-[15px] font-bold text-[#1A1C1E] px-[20px] mb-[12px]">You may also like</h2>
+            <h2 class="text-[14px] font-medium text-black px-[20px] mb-[12px] leading-[20px] font-jakarta">You may also like</h2>
             <div class="flex gap-[12px] px-[20px] overflow-x-auto scrollbar-hide pb-[4px]">
                 @for (item of youMayAlsoLike; track item.label) {
                 <div class="flex-shrink-0 w-[150px] h-[150px] rounded-[16px] overflow-hidden cursor-pointer">
