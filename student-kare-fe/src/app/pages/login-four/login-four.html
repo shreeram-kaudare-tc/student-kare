@@ -37,8 +37,8 @@
             </div>
 
             <!-- Mobile Number -->
-            <div class="flex flex-col gap-[6px]">
-                <label class="block text-[12px] font-normal leading-[18px] text-[#1A1C1E]">Mobile Number</label>
+            <div class="flex flex-col gap-[10px]">
+                <label class="block text-[12px] font-normal leading-[18px] text-[#6C7278]">Mobile Number</label>
                 <app-input-field type="text" placeholder="Enter your mobile number" [(ngModel)]="mobileNumber" class="w-full">
                 </app-input-field>
             </div>
@@ -46,7 +46,7 @@
             <!-- Login Button + Register link -->
             <div class="flex flex-col gap-[24px]">
                 <div class="flex justify-center items-center">
-                    <app-button variant="primary" size="lg" [fullWidth]="true" (click)="sendOtp()">Send OTP</app-button>
+                    <app-button variant="primary" size="lg" [fullWidth]="false" (click)="sendOtp()">Send OTP</app-button>
                 </div>
 
                 <p class="text-[12px] leading-[16.8px] text-[#6C7278] text-center font-medium tracking-[-0.01em]">

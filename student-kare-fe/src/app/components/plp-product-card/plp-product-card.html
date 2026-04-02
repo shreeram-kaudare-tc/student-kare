@@ -1,4 +1,4 @@
-<div class="relative flex flex-col bg-white rounded-[8px] border border-[#EAEAEA] overflow-hidden w-full"
+<div class="relative flex flex-col bg-white rounded-[2px] border border-[#EAEAEA] overflow-hidden w-full"
      style="padding: 5px 6px; gap: 7px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
 
   <!-- Wishlist heart -->
@@ -9,37 +9,38 @@
     </svg>
   </button>
 
-  <!-- Product image container -->
-  <div class="w-full bg-[#E2E8F0] rounded-[6px] flex items-center justify-center overflow-hidden aspect-square">
-    <img [src]="product.image" [alt]="product.name" class="object-contain w-full h-full" />
+  <!-- Product image container - Fixed Figma size 119x101, filling the space -->
+  <div class="w-[119px] h-[101px] rounded-[2px] flex items-center justify-center overflow-hidden mx-auto">
+    <img [src]="product.image" [alt]="product.name" class="object-cover w-full h-full" />
   </div>
 
-  <!-- Product name -->
-  <p class="text-[10px] font-medium text-[#1A1C1E] leading-[14px] line-clamp-2 px-[2px]">
+  <!-- Product name - Center aligned with fixed height -->
+  <p class="text-[10px] font-medium text-[#1A1C1E] leading-[14px] line-clamp-2 px-[2px] h-[28px] mb-[2px] text-center">
     {{ product.name }}
   </p>
 
-  <!-- Price + Add button -->
-  <div class="flex items-center justify-between px-[2px] mt-auto">
-    <span class="text-[12px] font-bold text-[#3E63DD]">Rs. {{ product.price }}</span>
+  <!-- Price + Add button - Responsive Footer -->
+  <div class="flex items-center justify-between px-[2px] mt-auto h-[32px] gap-[4px]">
+    <div class="flex-shrink-0 flex items-center">
+      <span class="text-[12px] font-bold text-[#3E63DD] leading-none whitespace-nowrap">Rs. {{ product.price }}</span>
+    </div>
     
-    <div class="h-[24px] w-[60px]">
+    <div class="flex-1 h-[32px] min-w-0">
       @if (!product.quantity) {
-        <button (click)="onAdd($event)" class="w-full h-full rounded-full border border-[#3E63DD] bg-white text-[#3E63DD] text-[10px] font-medium flex items-center justify-center gap-[4px] cursor-pointer hover:bg-blue-50 active:scale-95 transition-all">
-          Add
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle>
-            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-          </svg>
+        <button (click)="onAdd($event)" class="w-full h-full rounded-full btn-primary-gradient text-white text-[9px] font-semibold flex items-center justify-center cursor-pointer active:scale-95 transition-all leading-[32px] whitespace-nowrap px-2">
+          Add To Cart
         </button>
       } @else {
         <div class="w-full h-full rounded-full bg-[#3E63DD] text-white flex items-center justify-between px-[6px] shadow-sm select-none">
-          <button (click)="onDecrease($event)" class="text-[14px] font-medium cursor-pointer w-[14px] flex justify-center items-center h-full active:opacity-70">&minus;</button>
-          <span class="text-[12px] font-medium tracking-tight">{{ product.quantity }}</span>
-          <button (click)="onIncrease($event)" class="text-[14px] font-medium cursor-pointer w-[14px] flex justify-center items-center h-full active:opacity-70">+</button>
+          <button (click)="onDecrease($event)" class="text-[14px] font-medium cursor-pointer w-[14px] flex justify-center items-center h-full active:opacity-70 leading-none">&minus;</button>
+          <span class="text-[11px] font-medium tracking-tight leading-none text-center flex-1">{{ product.quantity }}</span>
+          <button (click)="onIncrease($event)" class="text-[14px] font-medium cursor-pointer w-[14px] flex justify-center items-center h-full active:opacity-70 leading-none">+</button>
         </div>
       }
     </div>
   </div>
+
+
+
 
 </div>

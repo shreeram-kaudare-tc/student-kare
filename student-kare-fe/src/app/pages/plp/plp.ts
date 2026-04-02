@@ -49,7 +49,7 @@ export class PlpPage implements OnInit {
   products: PlpProduct[] = [
     { id: 1, name: 'VIBGYOR High Primary and Secondar Red', price: 600, image: 'images/home/prod-reebok.png', quantity: 0 },
     { id: 2, name: 'Foundational Literacy (Edition 24–25)', price: 400, image: 'images/home/prod-literacy.png', quantity: 0 },
-    { id: 3, name: 'War Engine Mechanical', price: 800, image: 'images/home/prod-war-engine.png', quantity: 0 },
+    { id: 3, name: 'VIBGYOR High Primary and Secondar Red (Edition 24-25)....', price: 800, image: 'images/home/prod-war-engine.png', quantity: 0 },
     { id: 4, name: 'Eco-Friendly School Bag', price: 1200, image: 'images/home/cat-bag.png', quantity: 0 },
     { id: 5, name: 'Cotton Uniform Shirt', price: 300, image: 'images/home/cat-shirt.png', quantity: 0 },
     { id: 6, name: 'Standard School Uniform', price: 600, image: 'images/home/cat-shirt.png', quantity: 0 },

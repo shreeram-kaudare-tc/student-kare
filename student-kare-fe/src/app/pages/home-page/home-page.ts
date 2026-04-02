@@ -2,10 +2,11 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { BottomNav } from '../../components/bottom-nav/bottom-nav';
+import { PlpProductCard } from '../../components/plp-product-card/plp-product-card';
 
 @Component({
   selector: 'app-home-page',
-  imports: [CommonModule, BottomNav],
+  imports: [CommonModule, BottomNav, PlpProductCard],
   templateUrl: './home-page.html',
   styleUrl: './home-page.css',
 })
@@ -44,9 +45,9 @@ export class HomePage implements OnInit, OnDestroy {
   ];
 
   products = [
-    { name: 'VIBGYOR High Primary and Secondar Red (Edition 24-25)....', image: '/images/home/prod-literacy.png', price: 600 },
-    { name: 'VIBGYOR High Primary and Secondar Red (Edition 24-25)....', image: '/images/home/prod-reebok.png', price: 600 },
-    { name: 'War Engine Kit', image: '/images/home/prod-war-engine.png', price: 400 },
+    { id: 101, name: 'VIBGYOR High Primary and Secondar Red (Edition 24-25)....', image: '/images/home/prod-literacy.png', price: 600, quantity: 0 },
+    { id: 102, name: 'VIBGYOR High Primary and Secondar Red (Edition 24-25)....', image: '/images/home/prod-reebok.png', price: 600, quantity: 0 },
+    { id: 103, name: 'VIBGYOR High Primary and Secondar Red (Edition 24-25)....', image: '/images/home/prod-war-engine.png', price: 400, quantity: 0 },
   ];
 
   constructor(public router: Router) { }

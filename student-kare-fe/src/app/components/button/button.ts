@@ -6,7 +6,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './button.html',
   styleUrl: './button.css',
-  host: { style: 'display: block; width: 100%;' },
+  host: { style: 'display: inline-block;' },
 })
 export class Button {
   @Input() label: string = '';
@@ -23,7 +23,7 @@ export class Button {
     const sizes: Record<string, string> = {
       sm: 'px-4 h-10 text-sm',
       md: 'px-6 h-[50px] text-sm',
-      lg: 'px-8 h-14 text-base',
+      lg: 'px-[25px] h-[48px] text-[18px] font-semibold leading-[48px]',
     };
 
     const variants: Record<string, string> = {
@@ -33,7 +33,7 @@ export class Button {
       ghost: 'text-[#3E63DD] hover:bg-blue-50',
     };
 
-    const width = this.fullWidth ? 'w-full' : '';
+    const width = this.fullWidth ? 'w-full' : (this.size === 'lg' ? 'w-[186px]' : '');
     const dis = this.disabled || this.loading ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer';
 
     return [base, sizes[this.size], variants[this.variant], width, dis].join(' ');
