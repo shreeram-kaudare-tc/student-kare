@@ -1,112 +1,117 @@
-<div class="h-full bg-white flex flex-col overflow-hidden">
+<div class="h-[100dvh] w-full bg-white flex flex-col overflow-hidden font-jakarta">
 
-  <!-- Scrolling Product Images -->
-  <div class="relative overflow-hidden flex-shrink-0 image-rows-container">
-    <div class="absolute top-0 left-0 right-0 z-10 h-8 bg-gradient-to-b from-white to-transparent"></div>
-    <div class="absolute bottom-0 left-0 right-0 z-10 h-12 bg-gradient-to-t from-white to-transparent"></div>
-    <div class="flex flex-col gap-2 py-2 h-full justify-center">
+  <!-- Scrollable Content Container: Stacks vertically on mobile, switches to horizontal on large screens/landscape -->
+  <div class="flex-1 overflow-y-auto flex flex-col lg:flex-row lg:items-center">
 
-      <!-- Row 1 scroll left -->
-      <div class="overflow-hidden w-full">
-        <div class="marquee-track scroll-left">
-          @for(item of row1; track item.name) {
-          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
-            <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
+    <!-- Left/Top Section: Scrolling Gallery -->
+    <div class="relative overflow-hidden flex-shrink-0 image-rows-container lg:w-1/2 lg:py-0">
+      <div class="absolute top-0 left-0 right-0 z-10 h-8 bg-gradient-to-b from-white to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 z-10 h-12 bg-gradient-to-t from-white to-transparent"></div>
+      <div class="flex flex-col gap-[12px]">
+
+        <!-- Row 1 scroll left -->
+        <div class="overflow-hidden w-full row-height">
+          <div class="marquee-track scroll-left">
+            @for(item of row1; track item.name) {
+            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+              <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
+            </div>
+            }
+            @for(item of row1; track item.name) {
+            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+              <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
+            </div>
+            }
+            @for(item of row1; track item.name) {
+            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+              <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
+            </div>
+            }
           </div>
-          }
-          @for(item of row1; track item.name) {
-          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
-            <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
-          </div>
-          }
-          @for(item of row1; track item.name) {
-          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
-            <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
-          </div>
-          }
         </div>
-      </div>
 
-      <!-- Row 2 scroll right -->
-      <div class="overflow-hidden w-full">
-        <div class="marquee-track scroll-right">
-          @for(item of row2; track item.name) {
-          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
-            <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
+        <!-- Row 2 scroll right -->
+        <div class="overflow-hidden w-full row-height">
+          <div class="marquee-track scroll-right">
+            @for(item of row2; track item.name) {
+            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+              <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
+            </div>
+            }
+            @for(item of row2; track item.name) {
+            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+              <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
+            </div>
+            }
+            @for(item of row2; track item.name) {
+            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+              <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
+            </div>
+            }
           </div>
-          }
-          @for(item of row2; track item.name) {
-          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
-            <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
-          </div>
-          }
-          @for(item of row2; track item.name) {
-          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
-            <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
-          </div>
-          }
         </div>
-      </div>
 
-      <!-- Row 3 scroll left -->
-      <div class="overflow-hidden w-full">
-        <div class="marquee-track scroll-left">
-          @for(item of row3; track item.name) {
-          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
-            <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
+        <!-- Row 3 scroll left -->
+        <div class="overflow-hidden w-full row-height">
+          <div class="marquee-track scroll-left">
+            @for(item of row3; track item.name) {
+            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+              <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
+            </div>
+            }
+            @for(item of row3; track item.name) {
+            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+              <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
+            </div>
+            }
+            @for(item of row3; track item.name) {
+            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+              <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
+            </div>
+            }
           </div>
-          }
-          @for(item of row3; track item.name) {
-          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
-            <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
-          </div>
-          }
-          @for(item of row3; track item.name) {
-          <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
-            <img [src]="item.img" [alt]="item.name" class="w-full h-full object-cover" />
-          </div>
-          }
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  <!-- Bottom: Logo + Card -->
-  <div class="flex-1 flex flex-col items-center justify-center px-4 pb-4">
-
-    <!-- Logo -->
-    <div class="flex flex-col items-center mb-4">
-      <div class="flex items-baseline">
-        <span class="text-2xl font-bold text-[#3E63DD]">Student</span>
-        <span class="text-2xl font-bold text-[#F15A24]">Kare<sup class="text-[10px] font-normal align-super">®</sup></span>
-      </div>
-      <p class="text-xs text-gray-400 mt-1">Broaden your child's horizon</p>
-    </div>
-
-    <!-- White Card -->
-    <div class="w-full max-w-[360px] rounded-3xl p-5 bg-white shadow-lg border border-gray-100">
-      <div class="flex flex-col gap-3">
-
-        <!-- Log In with Vibgyor -->
-        <app-button variant="primary" [fullWidth]="true" (click)="loginWithVibgyor()">
-          Log In <span class="font-bold ml-1">with Vibgyor</span>
-        </app-button>
-
-        <!-- Log In without Vibgyor -->
-        <app-button variant="outline" [fullWidth]="true" (click)="loginWithoutVibgyor()">
-          Log In <span class="font-bold ml-1">without Vibgyor</span>
-        </app-button>
-
-        <!-- or login with phone number -->
-        <div class="flex justify-center pt-1">
-          <button (click)="loginWithPhone()" class="text-sm text-[#269237] no-underline hover:underline hover:underline-offset-2 transition-all">
-            or login with phone number
-          </button>
         </div>
 
       </div>
     </div>
+
+    <!-- Right/Bottom Section: Auth Center (Logo + Card) -->
+    <div class="flex-1 flex flex-col items-center justify-start lg:justify-center px-4 pb-12 mt-12 lg:mt-0 lg:w-1/2 min-h-fit">
+
+      <!-- Logo -->
+      <div class="flex flex-col items-center mb-8">
+        <div class="flex items-baseline">
+          <span class="text-2xl font-bold text-[#3E63DD]">Student</span>
+          <span class="text-2xl font-bold text-[#F15A24]">Kare<sup class="text-[10px] font-normal align-super">®</sup></span>
+        </div>
+        <p class="text-xs text-gray-400 mt-1">Broaden your child's horizon</p>
+      </div>
+
+      <!-- White Card -->
+      <div class="w-full max-w-[360px] rounded-3xl p-5 bg-white shadow-lg border border-gray-100">
+        <div class="flex flex-col gap-3">
+
+          <!-- Log In with Vibgyor -->
+          <app-button variant="primary" [fullWidth]="true" (click)="loginWithVibgyor()">
+            Log In <span class="font-bold ml-1">with Vibgyor</span>
+          </app-button>
+
+          <!-- Log In without Vibgyor -->
+          <app-button variant="outline" [fullWidth]="true" (click)="loginWithoutVibgyor()">
+            Log In <span class="font-bold ml-1">without Vibgyor</span>
+          </app-button>
+
+          <!-- or login with phone number -->
+          <div class="flex justify-center pt-1">
+            <button (click)="loginWithPhone()" class="text-sm text-[#269237] no-underline hover:underline hover:underline-offset-2 transition-all">
+              or login with phone number
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </div>

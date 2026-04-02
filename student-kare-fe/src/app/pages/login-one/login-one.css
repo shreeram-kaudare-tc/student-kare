@@ -1,22 +1,28 @@
-/* Image rows container - takes up ~45% of screen */
+/* Image rows container — auto-sizes to fit 3 rows */
 .image-rows-container {
-  height: 42vh;
-  min-height: 220px;
-  max-height: 370px;
+  flex-shrink: 0;
+  padding: 12px 0;
 }
 
-/* Responsive product image cards */
+/* Each row wrapper: explicit height to match Figma's 121px container height */
+.row-height {
+  height: 121px;
+  display: flex;
+  align-items: center;
+}
+
+/* Responsive product image cards: 106px wide x 112px tall with 10px padding */
 .product-img-card {
-  width: 26vw;
-  height: 26vw;
-  max-width: 110px;
-  max-height: 110px;
+  width: 106px;
+  height: 112px;
+  padding: 10px;
+  flex-shrink: 0;
 }
 
-/* Scrolling marquee rows */
+/* Scrolling marquee rows: 12px gap per Figma */
 .marquee-track {
   display: flex;
-  gap: 8px;
+  gap: 12px;
   width: max-content;
 }
 

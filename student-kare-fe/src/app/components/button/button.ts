@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
   imports: [CommonModule],
   templateUrl: './button.html',
   styleUrl: './button.css',
+  host: { style: 'display: block; width: 100%;' },
 })
 export class Button {
   @Input() label: string = '';

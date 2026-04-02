@@ -27,7 +27,7 @@ button, a {
 }
 
 .btn-primary-gradient {
-  background: linear-gradient(135deg, #795BF1 0%, #5732EE 100%);
+  background: linear-gradient(90deg, rgba(91, 81, 232, 1) 0%, rgba(62, 99, 221, 1) 50%, rgba(121, 91, 241, 1) 100%);
   box-shadow: 0px 4px 12px rgba(87, 50, 238, 0.28);
 }
 
