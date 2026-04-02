@@ -1,7 +1,8 @@
 /* Image rows container — auto-sizes based on children */
 .image-rows-container {
   flex-shrink: 0;
-  padding: clamp(12px, 3vh, 24px) 0;
+  padding-top: clamp(12px, 3vh, 24px);
+  padding-bottom: clamp(4px, 0.5vh, 12px);
   width: 100%;
   overflow-x: hidden;
 }

@@ -63,32 +63,40 @@
     </div>
 
     <!-- Right/Bottom Section: Auth Center (Logo + Card) -->
-    <div class="flex-1 flex flex-col items-center justify-center px-[5vw] py-[2vh] lg:py-0 lg:w-1/2 min-h-fit auth-section">
+    <div class="flex-1 flex flex-col items-center justify-center px-4 pt-[0.5vh] pb-[2vh] lg:py-0 lg:w-1/2 min-h-fit auth-section">
 
-      <div class="w-full flex flex-col items-center max-w-[420px] gap-[clamp(8px,2vh,24px)]">
-        <!-- Logo -->
-        <div class="flex flex-col items-center mb-[1vh]">
-            <div class="flex items-baseline gap-[4px]">
-                <span class="text-[clamp(22px,6vw,32px)] font-bold text-[#3E63DD]">Student</span>
-                <span class="text-[clamp(22px,6vw,32px)] font-bold text-[#F15A24]">Kare<sup class="text-[10px] font-semibold align-super">&#174;</sup></span>
+      <!-- Balanced container with 18px gap as per Figma -->
+      <div class="w-full flex flex-col items-center gap-[18px]">
+        
+        <!-- Logo Section - Figma Fixed 172.79px width -->
+        <div class="w-[172.79px] flex flex-col items-center gap-[4px]">
+            <div class="flex items-baseline gap-[3.5px] leading-tight">
+                <span class="text-[24px] font-bold text-[#3E63DD] tracking-tight">Student</span>
+                <span class="text-[24px] font-bold text-[#F15A24] tracking-tight">Kare<sup class="text-[8px] font-semibold align-super">&#174;</sup></span>
             </div>
-            <p class="text-[clamp(11px,2.5vw,13px)] text-[#8F99B3]">Broaden your child's horizon</p>
+            <p class="text-[11px] text-[#808080] font-medium leading-none whitespace-nowrap">Broaden your child's horizon</p>
         </div>
 
-        <!-- Main Card Section -->
-        <div class="w-full bg-white rounded-[clamp(16px,5vw,30px)] border border-[#E9EAF2] shadow-[0_20px_38px_rgba(24,25,70,0.16)] px-[6vw] sm:px-[20px] py-[clamp(20px,6vh,40px)] gap-[clamp(16px,4vh,32px)] flex flex-col">
+        <!-- Auth Card - Figma Fixed 350px width -->
+        <div class="w-full max-w-[350px] bg-white rounded-[30px] border border-[#E9EAF2] shadow-[0_20px_38px_rgba(24,25,70,0.16)] flex flex-col overflow-hidden">
             
-            <div class="flex flex-col gap-[clamp(12px,3vh,20px)]">
-                <app-button variant="primary" [fullWidth]="true" (click)="loginWithVibgyor()">
-                    Log In <span class="font-bold ml-1">with Vibgyor</span>
-                </app-button>
+            <!-- Buttons Area - Figma Frame 1686563795 (Fixed 200px height, 59px/26px padding) -->
+            <div class="flex flex-col items-center px-[59px] py-[26px] min-h-[200px] justify-center gap-[15px]">
+                
+                <!-- Primary Actions Group - Figma Frame 1686563794 (219px wide, 10px gap) -->
+                <div class="w-[219px] flex flex-col gap-[10px]">
+                    <app-button variant="primary" size="lg" [fullWidth]="true" (click)="loginWithVibgyor()">
+                        Log In <span class="font-bold ml-1">with Vibgyor</span>
+                    </app-button>
 
-                <app-button variant="outline" [fullWidth]="true" (click)="loginWithoutVibgyor()">
-                    Log In <span class="font-bold ml-1">without Vibgyor</span>
-                </app-button>
+                    <app-button variant="outline" size="lg" [fullWidth]="true" (click)="loginWithoutVibgyor()">
+                        Log In <span class="font-bold ml-1">without Vibgyor</span>
+                    </app-button>
+                </div>
 
-                <div class="flex justify-center pt-2">
-                    <button (click)="loginWithPhone()" class="text-sm text-[#269237] font-medium transition-all hover:opacity-80">
+                <!-- Secondary Action - Figma Fixed 219px width, 14px Poppins (Regular), -0.3px spacing -->
+                <div class="w-[219px] flex justify-center mt-1">
+                    <button (click)="loginWithPhone()" class="text-[14px] text-[#269237] font-normal leading-[100%] tracking-[-0.3px] transition-all hover:opacity-80 whitespace-nowrap">
                         or login with phone number
                     </button>
                 </div>

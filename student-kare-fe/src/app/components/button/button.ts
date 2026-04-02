@@ -18,12 +18,12 @@ export class Button {
   @Input() type: 'button' | 'submit' = 'button';
 
   get classes(): string {
-    const base = 'inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 focus:outline-none active:scale-95';
+    const base = 'inline-flex items-center justify-center font-semibold rounded-full transition-all duration-200 focus:outline-none active:scale-95 whitespace-nowrap';
 
     const sizes: Record<string, string> = {
       sm: 'px-4 h-10 text-sm',
-      md: 'px-6 h-[50px] text-sm',
-      lg: 'px-[25px] h-[48px] text-[18px] font-semibold leading-[48px]',
+      md: 'px-[20px] h-[48px] text-[14px] font-medium leading-[48px]',
+      lg: 'px-[25px] h-[48px] text-[16px] font-semibold leading-[48px]',
     };
 
     const variants: Record<string, string> = {
