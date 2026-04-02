@@ -50,19 +50,24 @@
         </div>
 
         <!-- Content box: Width Fill(207px), Height Hug(77px), Gap 21px -->
-        <div class="flex flex-col flex-1 w-[207px] gap-[21px]">
+        <div class="flex flex-col flex-1 gap-[21px]">
 
           <!-- Text group: name + size/qty, Width Fill(207px), Height Hug(20px), Gap 4px -->
-          <div class="flex flex-col w-full gap-[4px] min-h-[20px]">
-            <p class="text-[14px] font-medium text-[#000000] leading-[20px] truncate w-full">
+          <div class="flex flex-col h-[40px] gap-[7px]">
+            <p class="text-[14px] font-medium text-[#000000] leading-[20px] truncate h-[20px]">
               {{ order.name }}
             </p>
-            <div class="flex items-center gap-[16px]">
-              <span class="text-[10px] text-[#6C6C6C]">Size: {{ order.size }}</span>
-              <span class="text-[10px] text-[#6C6C6C]">Quantity: {{ order.quantity }}</span>
+            <div class="flex items-center h-[13px] gap-[20px]">
+              <div class="flex gap-[2px]">
+                <span class="text-[10px] font-normal text-[#6C6C6C] leading-none truncate">Size : </span>
+                <span class="text-[10px] font-normal text-[#6C6C6C] leading-none truncate"> {{ order.size }}</span>
+              </div>
+              <div class="flex gap-[2px]">
+                <span class="text-[10px] font-normal text-[#6C6C6C] leading-none truncate">Quantity : </span>
+                <span class="text-[10px] font-normal text-[#6C6C6C] leading-none truncate"> {{ order.quantity }}</span>
+              </div>
             </div>
           </div>
-
           <!-- Price + Track Order button -->
           <div class="flex items-center gap-[34px]">
             <div class="w-[54px] h-[18px] gap-[10px] flex items-center">
