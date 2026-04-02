@@ -37,10 +37,7 @@
           }
 
           <!-- Image Circle Container (60x60) -->
-          <div class="relative flex items-center justify-center z-10 rounded-full transition-shadow"
-               [style.background]="i !== activeCategory ? 'rgba(238, 234, 253, 1)' : 'transparent'"
-               [style.box-shadow]="i === activeCategory ? 'none' : '0px 1px 3px rgba(0,0,0,0.08)'"
-               style="width: 60px; height: 60px; min-height: 60px;">
+          <div class="relative flex items-center justify-center z-10 rounded-full transition-shadow" [style.background]="i !== activeCategory ? 'rgba(238, 234, 253, 1)' : 'transparent'" [style.box-shadow]="i === activeCategory ? 'none' : '0px 1px 3px rgba(0,0,0,0.08)'" style="width: 60px; height: 60px; min-height: 60px;">
             <img [src]="cat.image" [alt]="cat.label" class="w-[51px] h-[51px] object-contain" />
           </div>
 
@@ -57,7 +54,7 @@
 
       <!-- Filter Chips Row (Responsive wrap, no scroll) -->
       <div class="flex-shrink-0 flex items-start justify-between px-[10px] py-[10px] bg-white border-b border-[#F0F0F0]">
-        <div class="flex flex-wrap items-center gap-[4px] flex-1">
+        <div class="flex overflow-x-auto items-center gap-[4px] flex-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           @for (f of filters; track f) {
           <app-category-chip [label]="f" [active]="activeFilter === f" (chipClick)="selectFilter($event)" class="shrink-0">
           </app-category-chip>

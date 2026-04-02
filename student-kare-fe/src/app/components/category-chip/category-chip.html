@@ -1,9 +1,6 @@
-<button
-  (click)="onClick()"
-  [class]="'h-[28px] px-[11px] rounded-full text-[11px] font-medium transition-all whitespace-nowrap border ' +
+<button (click)="onClick()" [class]="'h-[22px] px-[10px] rounded-[16px] text-[12px] font-normal leading-[100%] transition-all whitespace-nowrap font-jakarta ' +
     (active
-      ? 'bg-[#5732EE] text-white border-[#5732EE]'
-      : 'bg-white text-[#5732EE] border-[#5732EE]')"
->
+      ? 'bg-[#5732EE] text-white border-none'
+      : 'bg-[#FBFCFE] text-[#5732EE] border-[0.5px] border-[#5732EE]')">
   {{ label }}
 </button>
