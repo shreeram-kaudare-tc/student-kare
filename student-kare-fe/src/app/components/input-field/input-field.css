@@ -1,0 +1,5 @@
+input[type="password"] {
+  -webkit-text-security: asterisk !important;
+  letter-spacing: 0.2em;
+  font-family: inherit;
+}

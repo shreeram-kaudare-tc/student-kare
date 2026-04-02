@@ -30,3 +30,11 @@ button, a {
   background: linear-gradient(135deg, #795BF1 0%, #5732EE 100%);
   box-shadow: 0px 4px 12px rgba(87, 50, 238, 0.28);
 }
+
+/* Force asterisks instead of dots for password fields */
+input[type="password"],
+.otp-field input {
+  -webkit-text-security: asterisk !important;
+  text-security: asterisk !important;
+  letter-spacing: 0.15em !important;
+}

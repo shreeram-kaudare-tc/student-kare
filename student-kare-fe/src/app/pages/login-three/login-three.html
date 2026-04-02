@@ -46,7 +46,7 @@
             <!-- OTP -->
             <div class="flex flex-col gap-[6px]">
                 <label class="block text-[12px] font-normal leading-[18px] text-[#1A1C1E]"> OTP</label>
-                <app-input-field type="password" placeholder="Enter OTP" [(ngModel)]="otp" class="w-full">
+                <app-input-field type="password" placeholder="Enter OTP" [(ngModel)]="otp" class="w-full" [isOtp]="true">
                 </app-input-field>
 
                 <!-- Resend OTP -->
