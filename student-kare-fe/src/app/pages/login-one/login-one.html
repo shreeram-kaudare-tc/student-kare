@@ -1,29 +1,26 @@
-<div class="h-[100dvh] w-full bg-white flex flex-col overflow-hidden font-jakarta">
+<div class="min-h-screen h-[100dvh] w-full bg-white flex flex-col overflow-hidden font-jakarta">
 
-  <!-- Scrollable Content Container: Stacks vertically on mobile, switches to horizontal on large screens/landscape -->
+  <!-- Scrollable Content Container: Stacks vertically on mobile, switches to horizontal on large screens -->
   <div class="flex-1 overflow-y-auto flex flex-col lg:flex-row lg:items-center">
 
-    <!-- Left/Top Section: Scrolling Gallery -->
-    <div class="relative overflow-hidden flex-shrink-0 image-rows-container lg:w-1/2 lg:py-0">
-      <div class="absolute top-0 left-0 right-0 z-10 h-8 bg-gradient-to-b from-white to-transparent"></div>
-      <div class="absolute bottom-0 left-0 right-0 z-10 h-12 bg-gradient-to-t from-white to-transparent"></div>
-      <div class="flex flex-col gap-[12px]">
+    <!-- Left/Top Section: Scrolling Gallery (Responsive height/width) -->
+    <div class="relative overflow-hidden flex-shrink-0 image-rows-container lg:w-1/2 lg:h-[100dvh] lg:flex lg:flex-col lg:justify-center">
+      <div class="absolute top-0 left-0 right-0 z-10 h-[clamp(20px,5vh,60px)] bg-gradient-to-b from-white to-transparent"></div>
+      <div class="absolute bottom-0 left-0 right-0 z-10 h-[clamp(30px,8vh,80px)] bg-gradient-to-t from-white to-transparent"></div>
+      
+      <div class="flex flex-col gap-[clamp(8px,2vh,20px)] w-full">
 
         <!-- Row 1 scroll left -->
         <div class="overflow-hidden w-full row-height">
           <div class="marquee-track scroll-left">
-            @for(item of row1; track item.name) {
-            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+            @for(item of row1; track item.name + $index) {
+            <div class="product-img-card rounded-[2.5vw] lg:rounded-[1.5vw] bg-[#F7F9FA] shadow-[1px_2px_8px_rgba(0,0,0,0.03)] hover:scale-105 transition-transform">
               <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
             </div>
             }
-            @for(item of row1; track item.name) {
-            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
-              <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
-            </div>
-            }
-            @for(item of row1; track item.name) {
-            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+            <!-- Repeat for seamless scroll -->
+            @for(item of row1; track item.name + $index + '-dup') {
+            <div class="product-img-card rounded-[2.5vw] lg:rounded-[1.5vw] bg-[#F7F9FA]">
               <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
             </div>
             }
@@ -33,18 +30,13 @@
         <!-- Row 2 scroll right -->
         <div class="overflow-hidden w-full row-height">
           <div class="marquee-track scroll-right">
-            @for(item of row2; track item.name) {
-            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+            @for(item of row2; track item.name + $index) {
+            <div class="product-img-card rounded-[2.5vw] lg:rounded-[1.5vw] bg-[#F7F9FA] shadow-[1px_2px_8px_rgba(0,0,0,0.03)] hover:scale-105 transition-transform">
               <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
             </div>
             }
-            @for(item of row2; track item.name) {
-            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
-              <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
-            </div>
-            }
-            @for(item of row2; track item.name) {
-            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+            @for(item of row2; track item.name + $index + '-dup') {
+            <div class="product-img-card rounded-[2.5vw] lg:rounded-[1.5vw] bg-[#F7F9FA]">
               <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
             </div>
             }
@@ -54,18 +46,13 @@
         <!-- Row 3 scroll left -->
         <div class="overflow-hidden w-full row-height">
           <div class="marquee-track scroll-left">
-            @for(item of row3; track item.name) {
-            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+            @for(item of row3; track item.name + $index) {
+            <div class="product-img-card rounded-[2.5vw] lg:rounded-[1.5vw] bg-[#F7F9FA] shadow-[1px_2px_8px_rgba(0,0,0,0.03)] hover:scale-105 transition-transform">
               <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
             </div>
             }
-            @for(item of row3; track item.name) {
-            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
-              <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
-            </div>
-            }
-            @for(item of row3; track item.name) {
-            <div class="product-img-card rounded-[20px] bg-[#F7F9FA] overflow-hidden flex-shrink-0">
+            @for(item of row3; track item.name + $index + '-dup') {
+            <div class="product-img-card rounded-[2.5vw] lg:rounded-[1.5vw] bg-[#F7F9FA]">
               <img [src]="item.img" [alt]="item.name" class="w-full h-full object-contain" />
             </div>
             }
@@ -76,38 +63,36 @@
     </div>
 
     <!-- Right/Bottom Section: Auth Center (Logo + Card) -->
-    <div class="flex-1 flex flex-col items-center justify-start lg:justify-center px-4 pb-12 mt-12 lg:mt-0 lg:w-1/2 min-h-fit">
+    <div class="flex-1 flex flex-col items-center justify-center px-[5vw] py-[2vh] lg:py-0 lg:w-1/2 min-h-fit auth-section">
 
-      <!-- Logo -->
-      <div class="flex flex-col items-center mb-8">
-        <div class="flex items-baseline">
-          <span class="text-2xl font-bold text-[#3E63DD]">Student</span>
-          <span class="text-2xl font-bold text-[#F15A24]">Kare<sup class="text-[10px] font-normal align-super">®</sup></span>
+      <div class="w-full flex flex-col items-center max-w-[420px] gap-[clamp(8px,2vh,24px)]">
+        <!-- Logo -->
+        <div class="flex flex-col items-center mb-[1vh]">
+            <div class="flex items-baseline gap-[4px]">
+                <span class="text-[clamp(22px,6vw,32px)] font-bold text-[#3E63DD]">Student</span>
+                <span class="text-[clamp(22px,6vw,32px)] font-bold text-[#F15A24]">Kare<sup class="text-[10px] font-semibold align-super">&#174;</sup></span>
+            </div>
+            <p class="text-[clamp(11px,2.5vw,13px)] text-[#8F99B3]">Broaden your child's horizon</p>
         </div>
-        <p class="text-xs text-gray-400 mt-1">Broaden your child's horizon</p>
-      </div>
 
-      <!-- White Card -->
-      <div class="w-full max-w-[360px] rounded-3xl p-5 bg-white shadow-lg border border-gray-100">
-        <div class="flex flex-col gap-3">
+        <!-- Main Card Section -->
+        <div class="w-full bg-white rounded-[clamp(16px,5vw,30px)] border border-[#E9EAF2] shadow-[0_20px_38px_rgba(24,25,70,0.16)] px-[6vw] sm:px-[20px] py-[clamp(20px,6vh,40px)] gap-[clamp(16px,4vh,32px)] flex flex-col">
+            
+            <div class="flex flex-col gap-[clamp(12px,3vh,20px)]">
+                <app-button variant="primary" [fullWidth]="true" (click)="loginWithVibgyor()">
+                    Log In <span class="font-bold ml-1">with Vibgyor</span>
+                </app-button>
 
-          <!-- Log In with Vibgyor -->
-          <app-button variant="primary" [fullWidth]="true" (click)="loginWithVibgyor()">
-            Log In <span class="font-bold ml-1">with Vibgyor</span>
-          </app-button>
+                <app-button variant="outline" [fullWidth]="true" (click)="loginWithoutVibgyor()">
+                    Log In <span class="font-bold ml-1">without Vibgyor</span>
+                </app-button>
 
-          <!-- Log In without Vibgyor -->
-          <app-button variant="outline" [fullWidth]="true" (click)="loginWithoutVibgyor()">
-            Log In <span class="font-bold ml-1">without Vibgyor</span>
-          </app-button>
-
-          <!-- or login with phone number -->
-          <div class="flex justify-center pt-1">
-            <button (click)="loginWithPhone()" class="text-sm text-[#269237] no-underline hover:underline hover:underline-offset-2 transition-all">
-              or login with phone number
-            </button>
-          </div>
-
+                <div class="flex justify-center pt-2">
+                    <button (click)="loginWithPhone()" class="text-sm text-[#269237] font-medium transition-all hover:opacity-80">
+                        or login with phone number
+                    </button>
+                </div>
+            </div>
         </div>
       </div>
     </div>

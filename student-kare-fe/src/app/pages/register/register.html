@@ -1,4 +1,4 @@
-<div class="relative w-full h-[100dvh] overflow-hidden font-jakarta">
+<div class="relative w-full min-h-screen h-[100dvh] overflow-hidden font-jakarta">
 
     <!-- Fixed Blur BG — uses radial-gradient for iOS Safari compatibility -->
     <div class="fixed inset-0 z-0 pointer-events-none auth-gradient-bg"></div>
@@ -7,46 +7,48 @@
     <div class="relative z-10 h-full overflow-y-auto flex flex-col">
 
         <!-- Header Area with BG visible -->
-        <div class="flex flex-col gap-[16px] pt-[24px] pb-[20px] flex-shrink-0">
+        <div class="flex flex-col gap-[clamp(12px,2vh,24px)] pt-[clamp(20px,4vh,40px)] pb-[clamp(16px,3vh,32px)] flex-shrink-0">
             <!-- Back Button -->
-            <p (click)="goBack()" class="cursor-pointer px-4">
-                <img class="h-[8px] w-[14px]" src="/images/login/back-arrow.png" alt="Back">
+            <p (click)="goBack()" class="cursor-pointer px-[6vw] sm:px-6">
+                <img class="h-[clamp(8px,1.5vh,10px)] w-auto" src="/images/login/back-arrow.png" alt="Back">
             </p>
 
-            <!-- Title -->
-            <div class="flex flex-col px-4 gap-[8px]">
-                <h1 class="font-['Inter'] text-[32px] font-bold leading-[130%] tracking-[-0.02em] text-[#5732EE]">Register</h1>
-                <p class="text-[12px] leading-[16.8px] text-[#6C7278] font-medium tracking-[-0.01em]">Already have an account? <a (click)="goToLogin()" class="text-[#3E63DD] font-semibold hover:underline cursor-pointer">Log In</a></p>
+            <!-- Title Section -->
+            <div class="flex flex-col px-[6vw] sm:px-6 gap-[clamp(4px,1vh,12px)]">
+                <h1 class="font-['Inter'] text-[clamp(24px,8vw,32px)] font-bold leading-[130%] tracking-[-0.02em] text-[#5732EE]">Register</h1>
+                <p class="text-[clamp(11px,3vw,12px)] leading-relaxed text-[#6C7278] font-medium tracking-tight">
+                    Already have an account? <a (click)="goToLogin()" class="text-[#3E63DD] font-semibold hover:underline cursor-pointer ml-1">Log In</a>
+                </p>
             </div>
         </div>
 
         <!-- Form Card (white area) -->
-        <div class="bg-white flex-1 w-full flex flex-col p-[20px] pb-[32px] gap-[16px]">
+        <div class="bg-white flex-1 w-full flex flex-col p-[clamp(20px,6vw,32px)] pb-[clamp(32px,8vh,64px)] gap-[clamp(16px,3vh,24px)] rounded-t-[clamp(24px,8vw,48px)] shadow-[0_-12px_40px_rgba(0,0,0,0.06)]">
 
             <!-- First Name + Last Name -->
-            <div class="flex gap-[12px]">
-                <div class="flex flex-col gap-[6px] flex-1">
-                    <label class="text-[12px] font-normal leading-[18px] text-[#1A1C1E]">First Name</label>
+            <div class="flex gap-[clamp(10px,2vw,16px)]">
+                <div class="flex flex-col gap-[clamp(4px,0.8vh,8px)] flex-1">
+                    <label class="text-[12px] font-normal leading-none text-[#1A1C1E]">First Name</label>
                     <app-input-field type="text" placeholder="Enter First Name" [(ngModel)]="firstName" class="w-full">
                     </app-input-field>
                 </div>
-                <div class="flex flex-col gap-[6px] flex-1">
-                    <label class="text-[12px] font-normal leading-[18px] text-[#1A1C1E]">Last Name</label>
+                <div class="flex flex-col gap-[clamp(4px,0.8vh,8px)] flex-1">
+                    <label class="text-[12px] font-normal leading-none text-[#1A1C1E]">Last Name</label>
                     <app-input-field type="text" placeholder="Enter Last Name" [(ngModel)]="lastName" class="w-full">
                     </app-input-field>
                 </div>
             </div>
 
             <!-- Email -->
-            <div class="flex flex-col gap-[6px]">
-                <label class="text-[12px] font-normal leading-[18px] text-[#1A1C1E]">Email</label>
+            <div class="flex flex-col gap-[clamp(4px,0.8vh,8px)]">
+                <label class="text-[12px] font-normal leading-none text-[#1A1C1E]">Email</label>
                 <app-input-field type="email" placeholder="Enter Email" [(ngModel)]="email" class="w-full">
                 </app-input-field>
             </div>
 
             <!-- Birth of date -->
-            <div class="flex flex-col gap-[6px]">
-                <label class="text-[12px] font-normal leading-[18px] text-[#1A1C1E]">Birth of date</label>
+            <div class="flex flex-col gap-[clamp(4px,0.8vh,8px)]">
+                <label class="text-[12px] font-normal leading-none text-[#1A1C1E]">Birth of date</label>
                 <div class="relative flex items-center" (click)="birthDateInput.showPicker()">
                     <input #birthDateInput type="date" [(ngModel)]="birthDate" placeholder="Enter Birth Date" class="w-full h-[52px] border border-[#E9EAF2] rounded-[14px] pl-[16px] pr-[48px] text-[14px] text-[#1A1C1E] bg-white focus:outline-none focus:ring-2 focus:ring-[#3E63DD]/30 placeholder:text-[#C4C8D4]" />
                     <span class="absolute right-[14px] text-[#9BA4B5] cursor-pointer">
@@ -61,8 +63,8 @@
             </div>
 
             <!-- Phone Number -->
-            <div class="flex flex-col gap-[6px]">
-                <label class="text-[12px] font-normal leading-[18px] text-[#1A1C1E]">Phone Number</label>
+            <div class="flex flex-col gap-[clamp(4px,0.8vh,8px)]">
+                <label class="text-[12px] font-normal leading-none text-[#1A1C1E]">Phone Number</label>
                 <div class="flex items-center h-[52px] border border-[#E9EAF2] rounded-[14px] bg-white px-[14px] gap-[10px]">
                     <!-- Flag + Dropdown -->
                     <div class="flex items-center gap-[7px] pr-[10px] border-r border-[#EDF1F3] flex-shrink-0">
@@ -88,8 +90,8 @@
             </div>
 
             <!-- Set Password -->
-            <div class="flex flex-col gap-[6px]">
-                <label class="text-[12px] font-normal leading-[18px] text-[#1A1C1E]">Set Password</label>
+            <div class="flex flex-col gap-[clamp(4px,0.8vh,8px)]">
+                <label class="text-[12px] font-normal leading-none text-[#1A1C1E]">Set Password</label>
                 <div class="relative flex items-center">
                     <app-input-field type="password" placeholder="Enter Password" [(ngModel)]="password" class="w-full" [isOtp]="true">
                     </app-input-field>
@@ -97,17 +99,15 @@
             </div>
 
             <!-- Register Button -->
-            <div class="mt-4 flex flex-col gap-[20px]">
+            <div class="mt-[clamp(20px,4vh,40px)] flex flex-col gap-[clamp(16px,2.5vh,24px)]">
                 <app-button variant="primary" [fullWidth]="true" (click)="register()">Register</app-button>
 
                 <!-- Already have account -->
-                <p class="text-[12px] leading-[16.8px] text-[#6C7278] text-center font-medium tracking-[-0.01em]">
+                <p class="text-[clamp(11px,3vw,12px)] leading-relaxed text-[#6C7278] text-center font-medium tracking-tight mt-2">
                     Already have an account?
-                    <span (click)="goToLogin()" class="text-[#3E63DD] font-semibold cursor-pointer hover:underline">Log In</span>
+                    <span (click)="goToLogin()" class="text-[#3E63DD] font-semibold cursor-pointer hover:underline ml-1">Log In</span>
                 </p>
             </div>
-
         </div>
     </div>
-
 </div>

@@ -1,37 +1,50 @@
-/* Image rows container — auto-sizes to fit 3 rows */
+/* Image rows container — auto-sizes based on children */
 .image-rows-container {
   flex-shrink: 0;
-  padding: 12px 0;
+  padding: clamp(12px, 3vh, 24px) 0;
+  width: 100%;
+  overflow-x: hidden;
 }
 
-/* Each row wrapper: explicit height to match Figma's 121px container height */
+/* Each row wrapper: removed hardcoded height, adapts to card height */
 .row-height {
-  height: 121px;
   display: flex;
   align-items: center;
+  min-height: fit-content;
 }
 
-/* Responsive product image cards: 106px wide x 112px tall with 10px padding */
+/* Responsive product image cards: using aspect-ratio for perfect scaling */
 .product-img-card {
-  width: 106px;
-  height: 112px;
-  padding: 10px;
+  /* Dynamic width: optimized for better density on small devices */
+  width: clamp(80px, 22vw, 120px);
+  aspect-ratio: 106 / 112;
+  padding: clamp(6px, 2vw, 10px);
   flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Scrolling marquee rows: 12px gap per Figma */
+/* On desktop, cards stay relatively sized to the screen half */
+@media (min-width: 1024px) {
+  .product-img-card {
+    width: clamp(100px, 8vw, 140px);
+  }
+}
+
+/* Scrolling marquee rows: responsive gap */
 .marquee-track {
   display: flex;
-  gap: 12px;
+  gap: clamp(8px, 1.5vw, 12px);
   width: max-content;
 }
 
 .scroll-left {
-  animation: scrollLeft 20s linear infinite;
+  animation: scrollLeft 25s linear infinite;
 }
 
 .scroll-right {
-  animation: scrollRight 20s linear infinite;
+  animation: scrollRight 25s linear infinite;
 }
 
 @keyframes scrollLeft {
@@ -42,4 +55,30 @@
 @keyframes scrollRight {
   0%   { transform: translateX(-50%); }
   100% { transform: translateX(0); }
+}
+
+/* Ensure no layout shift during animation */
+.marquee-track > div {
+  will-change: transform;
+}
+
+/* Vertical Responsiveness: Selective compression for short screens (e.g. 305x532) */
+@media (max-height: 600px) {
+  .image-rows-container {
+    transform: scale(0.88);
+    transform-origin: top;
+    /* Reduce container height to match scaled content */
+    margin-bottom: -15px;
+  }
+
+  .auth-section {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+    justify-content: center !important;
+  }
+
+  /* Tighten logo and card within auth-section */
+  .auth-section > div {
+    gap: 12px !important;
+  }
 }
