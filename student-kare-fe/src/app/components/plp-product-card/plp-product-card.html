@@ -1,16 +1,14 @@
 <div class="relative flex flex-col bg-white rounded-[8px] border border-[#EAEAEA] overflow-hidden w-full h-[168px] px-[6px] py-[5px] gap-[7px] shadow-[1px_1px_4px_0px_rgba(0,0,0,0.10)]">
 
-  <!-- Wishlist heart -->
-  <button (click)="onWishlist($event)" class="absolute top-[10px] right-[12px] ">
-    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path fill-rule="evenodd" clip-rule="evenodd" d="M1.43593 5.79916C0.899433 4.12416 1.52643 2.20966 3.28493 1.64316C4.20993 1.34466 5.23093 1.52066 5.99993 2.09916C6.72743 1.53666 7.78593 1.34666 8.70993 1.64316C10.4684 2.20966 11.0994 4.12416 10.5634 5.79916C9.72843 8.45416 5.99993 10.4992 5.99993 10.4992C5.99993 10.4992 2.29893 8.48516 1.43593 5.79916Z" stroke="#909090" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-      <path d="M8 3.35C8.535 3.523 8.913 4.0005 8.9585 4.561" stroke="#909090" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-    </svg>
-  </button>
-
-  <!-- Product image container -->
-  <div class="w-[119px] h-[101px] bg-[#E2E8F0] rounded-[6px] flex items-center justify-center overflow-hidden">
+  <!-- Product image container with wishlist heart -->
+  <div class="relative w-[119px] h-[101px] bg-[#E2E8F0] rounded-[6px] flex items-center justify-center overflow-hidden">
     <img [src]="product.image" [alt]="product.name" class="object-contain w-full h-full" />
+    <button (click)="onWishlist($event)" class="absolute top-[6px] right-[6px]">
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.43593 5.79916C0.899433 4.12416 1.52643 2.20966 3.28493 1.64316C4.20993 1.34466 5.23093 1.52066 5.99993 2.09916C6.72743 1.53666 7.78593 1.34666 8.70993 1.64316C10.4684 2.20966 11.0994 4.12416 10.5634 5.79916C9.72843 8.45416 5.99993 10.4992 5.99993 10.4992C5.99993 10.4992 2.29893 8.48516 1.43593 5.79916Z" stroke="#909090" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+        <path d="M8 3.35C8.535 3.523 8.913 4.0005 8.9585 4.561" stroke="#909090" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
   </div>
 
   <!-- Product name -->
