@@ -47,6 +47,15 @@ export class MyOrderPage {
     return this.orders.filter(o => o.status === this.activeTab);
   }
 
+  selectedOrderIds = new Set<number>();
+
   goBack() { this.router.navigate(['/home']); }
-  trackOrder(order: Order) { /* navigate to tracking */ }
+  trackOrder(order: Order) {
+    if (this.selectedOrderIds.has(order.id)) {
+      this.selectedOrderIds.delete(order.id);
+    } else {
+      this.selectedOrderIds.add(order.id);
+    }
+    this.selectedOrderIds = new Set(this.selectedOrderIds);
+  }
 }

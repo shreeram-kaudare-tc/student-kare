@@ -8,7 +8,7 @@
           <path d="M19 12H5M12 5l-7 7 7 7" />
         </svg>
       </button>
-      <span class=" text-black font-jakarta text-[12px] font-medium text-center px-4 py-2 rounded">My Order</span>
+      <span class="bg-black text-white font-jakarta text-[12px] font-medium text-center px-4 py-2 rounded">My Order</span>
       <button class="w-[32px] h-[32px] flex items-center justify-center">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8" />
@@ -42,35 +42,33 @@
     <!-- Order list -->
     <div class="flex flex-col">
       @for (order of filteredOrders; track order.id; let i = $index) {
-      <div class="flex items-center w-full" [class.bg-white]="i % 2 === 0" [class.bg-[#F5F6F9]]="i % 2 !== 0" style="padding: 11px 25px; gap: 15px; min-height: 99px;">
+      <div class="flex items-center w-full px-[25px] py-[11px] gap-[16px]" [class.bg-[#F8F8F8]]="selectedOrderIds.has(order.id)" [class.bg-white]="!selectedOrderIds.has(order.id)">
 
         <!-- Product image: 76×75px, rounded, light border -->
-        <div class="flex-shrink-0 rounded-[12px] overflow-hidden bg-white border border-[#D0D5DD] flex items-center justify-center" style="width: 76px; height: 75px;">
-          <img [src]="order.image" [alt]="order.name" class="w-full h-full object-contain" />
+        <div class="flex-shrink-0 w-[76px] h-[75px] rounded-[12px] overflow-hidden bg-white border border-[#B1B1B1] flex items-center justify-center">
+          <img [src]="order.image" [alt]="order.name" class="w-full h-full object-cover" />
         </div>
 
-        <!-- Content box: Width Fill(207px), Height Hug(77px), Gap 7px -->
-        <div class="flex flex-col" style="width: 207px; flex: 1; gap: 7px;">
+        <!-- Content box: Width Fill(207px), Height Hug(77px), Gap 21px -->
+        <div class="flex flex-col flex-1 w-[207px] gap-[21px]">
 
           <!-- Text group: name + size/qty, Width Fill(207px), Height Hug(20px), Gap 4px -->
-          <div class="flex flex-col w-full" style="gap: 4px; min-height: 20px;">
-            <p class="text-[15px] font-medium text-[#1A1C1E] leading-[20px] truncate w-full">
+          <div class="flex flex-col w-full gap-[4px] min-h-[20px]">
+            <p class="text-[14px] font-medium text-[#000000] leading-[20px] truncate w-full">
               {{ order.name }}
             </p>
             <div class="flex items-center gap-[16px]">
-              <span class="text-[12px] text-[#8A8A8A]">Size: {{ order.size }}</span>
-              <span class="text-[12px] text-[#8A8A8A]">Quantity: {{ order.quantity }}</span>
+              <span class="text-[10px] text-[#6C6C6C]">Size: {{ order.size }}</span>
+              <span class="text-[10px] text-[#6C6C6C]">Quantity: {{ order.quantity }}</span>
             </div>
           </div>
 
           <!-- Price + Track Order button -->
-          <div class="flex items-center justify-between">
-            <div style="width:54px; height:18px; gap:10px; display:flex; align-items:center;">
-              <span class="text-[13px] font-semibold text-[#3E63DD] leading-[18px] whitespace-nowrap">₹{{ order.price | number }}</span>
+          <div class="flex items-center gap-[34px]">
+            <div class="w-[54px] h-[18px] gap-[10px] flex items-center">
+              <span class="text-[12px] font-semibold text-[#3E63DD] leading-[18px] whitespace-nowrap">₹{{ order.price | number }}</span>
             </div>
-            <button (click)="trackOrder(order)" class="text-[12px] font-medium whitespace-nowrap" [style]="i % 2 === 0
-                      ? 'height:23px; border-radius:99px; padding:0 16px; background:#3E63DD; border:1px solid #3E63DD; color:white;'
-                      : 'height:23px; border-radius:99px; padding:0 16px; background:white; border:1px solid #3E63DD; color:#3E63DD;'">
+            <button (click)="trackOrder(order)" class="text-[12px] font-semibold whitespace-nowrap w-[102px] h-[23px] rounded-full px-[16px] gap-[14px] border border-[rgba(62,99,221,1)] transition-colors" [class.bg-[rgba(62,99,221,1)]]="!selectedOrderIds.has(order.id)" [class.text-white]="!selectedOrderIds.has(order.id)" [class.bg-transparent]="selectedOrderIds.has(order.id)" [class.text-[rgba(62,99,221,1)]]="selectedOrderIds.has(order.id)">
               Track Order
             </button>
           </div>
