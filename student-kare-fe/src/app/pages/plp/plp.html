@@ -22,7 +22,7 @@
   <div class="flex flex-1 overflow-hidden">
 
     <!-- Left Sidebar (Calibrated to Figma: 60px items, 21px gap) -->
-    <div class="flex-shrink-0 bg-white overflow-y-auto overflow-x-hidden border-r border-[#F0F0F0]" style="width: 82px; box-shadow: 1px 0px 4.5px 0px rgba(0,0,0,0.06);">
+    <div class="flex-shrink-0 bg-white overflow-y-auto overflow-x-hidden border-r border-[#F0F0F0] w-[93px] shadow-[1px_0px_4.5px_0px_rgba(0,0,0,0.06)]">
       <div class="flex flex-col py-[16px] items-start pl-[12px]" style="gap: 21px;">
         @for (cat of sideCategories; track cat.label + $index; let i = $index) {
         <button (click)="selectCategory(i)" class="relative flex flex-col items-center w-[60px] cursor-pointer" style="height: 86px; gap: 8px;">
@@ -54,7 +54,7 @@
 
       <!-- Filter Chips Row (Responsive wrap, no scroll) -->
       <div class="flex-shrink-0 flex items-start justify-between px-[10px] py-[10px] bg-white border-b border-[#F0F0F0]">
-        <div class="flex overflow-x-auto items-center gap-[4px] flex-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <div class="flex overflow-x-auto items-center gap-[7px] flex-1 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           @for (f of filters; track f) {
           <app-category-chip [label]="f" [active]="activeFilter === f" (chipClick)="selectFilter($event)" class="shrink-0">
           </app-category-chip>
@@ -62,7 +62,7 @@
         </div>
 
         <!-- Sort/Filter Icon (21x18, border 0.3px, color #382098) -->
-        <button (click)="openFilter()" class="flex-shrink-0 flex items-center justify-center p-1 cursor-pointer">
+        <button (click)="openFilter()" class="flex-shrink-0 flex items-center justify-center  cursor-pointer">
           <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Down Arrow -->
             <path d="M5 4V14M5 14L2 11M5 14L8 11" stroke="#382098" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
