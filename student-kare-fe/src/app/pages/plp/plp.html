@@ -92,21 +92,19 @@
   <div class="absolute z-[100]" style="left: 109px; right: 16px; bottom: calc(32px + env(safe-area-inset-bottom));">
     <div (click)="viewCart()" class="w-full flex items-center justify-between bg-[#795BF1] rounded-[58px] px-[10px] cursor-pointer" style="height: 62px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
 
-      <!-- Overlapping product thumbnails (Fully visible first circle) -->
-      <div class="flex items-center flex-shrink-0 overflow-hidden w-[90px] relative px-[2px]" [class.thumbnails-rotating]="isRotating">
-        <div class="flex items-center translate-x-[14px]">
-          @for (item of cartItems.slice(0, 3); track item.id; let i = $index) {
-          <div class="rounded-full border-2 border-white bg-white overflow-hidden flex-shrink-0 transition-all duration-300 shadow-sm" style="width: 38px; height: 38px; margin-left: -12px;">
-            <img [src]="item.image" [alt]="item.name" class="w-full h-full object-contain" />
-          </div>
-          }
+      <!-- Overlapping product thumbnails -->
+      <div class="relative flex-shrink-0 w-[88px] self-stretch" [class.thumbnails-rotating]="isRotating">
+        @for (item of cartItems.slice(0, 3); track item.id; let i = $index) {
+        <div class="absolute w-[42px] h-[42px] rounded-[82px] p-[2px] bg-[#795BF1] top-1/2 -translate-y-1/2 ml-[-12px]" [style.left.px]="i === 0 ? 10 : i === 1 ? 31 : 56" [style.zIndex]="i + 1">
+          <img [src]="item.image" [alt]="item.name" class="w-full h-full rounded-full object-contain bg-white" />
         </div>
+        }
       </div>
 
       <!-- Text Container -->
-      <div class="flex flex-col justify-center flex-1 ml-[10px]">
-        <span class="text-white text-[12px] font-semibold leading-tight">View Cart</span>
-        <span class="text-white text-[11px] opacity-80 leading-tight">{{ cartCount }} items</span>
+      <div class="flex flex-col justify-center flex-1 gap-2 ml-[10px]">
+        <span class="font-semibold text-white text-[12px]">View Cart</span>
+        <span class="font-semibold text-white text-[10px]">{{ cartCount }} items</span>
       </div>
 
       <!-- Arrow circle -->
