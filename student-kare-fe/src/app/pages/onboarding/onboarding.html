@@ -5,8 +5,10 @@
 
       <!-- Hero Section -->
       <div class="relative flex-1 min-h-0 overflow-hidden flex items-center justify-center">
-        <img [src]="slide.bgSvg" alt="" class="absolute w-full h-auto left-0 top-[clamp(40px,6vh,60px)]" />
-        <img [src]="slide.image" [alt]="slide.title" class="relative z-[1] w-[clamp(260px,85vw,400px)] max-h-[80%] h-auto object-contain" />
+        <div class="relative w-full h-full">
+          <img [src]="slide.bgSvg" alt="" class="absolute object-cover" [ngStyle]="slide.bg_svg_Style" />
+          <img [src]="slide.image" [alt]="slide.title" class="absolute z-[1] object-contain" [ngStyle]="slide.imgStyle" />
+        </div>
       </div>
 
       <!-- Content Section -->
