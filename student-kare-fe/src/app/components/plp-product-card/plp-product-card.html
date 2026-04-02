@@ -1,7 +1,7 @@
 <div class="relative flex flex-col bg-white rounded-[8px] border border-[#EAEAEA] overflow-hidden w-full h-[168px] px-[6px] py-[5px] gap-[7px] shadow-[1px_1px_4px_0px_rgba(0,0,0,0.10)]">
 
   <!-- Product image container with wishlist heart -->
-  <div class="relative w-[119px] h-[101px] bg-[#E2E8F0] rounded-[6px] flex items-center justify-center overflow-hidden">
+  <div class="relative w-full h-[101px] bg-[#E2E8F0] rounded-[6px] flex items-center justify-center overflow-hidden">
     <img [src]="product.image" [alt]="product.name" class="object-contain w-full h-full" />
     <button (click)="onWishlist($event)" class="absolute top-[6px] right-[6px]">
       <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -17,10 +17,13 @@
   </p>
 
   <!-- Price + Add button -->
-  <div class="flex items-center justify-between px-[2px] mt-auto">
-    <span class="text-[12px] font-bold text-[#3E63DD]">Rs. {{ product.price }}</span>
+  <div class="flex items-center justify-between h-[19px] gap-[10px] px-[2px] mt-auto">
+    <span class="flex items-baseline gap-[1px] text-[#3E63DD] font-semibold leading-[100%]">
+      <span class="text-[10px]">Rs.</span>
+      <span class="text-[12px]">{{ product.price }}</span>
+    </span>
 
-    <div class="h-[24px] w-[60px]">
+    <div class="h-[19px] w-[60px]">
       @if (!product.quantity) {
       <button (click)="onAdd($event)" class="w-full h-full rounded-full border border-[#3E63DD] bg-white text-[#3E63DD] text-[10px] font-medium flex items-center justify-center gap-[4px] cursor-pointer hover:bg-blue-50 active:scale-95 transition-all">
         Add
