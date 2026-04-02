@@ -44,8 +44,8 @@ export class HomePage implements OnInit, OnDestroy {
   ];
 
   products = [
-    { name: 'Foundational Literacy', image: '/images/home/prod-literacy.png', price: 400 },
-    { name: 'VIBGYOR High ', image: '/images/home/prod-reebok.png', price: 400 },
+    { name: 'VIBGYOR High Primary and Secondar Red (Edition 24-25)....', image: '/images/home/prod-literacy.png', price: 600 },
+    { name: 'VIBGYOR High Primary and Secondar Red (Edition 24-25)....', image: '/images/home/prod-reebok.png', price: 600 },
     { name: 'War Engine Kit', image: '/images/home/prod-war-engine.png', price: 400 },
   ];
 
