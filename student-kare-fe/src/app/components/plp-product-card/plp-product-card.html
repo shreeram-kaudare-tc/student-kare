@@ -27,11 +27,11 @@
       
       <div class="flex-shrink-0 flex items-center h-[32px]">
         @if (!product.quantity) {
-          <button (click)="onAdd($event)" class="w-[87px] h-[19px] rounded-[99px] btn-primary-gradient text-white text-[10px] font-semibold flex items-center justify-center cursor-pointer active:scale-95 transition-all whitespace-nowrap px-1">
+          <button (click)="onAdd($event)" class="w-[92px] h-[24px] rounded-[99px] btn-primary-gradient text-white text-[10px] font-semibold flex items-center justify-center cursor-pointer active:scale-95 transition-all whitespace-nowrap px-1">
             Add To Cart
           </button>
         } @else {
-          <div class="w-[87px] h-[19px] rounded-[99px] bg-[#3E63DD] text-white flex items-center justify-between px-[10px] shadow-sm select-none">
+          <div class="w-[92px] h-[24px] rounded-[99px] bg-[#3E63DD] text-white flex items-center justify-between px-[10px] shadow-sm select-none">
             <button (click)="onDecrease($event)" class="text-[12px] font-medium cursor-pointer w-[14px] flex justify-center items-center h-full active:opacity-70">&minus;</button>
             <span class="text-[10px] font-medium leading-none text-center flex-1">{{ product.quantity }}</span>
             <button (click)="onIncrease($event)" class="text-[12px] font-medium cursor-pointer w-[14px] flex justify-center items-center h-full active:opacity-70">+</button>
