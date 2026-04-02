@@ -14,16 +14,17 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/f
 export class InputField implements ControlValueAccessor {
   @Input() label: string = '';
   @Input() placeholder: string = '';
-  @Input() type: 'text' | 'password' | 'email' | 'number' | 'tel' = 'text';
+  @Input() type: 'text' | 'password' | 'number' | 'tel' = 'text';
   @Input() icon: string = '';
   @Input() error: string = '';
   @Input() disabled: boolean = false;
+  @Input() hasPrefix: boolean = false;
 
   value: string = '';
   showPassword: boolean = false;
 
-  private onChange = (_: any) => {};
-  private onTouched = () => {};
+  private onChange = (_: any) => { };
+  private onTouched = () => { };
 
   get inputType(): string {
     if (this.type === 'password') return this.showPassword ? 'text' : 'password';
