@@ -2,27 +2,64 @@
   @if (label) {
   <label class="font-['Plus_Jakarta_Sans'] font-medium text-[12px] leading-[160%] tracking-[-0.02em] text-[#6C7278]">{{ label }}</label>
   }
-  <div class="relative flex items-center">
-    @if (icon) {
-    <span class="absolute left-3 text-gray-400 text-lg">{{ icon }}</span>
+  <div class="flex items-center h-[46px] bg-white px-[14px] gap-[10px] shadow-[0px_1px_2px_0px_rgba(228,229,231,0.24)] rounded-[10px] focus-within:ring-2 focus-within:ring-[#3E63DD]/30 transition" [class]="error ? 'border border-red-400' : 'border border-[#EDF1F3]'">
+
+    <!-- TEL: India flag prefix -->
+    @if (type === 'tel') {
+    <div class="flex items-center w-[62px] h-full gap-[7px] pr-[10px] border-r border-[#EDF1F3] flex-shrink-0">
+      <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <clipPath id="india-circle">
+          <circle cx="9" cy="9" r="9" />
+        </clipPath>
+        <g clip-path="url(#india-circle)">
+          <rect width="18" height="6" fill="#FF9933" />
+          <rect y="6" width="18" height="6" fill="#FFFFFF" />
+          <rect y="12" width="18" height="6" fill="#138808" />
+          <circle cx="9" cy="9" r="2.2" fill="none" stroke="#000080" stroke-width="0.5" />
+          <circle cx="9" cy="9" r="0.4" fill="#000080" />
+        </g>
+      </svg>
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9.95998 4.475L6.69998 7.735C6.31498 8.12 5.68498 8.12 5.29998 7.735L2.03998 4.475" stroke="#6C7278" stroke-width="1.3" stroke-miterlimit="10" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
     }
-    <input [type]="inputType" [placeholder]="placeholder" [value]="value" [disabled]="disabled" (input)="onInput($event)" (blur)="onBlur()" [class]="'w-full border rounded-2xl py-3 pr-4 text-[14px] text-gray-800 placeholder:text-[13px] placeholder:text-[#C4C8D4] bg-white focus:outline-none focus:ring-2 focus:ring-[#3E63DD]/30 transition ' + (icon ? 'pl-10' : 'pl-4') + (error ? ' border-red-400' : ' border-gray-200')" />
+
+    <!-- NUMBER: hash icon -->
+    @if (type === 'number') {
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ACB5BB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="flex-shrink-0">
+      <line x1="4" y1="9" x2="20" y2="9" />
+      <line x1="4" y1="15" x2="20" y2="15" />
+      <line x1="10" y1="3" x2="8" y2="21" />
+      <line x1="16" y1="3" x2="14" y2="21" />
+    </svg>
+    }
+
+    <!-- Custom icon (text type) -->
+    @if (icon && type === 'text') {
+    <span class="text-gray-400 text-lg flex-shrink-0">{{ icon }}</span>
+    }
+
+    <input [type]="inputType" [placeholder]="placeholder" [value]="value" [disabled]="disabled" (input)="onInput($event)" (blur)="onBlur()" class="flex-1 h-full text-[14px] text-[#1A1C1E] placeholder:text-[#C4C8D4] bg-transparent focus:outline-none" />
+
+    <!-- PASSWORD: show/hide toggle -->
     @if (type === 'password') {
-    <button type="button" (click)="togglePassword()" class="absolute right-[16px] focus:outline-none flex items-center justify-center w-[16px] h-[16px]">
-      @if (!showPassword) { 
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ACB5BB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8z" />
-          <circle cx="12" cy="12" r="3" />
-          <line x1="4" y1="4" x2="20" y2="20" />
-        </svg>
-      } @else { 
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ACB5BB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8z" />
-          <circle cx="12" cy="12" r="3" />
-        </svg>
+    <button type="button" (click)="togglePassword()" class="flex-shrink-0 focus:outline-none flex items-center justify-center w-[16px] h-[16px]">
+      @if (!showPassword) {
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ACB5BB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8z" />
+        <circle cx="12" cy="12" r="3" />
+        <line x1="4" y1="4" x2="20" y2="20" />
+      </svg>
+      } @else {
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ACB5BB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M2 12s4-8 10-8 10 8 10 8-4 8-10 8-10-8-10-8z" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
       }
     </button>
     }
+
   </div>
   @if (error) {
   <p class="text-xs text-red-500 mt-1">{{ error }}</p>
