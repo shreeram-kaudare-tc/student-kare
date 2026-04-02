@@ -1,37 +1,26 @@
 <div class="relative w-full h-screen bg-white flex flex-col overflow-hidden font-jakarta">
-
   <!-- Scrollable content -->
   <div class="flex-1 overflow-y-auto pb-[72px]">
-
-
-
     <!-- Header: back | My Order | search -->
     <div class="flex items-center justify-between px-[20px] h-[44px]">
       <button (click)="goBack()" class="w-[32px] h-[32px] flex items-center justify-center">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E"
-             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 12H5M12 5l-7 7 7 7"/>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 5l-7 7 7 7" />
         </svg>
       </button>
-      <span style="font-family:'Plus Jakarta Sans',sans-serif; font-size:12px; font-weight:500; line-height:100%; color:#000000; text-align:center;">My Order</span>
+      <span class=" text-black font-jakarta text-[12px] font-medium text-center px-4 py-2 rounded">My Order</span>
       <button class="w-[32px] h-[32px] flex items-center justify-center">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E"
-             stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8"/>
-          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8" />
+          <line x1="21" y1="21" x2="16.65" y2="16.65" />
         </svg>
       </button>
     </div>
-
     <!-- Tab bar: Active | Completed | Canceled -->
     <div class="flex border-b border-[#EFEFEF]">
       @for (tab of tabs; track tab.key) {
-      <button (click)="activeTab = tab.key"
-              class="flex-1 flex flex-col items-center pb-[10px] pt-[8px] relative">
-        <span class="text-[14px] font-medium transition-colors"
-              [class.text-[#5732EE]]="activeTab === tab.key"
-              [class.font-semibold]="activeTab === tab.key"
-              [class.text-[#ADADAD]]="activeTab !== tab.key">
+      <button (click)="activeTab = tab.key" class="flex-1 flex flex-col items-center pb-[10px] pt-[8px] relative">
+        <span class="text-[14px] font-medium transition-colors" [class.text-[#5732EE]]="activeTab === tab.key" [class.font-semibold]="activeTab === tab.key" [class.text-[#ADADAD]]="activeTab !== tab.key">
           {{ tab.label }}
         </span>
         @if (activeTab === tab.key) {
@@ -44,12 +33,7 @@
     <!-- Filter chips: All | Return | Exchange -->
     <div class="flex items-center gap-[10px] px-[16px] py-[14px]">
       @for (chip of chips; track chip) {
-      <button (click)="activeChip = chip"
-              class="h-[32px] px-[16px] rounded-full text-[13px] font-medium transition-all"
-              [class.bg-[#5732EE]]="activeChip === chip"
-              [class.text-white]="activeChip === chip"
-              [class.bg-[#EEEAFD]]="activeChip !== chip"
-              [class.text-[#6B7280]]="activeChip !== chip">
+      <button (click)="activeChip = chip" class="h-[32px] px-[16px] rounded-full text-[13px] font-medium transition-all" [class.bg-[#5732EE]]="activeChip === chip" [class.text-white]="activeChip === chip" [class.bg-[#EEEAFD]]="activeChip !== chip" [class.text-[#6B7280]]="activeChip !== chip">
         {{ chip }}
       </button>
       }
@@ -58,16 +42,11 @@
     <!-- Order list -->
     <div class="flex flex-col">
       @for (order of filteredOrders; track order.id; let i = $index) {
-      <div class="flex items-center w-full"
-           [class.bg-white]="i % 2 === 0"
-           [class.bg-[#F5F6F9]]="i % 2 !== 0"
-           style="padding: 11px 25px; gap: 15px; min-height: 99px;">
+      <div class="flex items-center w-full" [class.bg-white]="i % 2 === 0" [class.bg-[#F5F6F9]]="i % 2 !== 0" style="padding: 11px 25px; gap: 15px; min-height: 99px;">
 
         <!-- Product image: 76×75px, rounded, light border -->
-        <div class="flex-shrink-0 rounded-[12px] overflow-hidden bg-white border border-[#D0D5DD] flex items-center justify-center"
-             style="width: 76px; height: 75px;">
-          <img [src]="order.image" [alt]="order.name"
-               class="w-full h-full object-contain" />
+        <div class="flex-shrink-0 rounded-[12px] overflow-hidden bg-white border border-[#D0D5DD] flex items-center justify-center" style="width: 76px; height: 75px;">
+          <img [src]="order.image" [alt]="order.name" class="w-full h-full object-contain" />
         </div>
 
         <!-- Content box: Width Fill(207px), Height Hug(77px), Gap 7px -->
@@ -89,9 +68,7 @@
             <div style="width:54px; height:18px; gap:10px; display:flex; align-items:center;">
               <span class="text-[13px] font-semibold text-[#3E63DD] leading-[18px] whitespace-nowrap">₹{{ order.price | number }}</span>
             </div>
-            <button (click)="trackOrder(order)"
-                    class="text-[12px] font-medium whitespace-nowrap"
-                    [style]="i % 2 === 0
+            <button (click)="trackOrder(order)" class="text-[12px] font-medium whitespace-nowrap" [style]="i % 2 === 0
                       ? 'height:23px; border-radius:99px; padding:0 16px; background:#3E63DD; border:1px solid #3E63DD; color:white;'
                       : 'height:23px; border-radius:99px; padding:0 16px; background:white; border:1px solid #3E63DD; color:#3E63DD;'">
               Track Order
@@ -105,7 +82,7 @@
       @if (filteredOrders.length === 0) {
       <div class="flex flex-col items-center justify-center py-[60px] gap-[12px]">
         <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#DADADA" stroke-width="1.5">
-          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
         </svg>
         <span class="text-[14px] text-[#ADADAD]">No orders found</span>
       </div>
