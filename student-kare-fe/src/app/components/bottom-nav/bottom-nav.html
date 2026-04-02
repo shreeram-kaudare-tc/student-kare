@@ -49,9 +49,7 @@
           stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
       </svg>
       @if (cartCount > 0) {
-      <span
-        class="absolute -top-[2px] -right-[5px] bg-[#EE4D4D] text-white text-[9px] font-bold rounded-full w-4 h-4 flex items-center justify-center border-2 border-white shadow-sm">{{
-        cartCount }}</span>
+      <div class="absolute top-[6px] right-[2px] w-[6px] h-[6px] bg-[#E90101] rounded-full"></div>
       }
       <div class="active-indicator" [class.visible]="isActive(item.route)"></div>
     </div>
