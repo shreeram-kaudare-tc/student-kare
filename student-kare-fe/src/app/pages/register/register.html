@@ -28,24 +28,15 @@
             <div class="flex flex-col gap-[16px]">
                 <!-- First Name + Last Name -->
                 <div class="flex gap-[16px]">
-                    <div class="flex flex-col gap-[2px] flex-1">
-                        <label class="font-['Plus_Jakarta_Sans'] font-medium text-[12px] leading-[160%] tracking-[-0.02em] text-[#6C7278]">First Name</label>
-                        <app-input-field type="text" placeholder="Enter First Name" [(ngModel)]="firstName" class="w-full">
-                        </app-input-field>
-                    </div>
-                    <div class="flex flex-col gap-[2px] flex-1">
-                        <label class="font-['Plus_Jakarta_Sans'] font-medium text-[12px] leading-[160%] tracking-[-0.02em] text-[#6C7278]">Last Name</label>
-                        <app-input-field type="text" placeholder="Enter Last Name" [(ngModel)]="lastName" class="w-full">
-                        </app-input-field>
-                    </div>
+                    <app-input-field type="text" label="First Name" placeholder="Enter First Name" [(ngModel)]="firstName" class="flex-1">
+                    </app-input-field>
+                    <app-input-field type="text" label="Last Name" placeholder="Enter Last Name" [(ngModel)]="lastName" class="flex-1">
+                    </app-input-field>
                 </div>
 
                 <!-- Email -->
-                <div class="flex flex-col gap-[2px]">
-                    <label class="font-['Plus_Jakarta_Sans'] font-medium text-[12px] leading-[160%] tracking-[-0.02em] text-[#6C7278]">Email</label>
-                    <app-input-field type="email" placeholder="Enter Email" [(ngModel)]="email" class="w-full">
-                    </app-input-field>
-                </div>
+                <app-input-field type="email" label="Email" placeholder="Enter Email" [(ngModel)]="email" class="w-full">
+                </app-input-field>
 
                 <!-- Birth of date -->
                 <app-date-input [(ngModel)]="birthDate" label="Birth of date" />
