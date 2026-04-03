@@ -37,19 +37,19 @@ export class MyOrderPage {
     { id: 3, name: 'JuniorMBA Artificial Intelligence', size: '25', quantity: 10, price: 50000, image: '/images/home/like-space-explorer.png', status: 'active' },
     { id: 4, name: 'JuniorMBA Artificial Intelligence', size: '25', quantity: 10, price: 50000, image: '/images/home/prod-reebok.png', status: 'active' },
     { id: 5, name: 'JuniorMBA Artificial Intelligence', size: '25', quantity: 10, price: 50000, image: '/images/home/cat-shoes.png', status: 'active' },
-    { id: 5, name: 'JuniorMBA Artificial Intelligence', size: '25', quantity: 10, price: 50000, image: '/images/home/cat-abc.png', status: 'active' },
-    { id: 5, name: 'JuniorMBA Artificial Intelligence', size: '25', quantity: 10, price: 50000, image: '/images/home/prod-literacy.png', status: 'active' },
+    { id: 8, name: 'JuniorMBA Artificial Intelligence', size: '25', quantity: 10, price: 50000, image: '/images/home/cat-abc.png', status: 'active' },
+    { id: 9, name: 'JuniorMBA Artificial Intelligence', size: '25', quantity: 10, price: 50000, image: '/images/home/prod-literacy.png', status: 'active' },
     { id: 6, name: 'JuniorMBA Artificial Intelligence', size: '25', quantity: 10, price: 50000, image: '/images/home/cat-bag.png', status: 'completed' },
     { id: 7, name: 'JuniorMBA Artificial Intelligence', size: '25', quantity: 10, price: 50000, image: '/images/home/cat-abc.png', status: 'canceled' },
   ];
+
+  selectedOrderIds = new Set<number>();
 
   constructor(public router: Router) { }
 
   get filteredOrders(): Order[] {
     return this.orders.filter(o => o.status === this.activeTab);
   }
-
-  selectedOrderIds = new Set<number>();
 
   goBack() { this.router.navigate(['/home']); }
   trackOrder(order: Order) {
