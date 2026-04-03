@@ -131,6 +131,13 @@
   line-height: 1;
 }
 
+.price-limit {
+  color: rgba(0, 0, 0, 1);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
 .price-balloon::after {
   content: '';
   position: absolute;

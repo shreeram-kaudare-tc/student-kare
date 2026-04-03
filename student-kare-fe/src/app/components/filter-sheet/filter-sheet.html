@@ -39,11 +39,13 @@
         <!-- Slider track row -->
         <div class="relative pt-[8px]">
           <!-- Value labels above track -->
-          <div class="flex justify-between text-[12px] text-[#1A1C1E] mb-[6px]">
-            <span>{{ priceAbsMin | number }}</span>
-            <span class="price-balloon">{{ priceMin }}</span>
-            <span class="price-balloon">{{ priceMax }}</span>
-            <span>{{ priceAbsMax | number }}</span>
+          <div class="flex justify-between mb-[6px] px-1">
+            <span class="price-limit">{{ priceAbsMin | number }}</span>
+            <div class="flex gap-4">
+              <span class="price-balloon">{{ priceMin }}</span>
+              <span class="price-balloon">{{ priceMax }}</span>
+            </div>
+            <span class="price-limit">{{ priceAbsMax | number }}</span>
           </div>
 
           <!-- Dual range slider -->
