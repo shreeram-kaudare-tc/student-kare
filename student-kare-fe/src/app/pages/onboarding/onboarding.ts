@@ -2,13 +2,13 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
-interface Slide {
+export interface OnboardingSlide {
   image: string;
   bgSvg: string;
   title: string;
   description: string;
   imgClass: string;
-  bgClass: string;
+  backgroundClass: string;
 }
 
 @Component({
@@ -20,14 +20,14 @@ interface Slide {
 export class Onboarding {
   currentIndex = 0;
 
-  slides: Slide[] = [
+  slides: OnboardingSlide[] = [
     {
       image: 'images/onboarding/slide-1.png',
       bgSvg: 'images/svg/onboarding-one.svg',
       title: 'Choose your order',
       description: 'Regular Fit Half Sleeve Polo T-Shirt made of comfortable Cotton Polyester Pique fabric with Embroidered logo at left',
       imgClass: 'w-[105.38vw] h-[105.38vw]',
-      bgClass:  'bottom-0 w-[423.33vw] h-[123.33vw]',
+      backgroundClass:  'bottom-0 w-[423.33vw] h-[123.33vw]',
     },
     {
       image: 'images/onboarding/slide-2.png',
@@ -35,7 +35,7 @@ export class Onboarding {
       title: 'Choose your product',
       description: 'Regular Fit Half Sleeve Polo T-Shirt made of comfortable Cotton Polyester Pique fabric with Embroidered logo at left',
       imgClass: 'w-[100vw] h-[100vw]',
-      bgClass:  'bottom-[30px] w-[423.33vw] h-[123.33vw]',
+      backgroundClass:  'bottom-[30px] w-[423.33vw] h-[123.33vw]',
     },
     {
       image: 'images/onboarding/slide-3.png',
@@ -43,7 +43,7 @@ export class Onboarding {
       title: 'Fast Delivery',
       description: 'Regular Fit Half Sleeve Polo T-Shirt made of comfortable Cotton Polyester Pique fabric with Embroidered logo at left',
       imgClass: 'w-[119.74vw] h-[86.15vw]',
-      bgClass:  'bottom-[30px] w-[423.33vw] h-[123.33vw]',
+      backgroundClass:  'bottom-[30px] w-[423.33vw] h-[123.33vw]',
     },
     {
       image: 'images/onboarding/slide-4.png',
@@ -51,7 +51,7 @@ export class Onboarding {
       title: 'Promotions',
       description: 'Regular Fit Half Sleeve Polo T-Shirt made of comfortable Cotton Polyester Pique fabric with Embroidered logo at left',
       imgClass: 'w-[88.97vw] h-[88.97vw]',
-      bgClass:  'bottom-[90px] w-[430.00vw] h-[121.79vw]',
+      backgroundClass:  'bottom-[90px] w-[430.00vw] h-[121.79vw]',
     },
   ];
 
