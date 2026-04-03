@@ -64,14 +64,16 @@
 
         <!-- Content box: Hug(77px) height, gap 21px vertically -->
         <div class="flex flex-col flex-1 min-w-0 justify-between h-[77px]">
-          <div class="flex flex-col gap-[3px]">
-            <h3 class="text-[clamp(13px,3.8vw,14px)] font-bold text-[#1A1C1E] leading-[20px] line-clamp-1">
-              {{ order.name }}
-            </h3>
-            <div class="flex items-center gap-[clamp(10px,4vw,20px)] mt-[2px]">
+          <div class="flex flex-col gap-[7px]">
+            <div class="flex flex-col gap-[4px] h-[20px]">
+              <h3 class="text-[clamp(13px,3.8vw,14px)] font-bold text-[#1A1C1E] leading-[20px] line-clamp-1">
+                {{ order.name }}
+              </h3>
+            </div>
+            <div class="flex items-center gap-[20px] h-[13px]">
               <div class="flex items-baseline gap-[3px]">
-                <span class="text-[10px] text-[#A6A6A6] font-normal leading-none">Size :</span>
-                <span class="text-[10px] text-[#464646] font-medium leading-none uppercase">{{ order.size }}</span>
+                <span class="text-[10px] text-[#A6A6A6] font-normal leading-none uppercase">Size :</span>
+                <span class="text-[10px] text-[#464646] font-medium leading-none">{{ order.size }}</span>
               </div>
               <div class="flex items-baseline gap-[3px]">
                 <span class="text-[10px] text-[#A6A6A6] font-normal leading-none">Quantity :</span>
@@ -82,13 +84,15 @@
           
           <!-- Price + Track Order button -->
           <div class="flex items-center justify-between gap-[5px] mt-auto">
-            <span class="text-[13px] font-bold text-[#3E63DD] shrink-0">₹{{ order.price | number }}</span>
+            <div class="w-[54px] h-[18px] flex items-center">
+              <span class="text-[13px] font-bold text-[#3E63DD] leading-none">₹{{ order.price | number }}</span>
+            </div>
             <button (click)="trackOrder(order)" 
-                    class="h-[23px] rounded-full px-[clamp(10px,3.5vw,16px)] text-[12px] font-semibold transition-all active:scale-95 whitespace-nowrap border border-[#3E63DD] leading-none flex items-center justify-center" 
-                    [class.bg-[#3E63DD]]="!selectedOrderIds.has(order.id)" 
-                    [class.text-white]="!selectedOrderIds.has(order.id)" 
-                    [class.bg-white]="selectedOrderIds.has(order.id)" 
-                    [class.text-[#3E63DD]]="selectedOrderIds.has(order.id)">
+                    class="w-[102px] h-[23px] rounded-full px-[16px] text-[12px] font-semibold transition-all active:scale-95 whitespace-nowrap border border-[#3E63DD] leading-none flex items-center justify-center" 
+                    [class.bg-white]="!selectedOrderIds.has(order.id)" 
+                    [class.text-[#3E63DD]]="!selectedOrderIds.has(order.id)"
+                    [class.bg-[#3E63DD]]="selectedOrderIds.has(order.id)" 
+                    [class.text-white]="selectedOrderIds.has(order.id)">
               Track Order
             </button>
           </div>
