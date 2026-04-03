@@ -28,7 +28,7 @@
       <!-- Tabs + Chips Block -->
       <div class="flex flex-col">
         <!-- Tab bar: With Gray Line divider -->
-        <div class="flex bg-white h-[28px] px-[clamp(24px,5vw,50px)] border-b border-[#F1F1F1]">
+        <div class="flex bg-white h-[28px] px-[clamp(24px,5vw,50px)] border-b-[1.5px] border-[#D1D1D1]">
           @for (tab of tabs; track tab.key) {
           <button (click)="activeTab = tab.key" class="flex-1 max-w-[200px] flex flex-col items-center justify-center relative outline-none h-full">
             <span class="text-[14px] font-medium transition-all duration-300" 
