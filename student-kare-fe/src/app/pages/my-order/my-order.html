@@ -80,32 +80,32 @@
             <img [src]="order.image" [alt]="order.name" class="w-full h-full object-contain" />
           </div>
 
-          <div class="flex flex-col flex-1 min-w-0 min-h-[clamp(70px,22vw,77px)]">
+          <div class="flex flex-col w-[207px] h-[77px]">
             <!-- Top section -->
             <div class="flex flex-col">
-              <h3 class="text-[clamp(13px,3.5vw,14px)] font-bold text-[#1A1C1E] leading-[1.2] line-clamp-2">
+              <h3 class="text-[14px] font-bold text-[#1A1C1E] leading-[1.2] truncate">
                 {{ order.name }}
               </h3>
-              <div class="flex items-center gap-[clamp(15px,4vw,20px)] mt-[clamp(4px,1.5vw,7px)]">
+              <div class="flex items-center gap-[15px] mt-[4px]">
                 <div class="flex items-baseline gap-[3px]">
-                  <span class="text-[clamp(9px,2.5vw,10px)] text-[#A6A6A6] font-normal uppercase">Size:</span>
-                  <span class="text-[clamp(9px,2.5vw,10px)] text-[#A6A6A6] font-medium">{{ order.size }}</span>
+                  <span class="text-[10px] text-[#A6A6A6] font-normal uppercase">Size:</span>
+                  <span class="text-[10px] text-[#A6A6A6] font-medium">{{ order.size }}</span>
                 </div>
                 <div class="flex items-baseline gap-[3px]">
-                  <span class="text-[clamp(9px,2.5vw,10px)] text-[#A6A6A6] font-normal uppercase">Quantity:</span>
-                  <span class="text-[clamp(9px,2.5vw,10px)] text-[#A6A6A6] font-medium">{{ order.quantity }}</span>
+                  <span class="text-[10px] text-[#A6A6A6] font-normal uppercase">Quantity:</span>
+                  <span class="text-[10px] text-[#A6A6A6] font-medium">{{ order.quantity }}</span>
                 </div>
               </div>
             </div>
             
-            <!-- Flexible Vertical Gap -->
-            <div class="flex-1 min-h-[clamp(8px,4vw,21px)]"></div>
+            <!-- Exact Vertical Gap -->
+            <div class="h-[21px]"></div>
 
-            <!-- Bottom section: Using justify-start as originally requested to keep button close to price -->
-            <div class="flex items-center justify-start gap-[15px] mt-auto">
-              <span class="text-[clamp(12px,3.5vw,13px)] font-bold text-[#3E63DD] leading-none">₹{{ order.price | number }}</span>
+            <!-- Bottom section -->
+            <div class="flex items-center justify-between w-full mt-auto">
+              <span class="text-[13px] font-bold text-[#3E63DD] leading-none">₹{{ order.price | number }}</span>
               <button (click)="trackOrder(order)" 
-                      class="w-[clamp(92px,25vw,102px)] h-[clamp(21px,6vw,23px)] rounded-full px-[12px] text-[clamp(10px,2.8vw,12px)] font-semibold transition-all active:scale-95 whitespace-nowrap border border-[#3E63DD] leading-none flex items-center justify-center bg-white text-[#3E63DD] hover:bg-[#3E63DD] hover:text-white">
+                      class="w-[102px] h-[23px] rounded-full text-[12px] font-semibold transition-all active:scale-95 whitespace-nowrap border border-[#3E63DD] leading-none flex items-center justify-center bg-white text-[#3E63DD]">
                 Track Order
               </button>
             </div>
