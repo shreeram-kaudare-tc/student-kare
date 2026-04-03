@@ -31,13 +31,13 @@
             class="bg-white flex-1 w-full flex flex-col p-[clamp(20px,6vw,32px)] pb-[clamp(32px,8vh,64px)] gap-[clamp(16px,3vh,24px)] rounded-t-[clamp(24px,8vw,48px)] shadow-[0_-12px_40px_rgba(0,0,0,0.06)]">
 
             <!-- First Name + Last Name -->
-            <div class="flex gap-[clamp(10px,2vw,16px)]">
-                <div class="flex flex-col gap-[clamp(4px,0.8vh,8px)] flex-1">
+            <div class="flex gap-[clamp(10px,2vw,16px)] w-full overflow-hidden">
+                <div class="flex flex-col gap-[clamp(4px,0.8vh,8px)] flex-1 min-w-0">
                     <label class="text-[12px] font-normal leading-none text-[#1A1C1E]">First Name</label>
                     <app-input-field type="text" placeholder="Enter First Name" [(ngModel)]="firstName" class="w-full">
                     </app-input-field>
                 </div>
-                <div class="flex flex-col gap-[clamp(4px,0.8vh,8px)] flex-1">
+                <div class="flex flex-col gap-[clamp(4px,0.8vh,8px)] flex-1 min-w-0">
                     <label class="text-[12px] font-normal leading-none text-[#1A1C1E]">Last Name</label>
                     <app-input-field type="text" placeholder="Enter Last Name" [(ngModel)]="lastName" class="w-full">
                     </app-input-field>

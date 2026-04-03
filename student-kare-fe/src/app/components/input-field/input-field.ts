@@ -7,6 +7,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/f
   imports: [CommonModule, FormsModule],
   templateUrl: './input-field.html',
   styleUrl: './input-field.css',
+  host: { style: 'display: block;' },
   providers: [
     { provide: NG_VALUE_ACCESSOR, useExisting: forwardRef(() => InputField), multi: true },
   ],
