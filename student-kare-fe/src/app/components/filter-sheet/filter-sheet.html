@@ -76,112 +76,30 @@
       <!-- ── BRANDS ── -->
       @if (activeSection === 'brands') {
       <div class="flex flex-col gap-[12px]">
-        <!-- Search -->
-        <div class="flex items-center gap-[8px] border border-[#DADADA] rounded-[20px] h-[38px] px-[12px]">
-          <input type="text" [(ngModel)]="brandSearch" placeholder="Search" class="flex-1 text-[13px] text-[#1A1C1E] outline-none bg-transparent placeholder-[#ADADAD]" />
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ADADAD" stroke-width="2" stroke-linecap="round">
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-        </div>
-        <!-- List -->
-        @for (item of filteredBrands(); track item.name) {
-        <label class="flex items-center gap-[12px] cursor-pointer py-[4px]">
-          <div class="check-box flex-shrink-0" [class.checked]="item.checked" (click)="item.checked = !item.checked">
-            @if (item.checked) {
-            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2 7 5.5 10.5 12 3.5" />
-            </svg>
-            }
-          </div>
-          <span class="text-[14px] text-[#1A1C1E]">{{ item.name }}</span>
-        </label>
-        }
       </div>
       }
 
       <!-- ── SCHOOL ── -->
       @if (activeSection === 'school') {
       <div class="flex flex-col gap-[12px]">
-        <div class="flex items-center gap-[8px] border border-[#DADADA] rounded-[20px] h-[38px] px-[12px]">
-          <input type="text" [(ngModel)]="schoolSearch" placeholder="Search" class="flex-1 text-[13px] text-[#1A1C1E] outline-none bg-transparent placeholder-[#ADADAD]" />
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ADADAD" stroke-width="2" stroke-linecap="round">
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-        </div>
-        @for (item of filteredSchools(); track item.name) {
-        <label class="flex items-center gap-[12px] cursor-pointer py-[4px]">
-          <div class="check-box flex-shrink-0" [class.checked]="item.checked" (click)="item.checked = !item.checked">
-            @if (item.checked) {
-            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2 7 5.5 10.5 12 3.5" />
-            </svg>
-            }
-          </div>
-          <span class="text-[13px] text-[#1A1C1E] leading-[18px]">{{ item.name }}</span>
-        </label>
-        }
       </div>
       }
 
       <!-- ── GRADE ── -->
       @if (activeSection === 'grade') {
       <div class="flex flex-col gap-[12px]">
-        <div class="flex items-center gap-[8px] border border-[#DADADA] rounded-[20px] h-[38px] px-[12px]">
-          <input type="text" [(ngModel)]="gradeSearch" placeholder="Search" class="flex-1 text-[13px] text-[#1A1C1E] outline-none bg-transparent placeholder-[#ADADAD]" />
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ADADAD" stroke-width="2" stroke-linecap="round">
-            <circle cx="11" cy="11" r="8" />
-            <line x1="21" y1="21" x2="16.65" y2="16.65" />
-          </svg>
-        </div>
-        @for (item of filteredGrades(); track item.name) {
-        <label class="flex items-center gap-[12px] cursor-pointer py-[4px]">
-          <div class="check-box flex-shrink-0" [class.checked]="item.checked" (click)="item.checked = !item.checked">
-            @if (item.checked) {
-            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2 7 5.5 10.5 12 3.5" />
-            </svg>
-            }
-          </div>
-          <span class="text-[14px] text-[#1A1C1E]">{{ item.name }}</span>
-        </label>
-        }
       </div>
       }
 
       <!-- ── HOUSE ── -->
       @if (activeSection === 'house') {
       <div class="flex flex-col gap-[12px]">
-        @for (item of houses; track item.name) {
-        <label class="flex items-center gap-[12px] cursor-pointer py-[4px]">
-          <div class="check-box flex-shrink-0" [class.checked]="item.checked" (click)="item.checked = !item.checked">
-            @if (item.checked) {
-            <svg width="12" height="12" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-              <polyline points="2 7 5.5 10.5 12 3.5" />
-            </svg>
-            }
-          </div>
-          <div class="w-[16px] h-[16px] rounded-full flex-shrink-0" [style.background]="item.color"></div>
-          <span class="text-[14px] text-[#1A1C1E]">{{ item.name }}</span>
-        </label>
-        }
       </div>
       }
 
       <!-- ── GENDER ── -->
       @if (activeSection === 'gender') {
-      <div class="flex flex-col gap-[16px]">
-        @for (opt of ['Male', 'Female']; track opt) {
-        <label class="flex items-center gap-[12px] cursor-pointer py-[4px]">
-          <div class="radio-btn flex-shrink-0" [class.selected]="gender === opt" (click)="gender = opt">
-            @if (gender === opt) {
-            <div class="w-[8px] h-[8px] rounded-full bg-[#5732EE]"></div>
-            }
-          </div>
-          <span class="text-[14px] text-[#1A1C1E]">{{ opt }}</span>
-        </label>
-        }
+      <div class="flex flex-col gap-[12px]">
       </div>
       }
 
