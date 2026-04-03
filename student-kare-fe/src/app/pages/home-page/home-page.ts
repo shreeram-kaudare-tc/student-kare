@@ -45,9 +45,9 @@ export class HomePage implements OnInit, OnDestroy {
   ];
 
   products = [
-    { id: 101, name: 'VIBGYOR High Primary and Secondar Red (Edition 24-25)....', image: '/images/home/prod-literacy.png', price: 600, quantity: 0 },
-    { id: 102, name: 'VIBGYOR High Primary and Secondar Red (Edition 24-25)....', image: '/images/home/prod-reebok.png', price: 600, quantity: 0 },
-    { id: 103, name: 'VIBGYOR High Primary and Secondar Red (Edition 24-25)....', image: '/images/home/prod-war-engine.png', price: 400, quantity: 0 },
+    { id: 101, name: 'VIBGYOR High Primary and Secondary Red (Edition 24-25)....', image: '/images/home/prod-literacy.png', price: 600, quantity: 0 },
+    { id: 102, name: 'VIBGYOR High Primary and Secondary Red (Edition 24-25)....', image: '/images/home/prod-reebok.png', price: 600, quantity: 0 },
+    { id: 103, name: 'VIBGYOR High Primary and Secondary Red (Edition 24-25)....', image: '/images/home/prod-war-engine.png', price: 400, quantity: 0 },
   ];
 
   constructor(public router: Router) { }
