@@ -1,100 +1,116 @@
 <div class="relative w-full h-screen bg-white flex flex-col overflow-hidden font-jakarta">
-  <!-- Scrollable content -->
-  <div class="flex-1 overflow-y-auto pb-[72px]">
-    <!-- Header: back | My Order | search -->
-    <div class="flex items-center justify-between px-[20px] h-[44px]">
-      <button (click)="goBack()" class="w-[32px] h-[32px] flex items-center justify-center">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+
+  <!-- Scrollable content — uses dynamic padding/safe areas -->
+  <div class="flex-1 overflow-y-auto pb-[80px] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+
+    <!-- Header: Precise spacing and bold title -->
+    <div class="flex items-center justify-between px-[clamp(16px,5vw,25px)] h-[56px] bg-white sticky top-0 z-30">
+      <button (click)="goBack()" class="w-[40px] h-[40px] flex items-center justify-center active:scale-95 transition-transform">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M19 12H5M12 5l-7 7 7 7" />
         </svg>
       </button>
-      <span class="text-black font-jakarta text-[12px] font-medium leading-none text-center px-4 py-2 rounded">My Order</span>
-      <button class="w-[32px] h-[32px] flex items-center justify-center">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <h1 class="text-[#1A1C1E] text-[16px] font-bold tracking-tight">My Order</h1>
+      <button class="w-[40px] h-[40px] flex items-center justify-center active:scale-95 transition-transform">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="11" cy="11" r="8" />
           <line x1="21" y1="21" x2="16.65" y2="16.65" />
         </svg>
       </button>
     </div>
-    <!-- Tab bar: Active | Completed | Canceled -->
-    <div class="flex border-b border-[#EFEFEF]">
+
+    <!-- Tab bar: Sticky with active indicator -->
+    <div class="flex border-b border-[#F1F1F1] bg-white sticky top-[56px] z-20">
       @for (tab of tabs; track tab.key) {
-      <button (click)="activeTab = tab.key" class="flex-1 flex flex-col items-center pb-[10px] pt-[8px] relative">
-        <span class="text-[14px] font-medium transition-colors" [class.text-[#5732EE]]="activeTab === tab.key" [class.font-semibold]="activeTab === tab.key" [class.text-[#ADADAD]]="activeTab !== tab.key">
+      <button (click)="activeTab = tab.key" class="flex-1 flex flex-col items-center pb-[12px] pt-[10px] relative outline-none">
+        <span class="text-[14px] font-medium transition-all duration-300" 
+              [class.text-[#5732EE]]="activeTab === tab.key" 
+              [class.font-bold]="activeTab === tab.key" 
+              [class.text-[#ADADAD]]="activeTab !== tab.key">
           {{ tab.label }}
         </span>
         @if (activeTab === tab.key) {
-        <div class="absolute bottom-0 left-[20%] right-[20%] h-[2px] bg-[#5732EE] rounded-full"></div>
+        <div class="absolute bottom-0 left-[25%] right-[25%] h-[2.5px] bg-[#5732EE] rounded-t-full"></div>
         }
       </button>
       }
     </div>
 
-    <!-- Filter chips: All | Return | Exchange -->
-    <div class="flex items-center gap-[9px] px-[24px] py-[14px]">
+    <!-- Filter chips: Horizontal scroll support -->
+    <div class="flex items-center gap-[10px] px-[25px] py-[15px] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
       @for (chip of chips; track chip) {
-      <button (click)="activeChip = chip" class="h-[26px] px-[12px] py-[4px] rounded-[16px] text-[10px] font-normal gap-[10px] transition-all " [class.bg-[#5732EE]]="activeChip === chip" [class.text-white]="activeChip === chip" [class.bg-[#EEEAFD]]="activeChip !== chip" [class.text-[#464646]]="activeChip !== chip">
+      <button (click)="activeChip = chip" 
+              class="h-[28px] px-[16px] rounded-[14px] text-[11px] font-medium transition-all flex-shrink-0 active:scale-95 shadow-sm" 
+              [class.bg-[#5732EE]]="activeChip === chip" 
+              [class.text-white]="activeChip === chip" 
+              [class.bg-[#F3F0FF]]="activeChip !== chip" 
+              [class.text-[#5732EE]]="activeChip !== chip">
         {{ chip }}
       </button>
       }
     </div>
 
-    <!-- Order list -->
-    <div class="flex flex-col">
+    <!-- Order list: Clean vertical gaps -->
+    <div class="flex flex-col gap-0">
       @for (order of filteredOrders; track order.id; let i = $index) {
-      <div class="flex items-center w-full px-[25px] py-[11px] gap-[16px]" [class.bg-[#F8F8F8]]="selectedOrderIds.has(order.id)" [class.bg-white]="!selectedOrderIds.has(order.id)">
+      <div class="flex items-center w-full min-h-[99px] py-[11px] px-[25px] gap-[15px] transition-all border-b border-[#F5F5F5]"
+           [class.bg-[#F8F8F8]]="selectedOrderIds.has(order.id)"
+           [class.bg-white]="!selectedOrderIds.has(order.id)">
 
-        <!-- Product image: 76×75px, rounded, light border -->
-        <div class="flex-shrink-0 w-[76px] h-[75px] rounded-[12px] overflow-hidden bg-white border border-[#B1B1B1] flex items-center justify-center">
-          <img [src]="order.image" [alt]="order.name" class="w-full h-full object-cover" />
+        <!-- Product image: Square rounded with neutral backdrop -->
+        <div class="flex-shrink-0 w-[76px] h-[76px] rounded-[12px] overflow-hidden bg-[#F8FAFC] border border-[#EFEFEF] flex items-center justify-center p-[4px]">
+          <img [src]="order.image" [alt]="order.name" class="w-full h-full object-contain" />
         </div>
 
-        <!-- Content box: Width Fill(207px), Height Hug(77px), Gap 21px -->
-        <div class="flex flex-col flex-1 gap-[21px]">
-
-          <!-- Text group: name + size/qty, Width Fill(207px), Height Hug(20px), Gap 4px -->
-          <div class="flex flex-col h-[40px] gap-[7px]">
-            <p class="text-[14px] font-medium text-[#000000] leading-[20px] truncate h-[20px]">
+        <!-- Content box -->
+        <div class="flex flex-col flex-1 min-w-0 justify-between self-stretch">
+          <div class="flex flex-col gap-[2px]">
+            <h3 class="text-[clamp(13px,3.8vw,14px)] font-bold text-[#1A1C1E] leading-tight line-clamp-1">
               {{ order.name }}
-            </p>
-            <div class="flex items-center h-[13px] gap-[20px]">
-              <div class="flex gap-[2px]">
-                <span class="text-[10px] font-normal text-[#6C6C6C] leading-none truncate">Size : </span>
-                <span class="text-[10px] font-normal text-[#6C6C6C] leading-none truncate"> {{ order.size }}</span>
+            </h3>
+            <div class="flex items-center gap-[15px]">
+              <div class="flex items-baseline gap-[3px]">
+                <span class="text-[10px] text-[#ADADAD] font-medium">Size:</span>
+                <span class="text-[10px] text-[#464646] font-bold">{{ order.size }}</span>
               </div>
-              <div class="flex gap-[2px]">
-                <span class="text-[10px] font-normal text-[#6C6C6C] leading-none truncate">Quantity : </span>
-                <span class="text-[10px] font-normal text-[#6C6C6C] leading-none truncate"> {{ order.quantity }}</span>
+              <div class="flex items-baseline gap-[3px]">
+                <span class="text-[10px] text-[#ADADAD] font-medium">Quantity:</span>
+                <span class="text-[10px] text-[#464646] font-bold">{{ order.quantity }}</span>
               </div>
             </div>
           </div>
+          
           <!-- Price + Track Order button -->
-          <div class="flex items-center gap-[34px]">
-            <div class="w-[54px] h-[18px] gap-[10px] flex items-center">
-              <span class="text-[12px] font-semibold text-[#3E63DD] leading-[18px] whitespace-nowrap">₹{{ order.price | number }}</span>
-            </div>
-            <button (click)="trackOrder(order)" class="text-[12px] font-semibold whitespace-nowrap w-[102px] h-[23px] rounded-full px-[16px] gap-[14px] border border-[rgba(62,99,221,1)] transition-colors" [class.bg-[rgba(62,99,221,1)]]="!selectedOrderIds.has(order.id)" [class.text-white]="!selectedOrderIds.has(order.id)" [class.bg-transparent]="selectedOrderIds.has(order.id)" [class.text-[rgba(62,99,221,1)]]="selectedOrderIds.has(order.id)">
+          <div class="flex items-center justify-between gap-[5px] mt-[10px]">
+            <span class="text-[14px] font-bold text-[#3E63DD]">₹{{ order.price | number }}</span>
+            <button (click)="trackOrder(order)" 
+                    class="h-[28px] rounded-full px-[14px] text-[11px] font-bold transition-all active:scale-95 whitespace-nowrap shadow-sm border border-[#3E63DD]" 
+                    [class.bg-[#3E63DD]]="!selectedOrderIds.has(order.id)" 
+                    [class.text-white]="!selectedOrderIds.has(order.id)" 
+                    [class.bg-white]="selectedOrderIds.has(order.id)" 
+                    [class.text-[#3E63DD]]="selectedOrderIds.has(order.id)">
               Track Order
             </button>
           </div>
-
         </div>
       </div>
       }
 
+      <!-- Empty state -->
       @if (filteredOrders.length === 0) {
-      <div class="flex flex-col items-center justify-center py-[60px] gap-[12px]">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#DADADA" stroke-width="1.5">
-          <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-        </svg>
-        <span class="text-[14px] text-[#ADADAD]">No orders found</span>
+      <div class="flex flex-col items-center justify-center py-[100px] gap-[15px]">
+        <div class="w-[64px] h-[64px] bg-[#F8FAFC] rounded-full flex items-center justify-center">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#DADADA" stroke-width="1.8">
+            <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+          </svg>
+        </div>
+        <span class="text-[15px] font-medium text-[#ADADAD]">No active orders</span>
       </div>
       }
     </div>
-
   </div>
 
-  <!-- Bottom Nav -->
+  <!-- Bottom Nav bar integration -->
   <app-bottom-nav></app-bottom-nav>
 
 </div>
