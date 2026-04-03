@@ -25,8 +25,8 @@
   </p>
 
   <!-- Price + Add button -->
-  <div class="flex items-center justify-between px-[1px] mt-auto gap-[1.5px] flex-nowrap">
-    <span class="font-bold text-[#3E63DD] leading-none flex-shrink-0" style="font-size: clamp(10px, 3vw, 13px);">Rs. {{
+  <div class="flex items-center justify-between px-[1px] mt-auto gap-[2px] flex-nowrap">
+    <span class="font-bold text-[#3E63DD] leading-none shrink" style="font-size: clamp(9.5px, 3vw, 13px);">Rs. {{
       product.price }}</span>
 
     <div class="flex-shrink-0 flex items-center" style="height: clamp(24px, 6.5vw, 30px);">
@@ -42,7 +42,7 @@
       <!-- Style for PLP screen -->
       @else {
       <button (click)="onAdd($event)"
-        class="rounded-[99px] border border-[#3E63DD] text-[#3E63DD] font-semibold flex items-center justify-center gap-[3px] cursor-pointer active:scale-95 transition-all whitespace-nowrap bg-white"
+        class="rounded-[99px] border border-[#3E63DD] text-[#3E63DD] font-semibold flex items-center justify-center gap-[1px] cursor-pointer active:scale-95 transition-all whitespace-nowrap bg-white"
         style="height: clamp(24px, 6.5vw, 30px); padding: 0 clamp(4px, 2vw, 12px); font-size: clamp(9px, 2.4vw, 12px);">
         Add 
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -54,15 +54,15 @@
       }
       } @else {
       <div class="rounded-[99px] bg-[#3E63DD] text-white flex items-center justify-between shadow-sm select-none"
-        style="height: clamp(24px, 6.5vw, 30px); width: clamp(76px, 22vw, 96px); padding: 0 clamp(6px, 2vw, 10px);">
+        style="height: clamp(24px, 6.5vw, 30px); width: clamp(64px, 19vw, 92px); padding: 0 clamp(4px, 2vw, 10px);">
         <button (click)="onDecrease($event)"
           class="font-medium cursor-pointer flex justify-center items-center h-full active:opacity-70"
-          style="font-size: clamp(11px, 3vw, 14px); width: clamp(12px, 3.5vw, 16px);">&minus;</button>
+          style="font-size: clamp(10px, 3vw, 14px); width: clamp(10px, 3.5vw, 16px);">&minus;</button>
         <span class="font-medium leading-none text-center flex-1" style="font-size: clamp(9px, 2.5vw, 11px);">{{
           product.quantity }}</span>
         <button (click)="onIncrease($event)"
           class="font-medium cursor-pointer flex justify-center items-center h-full active:opacity-70"
-          style="font-size: clamp(11px, 3vw, 14px); width: clamp(12px, 3.5vw, 16px);">+</button>
+          style="font-size: clamp(10px, 3vw, 14px); width: clamp(10px, 3.5vw, 16px);">+</button>
       </div>
       }
     </div>
