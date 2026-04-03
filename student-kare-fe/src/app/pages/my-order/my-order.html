@@ -30,16 +30,18 @@
         <!-- Tab bar: With Gray Line divider -->
         <div class="flex bg-white h-[28px] px-[clamp(24px,5vw,50px)] border-b-[1.5px] border-[#D1D1D1]">
           @for (tab of tabs; track tab.key) {
-          <button (click)="activeTab = tab.key" class="flex-1 max-w-[200px] flex flex-col items-center justify-center relative outline-none h-full">
-            <span class="text-[14px] font-medium transition-all duration-300" 
-                  [class.text-[#5732EE]]="activeTab === tab.key" 
-                  [class.font-bold]="activeTab === tab.key" 
-                  [class.text-[#ADADAD]]="activeTab !== tab.key">
-              {{ tab.label }}
-            </span>
-            @if (activeTab === tab.key) {
-            <div class="absolute bottom-0 left-[15%] right-[15%] h-[2.5px] bg-[#5732EE] rounded-t-full z-10"></div>
-            }
+          <button (click)="activeTab = tab.key" class="flex-1 max-w-[200px] flex flex-col items-center justify-center outline-none h-full">
+            <div class="relative h-full flex flex-col items-center justify-center w-fit">
+              <span class="text-[14px] font-medium transition-all duration-300" 
+                    [class.text-[#5732EE]]="activeTab === tab.key" 
+                    [class.font-bold]="activeTab === tab.key" 
+                    [class.text-[#ADADAD]]="activeTab !== tab.key">
+                {{ tab.label }}
+              </span>
+              @if (activeTab === tab.key) {
+              <div class="absolute bottom-0 left-0 right-0 h-[2.5px] bg-[#5732EE] rounded-t-full z-10"></div>
+              }
+            </div>
           </button>
           }
         </div>
