@@ -1,7 +1,9 @@
-<div class="relative w-full h-[100dvh] overflow-hidden font-jakarta">
+<div class="relative w-full min-h-screen h-[100dvh] overflow-hidden font-jakarta">
 
     <!-- Fixed Blur BG — uses radial-gradient for iOS Safari compatibility -->
-    <div class="fixed inset-x-0 top-0 z-0 pointer-events-none h-[240px] bg-[linear-gradient(110.79deg,#F1DABA_7.21%,#FFFFFF_50.03%,#FFFFFF_63.23%,#D5C9F9_101.95%)]"></div>
+    <div
+        class="fixed inset-x-0 top-0 z-0 pointer-events-none h-[240px] bg-[linear-gradient(110.79deg,#F1DABA_7.21%,#FFFFFF_50.03%,#FFFFFF_63.23%,#D5C9F9_101.95%)]">
+    </div>
 
     <!-- Scrollable Content -->
     <div class="relative z-10 h-full overflow-y-auto flex flex-col gap-[24px]">
@@ -9,15 +11,21 @@
         <!-- Header Area with BG visible -->
         <div class="flex flex-col flex-shrink-0 gap-[24px] pt-[68px] pl-[24px]">
             <!-- Back Button -->
-            <svg (click)="goBack()" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M5 12H19M5 12L9 16M5 12L9 8" stroke="#464646" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            <svg (click)="goBack()" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 12H19M5 12L9 16M5 12L9 8" stroke="#464646" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
             </svg>
             <!-- Title -->
             <div class="flex flex-col gap-[12px]">
-                <h1 class="font-['Inter'] text-[32px] font-bold leading-[130%] tracking-[-0.02em] text-[#5732EE]">Register</h1>
-                <p class="flex items-center w-[327px] h-[17px] gap-[6px] font-['Inter'] font-medium text-[12px] leading-[140%] tracking-[-0.01em] text-[#464646]">
+                <h1 class="font-['Inter'] text-[32px] font-bold leading-[130%] tracking-[-0.02em] text-[#5732EE]">
+                    Register</h1>
+                <p
+                    class="flex items-center w-[327px] h-[17px] gap-[6px] font-['Inter'] font-medium text-[12px] leading-[140%] tracking-[-0.01em] text-[#464646]">
                     Already have an account?
-                    <a (click)="goToLogin()" class="cursor-pointer underline font-['Inter'] font-semibold text-[12px] leading-[140%] tracking-[-0.01em] text-[#4D81E7]">Log In</a>
+                    <a (click)="goToLogin()"
+                        class="cursor-pointer underline font-['Inter'] font-semibold text-[12px] leading-[140%] tracking-[-0.01em] text-[#4D81E7]">Log
+                        In</a>
                 </p>
             </div>
         </div>
@@ -28,20 +36,25 @@
             <div class="flex flex-col gap-[16px]">
                 <!-- First Name + Last Name -->
                 <div class="flex gap-[16px]">
-                    <app-input-field type="text" label="First Name" placeholder="Enter First Name" [(ngModel)]="firstName" class="flex-1"> </app-input-field>
-                    <app-input-field type="text" label="Last Name" placeholder="Enter Last Name" [(ngModel)]="lastName" class="flex-1"></app-input-field>
+                    <app-input-field type="text" label="First Name" placeholder="Enter First Name"
+                        [(ngModel)]="firstName" class="flex-1"> </app-input-field>
+                    <app-input-field type="text" label="Last Name" placeholder="Enter Last Name" [(ngModel)]="lastName"
+                        class="flex-1"></app-input-field>
                 </div>
 
                 <!-- Email -->
-                <app-input-field type="text" label="Email" placeholder="Enter Email" [(ngModel)]="email" class="w-full"></app-input-field>
+                <app-input-field type="text" label="Email" placeholder="Enter Email" [(ngModel)]="email"
+                    class="w-full"></app-input-field>
                 <!-- Birth of date -->
                 <app-date-input [(ngModel)]="birthDate" label="Birth of date" />
 
                 <!-- Phone Number -->
-                <app-input-field type="tel" label="Phone Number" placeholder="Enter Phone Number" [(ngModel)]="phoneNumber" class="w-full"></app-input-field>
+                <app-input-field type="tel" label="Phone Number" placeholder="Enter Phone Number"
+                    [(ngModel)]="phoneNumber" class="w-full"></app-input-field>
 
                 <!-- Set Password -->
-                <app-input-field type="password" label="Password" placeholder="Enter Password" [(ngModel)]="password" class="w-full"></app-input-field>
+                <app-input-field type="password" label="Password" placeholder="Enter Password" [(ngModel)]="password"
+                    class="w-full"></app-input-field>
 
 
                 <!-- Register Button -->
@@ -50,9 +63,12 @@
                         <app-button variant="primary" [fullWidth]="true" (click)="register()">Register</app-button>
                     </div>
                     <!-- Already have account -->
-                    <p class="flex items-center justify-center gap-[4px] font-['Inter'] font-medium text-[12px] leading-[140%] tracking-[-0.01em] text-[#6C7278]">
+                    <p
+                        class="flex items-center justify-center gap-[4px] font-['Inter'] font-medium text-[12px] leading-[140%] tracking-[-0.01em] text-[#6C7278]">
                         Already have an account?
-                        <span (click)="goToLogin()" class="font-['Inter'] font-semibold text-[12px] leading-[140%] tracking-[-0.01em] text-[#4D81E7] cursor-pointer">Log In</span>
+                        <span (click)="goToLogin()"
+                            class="font-['Inter'] font-semibold text-[12px] leading-[140%] tracking-[-0.01em] text-[#4D81E7] cursor-pointer">Log
+                            In</span>
                     </p>
                 </div>
 

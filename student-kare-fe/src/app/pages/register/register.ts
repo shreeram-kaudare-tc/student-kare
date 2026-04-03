@@ -31,6 +31,6 @@ export class Register {
 
   register() {
     // TODO: integrate register API
-    this.router.navigate(['/onboarding']);
+    this.router.navigate(['/login4']);
   }
 }

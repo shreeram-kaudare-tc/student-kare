@@ -18,6 +18,6 @@ export class BottomNav {
   ];
   constructor(public router: Router) {}
   isActive(route: string): boolean {
-    return this.router.url.split('?')[0] === route;
+    return this.router.url === route || this.router.url.startsWith(route + '?');
   }
-}
+}

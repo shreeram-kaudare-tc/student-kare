@@ -1,43 +1,53 @@
-<div class="relative flex flex-col bg-white rounded-[8px] border border-[#EAEAEA] overflow-hidden w-full h-[168px] px-[6px] py-[5px] gap-[7px] shadow-[1px_1px_4px_0px_rgba(0,0,0,0.10)]">
+<div class="relative flex flex-col bg-white rounded-[2px] border border-[#EAEAEA] overflow-hidden w-full"
+  style="padding: 5px 6px; gap: 7px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
 
-  <!-- Product image container with wishlist heart -->
-  <div class="relative w-full h-[101px] bg-[#E2E8F0] rounded-[6px] flex items-center justify-center overflow-hidden">
-    <img [src]="product.image" [alt]="product.name" class="object-contain w-full h-full" />
-    <button (click)="onWishlist($event)" class="absolute top-[6px] right-[6px]">
-      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path fill-rule="evenodd" clip-rule="evenodd" d="M1.43593 5.79916C0.899433 4.12416 1.52643 2.20966 3.28493 1.64316C4.20993 1.34466 5.23093 1.52066 5.99993 2.09916C6.72743 1.53666 7.78593 1.34666 8.70993 1.64316C10.4684 2.20966 11.0994 4.12416 10.5634 5.79916C9.72843 8.45416 5.99993 10.4992 5.99993 10.4992C5.99993 10.4992 2.29893 8.48516 1.43593 5.79916Z" stroke="#909090" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-        <path d="M8 3.35C8.535 3.523 8.913 4.0005 8.9585 4.561" stroke="#909090" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-      </svg>
-    </button>
+  <!-- Wishlist heart -->
+  <button (click)="onWishlist($event)"
+    class="absolute top-[8px] right-[8px] z-10 w-[20px] h-[20px] flex items-center justify-center">
+    <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path fill-rule="evenodd" clip-rule="evenodd"
+        d="M1.43593 5.79916C0.899433 4.12416 1.52643 2.20966 3.28493 1.64316C4.20993 1.34466 5.23093 1.52066 5.99993 2.09916C6.72743 1.53666 7.78593 1.34666 8.70993 1.64316C10.4684 2.20966 11.0994 4.12416 10.5634 5.79916C9.72843 8.45416 5.99993 10.4992 5.99993 10.4992C5.99993 10.4992 2.29893 8.48516 1.43593 5.79916Z"
+        stroke="#909090" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      <path d="M8 3.35C8.535 3.523 8.913 4.0005 8.9585 4.561" stroke="#909090" stroke-width="1.5" stroke-linecap="round"
+        stroke-linejoin="round" />
+    </svg>
+  </button>
+
+  <!-- Product image — scales with card width, fixed aspect ratio -->
+  <div class="w-full rounded-[2px] overflow-hidden" style="aspect-ratio: 1 / 0.85;">
+    <img [src]="product.image" [alt]="product.name" class="object-cover w-full h-full block" />
   </div>
 
   <!-- Product name -->
-  <p class=" h-[20px] px-[2px] text-[8px] font-medium text-[#222222] leading-[100%] line-clamp-2">
+  <p class="font-medium text-[#1A1C1E] leading-[1.4] line-clamp-2 px-[2px] text-center"
+    style="font-size: clamp(9px, 2.5vw, 11px); min-height: calc(clamp(9px, 2.5vw, 11px) * 1.4 * 2);">
     {{ product.name }}
   </p>
 
   <!-- Price + Add button -->
-  <div class="flex items-center justify-between h-[19px] gap-[10px] px-[2px] mt-auto">
-    <span class="flex items-baseline gap-[1px] text-[#3E63DD] font-semibold leading-[100%]">
-      <span class="text-[10px]">Rs.</span>
-      <span class="text-[12px]">{{ product.price }}</span>
-    </span>
+  <div class="flex items-center justify-between px-[2px] mt-auto gap-[4px] flex-wrap">
+    <span class="font-bold text-[#3E63DD] leading-none flex-shrink-0" style="font-size: clamp(10px, 3vw, 13px);">Rs. {{
+      product.price }}</span>
 
-    <div class="h-[19px] w-[60px]">
+    <div class="flex-shrink-0 flex items-center" style="height: clamp(24px, 6.5vw, 30px);">
       @if (!product.quantity) {
-      <button (click)="onAdd($event)" class="w-full h-full rounded-full border border-[#3E63DD] bg-white text-[#3E63DD] text-[10px] font-medium flex items-center justify-center gap-[4px] cursor-pointer hover:bg-blue-50 active:scale-95 transition-all">
-        Add
-        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="9" cy="21" r="1"></circle>
-          <circle cx="20" cy="21" r="1"></circle>
-          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-        </svg>
+      <!-- Add To Cart button scales with card -->
+      <button (click)="onAdd($event)"
+        class="rounded-[99px] btn-primary-gradient text-white font-semibold flex items-center justify-center cursor-pointer active:scale-95 transition-all whitespace-nowrap"
+        style="height: clamp(24px, 6.5vw, 30px); padding: 0 clamp(8px, 2.5vw, 14px); font-size: clamp(9px, 2.4vw, 11px);">
+        Add To Cart
       </button>
       } @else {
-      <div class="w-full h-full rounded-full bg-[#3E63DD] text-white flex items-center justify-between px-[6px] shadow-sm select-none">
-        <button (click)="onDecrease($event)" class="text-[14px] font-medium cursor-pointer w-[14px] flex justify-center items-center h-full active:opacity-70">&minus;</button>
-        <span class="text-[12px] font-medium tracking-tight">{{ product.quantity }}</span>
-        <button (click)="onIncrease($event)" class="text-[14px] font-medium cursor-pointer w-[14px] flex justify-center items-center h-full active:opacity-70">+</button>
+      <div class="rounded-[99px] bg-[#3E63DD] text-white flex items-center justify-between shadow-sm select-none"
+        style="height: clamp(24px, 6.5vw, 30px); width: clamp(76px, 22vw, 96px); padding: 0 clamp(6px, 2vw, 10px);">
+        <button (click)="onDecrease($event)"
+          class="font-medium cursor-pointer flex justify-center items-center h-full active:opacity-70"
+          style="font-size: clamp(11px, 3vw, 14px); width: clamp(12px, 3.5vw, 16px);">&minus;</button>
+        <span class="font-medium leading-none text-center flex-1" style="font-size: clamp(9px, 2.5vw, 11px);">{{
+          product.quantity }}</span>
+        <button (click)="onIncrease($event)"
+          class="font-medium cursor-pointer flex justify-center items-center h-full active:opacity-70"
+          style="font-size: clamp(11px, 3vw, 14px); width: clamp(12px, 3.5vw, 16px);">+</button>
       </div>
       }
     </div>

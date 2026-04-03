@@ -12,7 +12,8 @@
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
-html, body {
+html,
+body {
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -22,10 +23,19 @@ html, body {
 }
 
 /* Prevent double-tap zoom on tappable controls */
-button, a {
+button,
+a {
   touch-action: manipulation;
 }
 
 .btn-primary-gradient {
   background: linear-gradient(90deg, #5B51E8 1%, #3E63DD 32.5%, #795BF1 90%);
+}
+
+/* Force asterisks instead of dots for password fields */
+input[type="password"],
+.otp-field input {
+  -webkit-text-security: asterisk !important;
+  text-security: asterisk !important;
+  letter-spacing: 0.15em !important;
 }

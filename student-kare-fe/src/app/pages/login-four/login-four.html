@@ -1,8 +1,8 @@
 <app-auth-layout1>
-    <div class="flex flex-col items-center justify-center w-full px-4 pb-4">
+    <div class="flex flex-col items-center justify-center w-full px-4 py-8">
 
-        <!-- Card -->
-        <div class="flex flex-col w-full bg-white rounded-[30px] border border-[#E9EAF2] shadow-[0_20px_38px_rgba(24,25,70,0.16)] px-[20px] py-[24px] gap-[24px]">
+        <!-- Card Container with max-width for Desktop Responsiveness -->
+        <div class="flex flex-col w-full max-w-[420px] bg-white rounded-[30px] border border-[#E9EAF2] shadow-[0_20px_38px_rgba(24,25,70,0.16)] px-[20px] py-[24px] gap-[24px]">
 
             <!-- Logo -->
             <div class="flex flex-col items-center">
@@ -15,14 +15,14 @@
 
             <!-- Heading -->
             <div class="flex flex-col gap-[12px]">
-                <h1 class="text-[32px] leading-[42px] font-bold text-[#1A1C1E] text-center">Get Started now</h1>
+                <h1 class="text-[32px] leading-[42px] font-bold text-[#1A1C1E] text-center">Get Started Now</h1>
                 <div class="flex flex-col">
                     <span class="text-[12px] leading-[18px] font-normal text-[#6C7278] text-center">Create an account or log in to explore</span>
                     <span class="text-[12px] leading-[18px] font-normal text-[#6C7278] text-center">about our app</span>
                 </div>
             </div>
 
-            <!-- Toggle: With Vibgyor / Without Vibgyor -->
+            <!-- Toggle: With / Without Vibgyor -->
             <div class="flex items-center justify-between h-[36px] rounded-[7px] gap-[1px] p-[2px] bg-[#F5F6F9] border border-[#F5F6F9] shadow-[inset_0px_3px_6px_0px_rgba(0,0,0,0.02)]">
                 <button (click)="setLoginMode('vibgyor')" [class]="loginMode === 'vibgyor'
                         ? 'flex-1 h-[32px] rounded-[7px] bg-white text-[14px] font-medium text-[#232447] text-center'
@@ -37,18 +37,16 @@
             </div>
 
             <!-- Mobile Number -->
-            <div class="flex flex-col gap-[6px]">
-                <label class="block text-[12px] font-normal leading-[18px] text-[#1A1C1E]">Mobile Number</label>
+            <div class="flex flex-col gap-[10px]">
+                <label class="block text-[12px] font-normal leading-[18px] text-[#6C7278]">Mobile Number</label>
                 <app-input-field type="text" placeholder="Enter your mobile number" [(ngModel)]="mobileNumber" class="w-full">
                 </app-input-field>
             </div>
 
-
-
             <!-- Login Button + Register link -->
             <div class="flex flex-col gap-[24px]">
                 <div class="flex justify-center items-center">
-                    <app-button class="w-[186px]" variant="primary" size="lg" [fullWidth]="true" (click)="sendOtp()">Send OTP</app-button>
+                    <app-button variant="primary" size="lg" [fullWidth]="false" (click)="sendOtp()">Send OTP</app-button>
                 </div>
 
                 <p class="text-[12px] leading-[16.8px] text-[#6C7278] text-center font-medium tracking-[-0.01em]">
@@ -57,8 +55,5 @@
             </div>
 
         </div>
-        <!-- <div class="w-full flex items-center justify-center h-[34px]">
-            <div class="w-[148px] h-[5px] rounded-full bg-[#111827]"></div>
-        </div> -->
     </div>
 </app-auth-layout1>

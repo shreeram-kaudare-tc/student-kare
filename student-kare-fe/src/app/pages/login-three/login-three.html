@@ -15,7 +15,7 @@
 
             <!-- Heading -->
             <div class="flex flex-col gap-[12px]">
-                <h1 class="text-[32px] leading-[42px] font-bold text-[#1A1C1E] text-center">Get Started now</h1>
+                <h1 class="text-[32px] leading-[42px] font-bold text-[#1A1C1E] text-center">Get Started Now</h1>
                 <div class="flex flex-col">
                     <span class="text-[12px] leading-[18px] font-normal text-[#6C7278] text-center">Create an account or log in to explore</span>
                     <span class="text-[12px] leading-[18px] font-normal text-[#6C7278] text-center">about our app</span>
@@ -37,16 +37,16 @@
             </div>
 
             <!-- Mobile Number -->
-            <div class="flex flex-col gap-[6px]">
-                <label class="block text-[12px] font-normal leading-[18px] text-[#1A1C1E]">Mobile Number</label>
+            <div class="flex flex-col gap-[10px]">
+                <label class="block text-[12px] font-normal leading-[18px] text-[#6C7278]">Mobile Number</label>
                 <app-input-field type="text" placeholder="Enter your mobile number" [(ngModel)]="mobileNumber" class="w-full">
                 </app-input-field>
             </div>
 
             <!-- OTP -->
-            <div class="flex flex-col gap-[6px]">
-                <label class="block text-[12px] font-normal leading-[18px] text-[#1A1C1E]"> OTP</label>
-                <app-input-field type="password" placeholder="Enter OTP" [(ngModel)]="otp" class="w-full">
+            <div class="flex flex-col gap-[10px]">
+                <label class="block text-[12px] font-normal leading-[18px] text-[#6C7278]">OTP</label>
+                <app-input-field type="password" placeholder="Enter OTP" [(ngModel)]="otp" class="w-full" [isOtp]="true">
                 </app-input-field>
 
                 <!-- Resend OTP -->
@@ -60,7 +60,7 @@
             <!-- Login Button + Register link -->
             <div class="flex flex-col gap-[24px]">
                 <div class="flex justify-center items-center">
-                    <app-button class="w-[186px]" variant="primary" [fullWidth]="true" (click)="login()">Log In</app-button>
+                    <app-button variant="primary" size="lg" [fullWidth]="false" (click)="login()">Log In</app-button>
                 </div>
 
                 <p class="text-[12px] leading-[16.8px] text-[#6C7278] text-center font-medium tracking-[-0.01em]">
