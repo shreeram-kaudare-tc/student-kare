@@ -12,14 +12,15 @@ export interface PlpProduct {
 
 @Component({
   selector: 'app-plp-product-card',
+  standalone: true,
   imports: [CommonModule],
   templateUrl: './plp-product-card.html',
   styleUrl: './plp-product-card.css',
 })
 export class PlpProductCard {
   @Input() product!: PlpProduct;
-  /** 'home' = filled gradient "Add To Cart" button | 'plp' = outlined "Add 🛒" button */
-  @Input() variant: 'home' | 'plp' = 'home';
+  /** 'home' = filled gradient "Add To Cart" button | 'plp' = outlined "Add (cart icon)" button */
+  @Input() public variant: 'home' | 'plp' = 'home';
   @Output() addToCart = new EventEmitter<{ product: PlpProduct; event: MouseEvent }>();
   @Output() toggleWishlist = new EventEmitter<PlpProduct>();
   @Output() decreaseQuantity = new EventEmitter<PlpProduct>();
