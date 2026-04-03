@@ -93,22 +93,25 @@
     <div (click)="viewCart()" class="w-full flex items-center justify-between bg-[#795BF1] rounded-[58px] px-[10px] cursor-pointer" style="height: 62px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
 
       <!-- Overlapping product thumbnails -->
-      <div class="relative flex-shrink-0 w-[88px] self-stretch" [class.thumbnails-rotating]="isRotating">
+      <div class="relative flex-shrink-0 w-[88px] self-stretch cursor-pointer" 
+           (click)="rotateCartThumbnails(); $event.stopPropagation()">
         @for (item of cartItems.slice(0, 3); track item.id; let i = $index) {
-        <div class="absolute w-[42px] h-[42px] rounded-[82px] p-[2px] bg-[#795BF1] top-1/2 -translate-y-1/2 ml-[-12px]" [style.left.px]="i === 0 ? 10 : i === 1 ? 31 : 56" [style.zIndex]="i + 1">
-          <img [src]="item.image" [alt]="item.name" class="w-full h-full rounded-full object-contain bg-white" />
+        <div class="absolute w-[42px] h-[42px] rounded-[82px] p-[2px] bg-[#795BF1] top-1/2 -translate-y-1/2 transition-all duration-500 ease-in-out" 
+             [style.left.px]="i === 0 ? 0 : i === 1 ? 21 : 42" 
+             [style.zIndex]="i + 1">
+          <img [src]="item.image" [alt]="item.name" class="w-full h-full rounded-full object-contain bg-white shadow-sm" />
         </div>
         }
       </div>
 
       <!-- Text Container -->
-      <div class="flex flex-col justify-center flex-1 gap-2 ml-[10px]">
+      <div class="flex flex-col justify-center flex-1 gap-2 ml-[10px]" (click)="viewCart()">
         <span class="font-semibold text-white text-[12px]">View Cart</span>
         <span class="font-semibold text-white text-[10px]">{{ cartCount }} items</span>
       </div>
 
       <!-- Arrow circle -->
-      <button (click)="viewCart(); $event.stopPropagation()" class="flex-shrink-0 w-[42px] h-[42px] bg-[#1A0A4B] rounded-full flex items-center justify-center text-white active:scale-95 transition-transform">
+      <button (click)="rotateCartThumbnails(); $event.stopPropagation()" class="flex-shrink-0 w-[42px] h-[42px] bg-[#1A0A4B] rounded-full flex items-center justify-center text-white active:scale-95 transition-transform shadow-lg">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
