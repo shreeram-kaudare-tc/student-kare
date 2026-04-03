@@ -18,6 +18,8 @@ export interface PlpProduct {
 })
 export class PlpProductCard {
   @Input() product!: PlpProduct;
+  /** 'home' = filled gradient "Add To Cart" button | 'plp' = outlined "Add 🛒" button */
+  @Input() variant: 'home' | 'plp' = 'home';
   @Output() addToCart = new EventEmitter<{ product: PlpProduct; event: MouseEvent }>();
   @Output() toggleWishlist = new EventEmitter<PlpProduct>();
   @Output() decreaseQuantity = new EventEmitter<PlpProduct>();
