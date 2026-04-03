@@ -45,12 +45,12 @@
     <span class="text-gray-400 text-lg flex-shrink-0">{{ icon }}</span>
     }
 
-    <input [type]="inputType" [placeholder]="placeholder" [value]="value" [disabled]="disabled"
+    <input [type]="inputType" [placeholder]="placeholder" [value]="displayValue" [disabled]="disabled"
       (input)="onInput($event)" (blur)="onBlur()"
       class="flex-1 h-full text-[14px] text-[#1A1C1E] placeholder:text-[#C4C8D4] bg-transparent focus:outline-none" />
 
-    <!-- PASSWORD: show/hide toggle -->
-    @if (type === 'password') {
+    <!-- PASSWORD/OTP: show/hide toggle -->
+    @if (type === 'password' || isOtp) {
     <button type="button" (click)="togglePassword()"
       class="flex-shrink-0 focus:outline-none flex items-center justify-center w-[16px] h-[16px]">
       @if (!showPassword) {
