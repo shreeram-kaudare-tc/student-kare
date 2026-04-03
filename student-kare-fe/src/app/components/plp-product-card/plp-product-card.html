@@ -1,5 +1,5 @@
 <div class="relative flex flex-col bg-white rounded-[2px] border border-[#EAEAEA] overflow-hidden w-full"
-  style="padding: 5px 6px; gap: 7px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
+  style="padding: 5px clamp(4px, 1.5vw, 6px); gap: 7px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
 
   <!-- Wishlist heart -->
   <button (click)="onWishlist($event)"
@@ -25,7 +25,7 @@
   </p>
 
   <!-- Price + Add button -->
-  <div class="flex items-center justify-between px-[2px] mt-auto gap-[4px] flex-wrap">
+  <div class="flex items-center justify-between px-[1px] mt-auto gap-[1.5px] flex-nowrap">
     <span class="font-bold text-[#3E63DD] leading-none flex-shrink-0" style="font-size: clamp(10px, 3vw, 13px);">Rs. {{
       product.price }}</span>
 
@@ -35,15 +35,15 @@
       @if (variant === 'home') {
       <button (click)="onAdd($event)"
         class="rounded-[99px] btn-primary-gradient text-white font-semibold flex items-center justify-center cursor-pointer active:scale-95 transition-all whitespace-nowrap"
-        style="height: clamp(24px, 6.5vw, 30px); padding: 0 clamp(8px, 2.5vw, 14px); font-size: clamp(9px, 2.4vw, 11px);">
+        style="height: clamp(24px, 6.5vw, 30px); padding: 0 clamp(4px, 2.5vw, 14px); font-size: clamp(9px, 2.4vw, 11px);">
         Add To Cart
       </button>
       }
       <!-- Style for PLP screen -->
       @else {
       <button (click)="onAdd($event)"
-        class="rounded-[99px] border border-[#3E63DD] text-[#3E63DD] font-semibold flex items-center justify-center gap-[6px] cursor-pointer active:scale-95 transition-all whitespace-nowrap bg-white"
-        style="height: clamp(24px, 6.5vw, 30px); padding: 0 clamp(8px, 2.5vw, 14px); font-size: clamp(10px, 2.4vw, 12px);">
+        class="rounded-[99px] border border-[#3E63DD] text-[#3E63DD] font-semibold flex items-center justify-center gap-[3px] cursor-pointer active:scale-95 transition-all whitespace-nowrap bg-white"
+        style="height: clamp(24px, 6.5vw, 30px); padding: 0 clamp(4px, 2vw, 12px); font-size: clamp(9px, 2.4vw, 12px);">
         Add 
         <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="9" cy="21" r="1"></circle>
