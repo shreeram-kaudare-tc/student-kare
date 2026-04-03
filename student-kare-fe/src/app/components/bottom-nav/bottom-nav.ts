@@ -14,7 +14,7 @@ export class BottomNav {
     { label: 'Home',       route: '/home',     icon: 'home'   },
     { label: 'Categories', route: '/plp',      icon: 'shop'   },
     { label: 'Cart',       route: '/cart',     icon: 'cart'   },
-    { label: 'My Order',     route: '/my-order', icon: 'orders' },
+    { label: 'Orders',     route: '/my-order', icon: 'orders' },
   ];
   constructor(public router: Router) {}
   isActive(route: string): boolean {
