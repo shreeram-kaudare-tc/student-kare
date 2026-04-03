@@ -1,72 +1,82 @@
 <div class="relative w-full h-screen bg-white flex flex-col overflow-hidden font-jakarta">
 
   <!-- Scrollable content -->
-  <div class="flex-1 overflow-y-auto pb-[90px] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+  <div class="flex-1 overflow-y-auto bg-white [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pb-[90px]">
+    
+    <!-- Header Stack: Stretches Full Width -->
+    <div class="w-full flex flex-col pt-0 bg-white sticky top-0 z-30 border-b border-[#F1F1F1]">
+      
+      <!-- Title Row -->
+      <div class="flex items-center justify-between px-[clamp(26px,5vw,50px)] py-[10px] h-[41px]">
+        <button (click)="goBack()" class="w-[24px] h-[24px] flex items-center justify-center active:scale-95 transition-transform">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M19 12H5M12 5l-7 7 7 7" />
+          </svg>
+        </button>
+        <h1 class="text-[#1A1C1E] text-[16px] font-bold tracking-tight">My Order</h1>
+        <button class="w-[24px] h-[24px] flex items-center justify-center active:scale-95 transition-transform">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="11" cy="11" r="8" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" />
+          </svg>
+        </button>
+      </div>
 
-    <!-- Header: Consistent spacing and bold title -->
-    <div class="flex items-center justify-between px-[clamp(16px,5vw,25px)] h-[56px] bg-white sticky top-0 z-30">
-      <button (click)="goBack()" class="w-[40px] h-[40px] flex items-center justify-center active:scale-95 transition-transform">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M19 12H5M12 5l-7 7 7 7" />
-        </svg>
-      </button>
-      <h1 class="text-[#1A1C1E] text-[16px] font-bold tracking-tight">My Order</h1>
-      <button class="w-[40px] h-[40px] flex items-center justify-center active:scale-95 transition-transform">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-          <circle cx="11" cy="11" r="8" />
-          <line x1="21" y1="21" x2="16.65" y2="16.65" />
-        </svg>
-      </button>
+      <!-- Spacer (Gap 18px) -->
+      <div class="h-[18px]"></div>
+
+      <!-- Tabs + Chips Block -->
+      <div class="flex flex-col">
+        <div class="flex bg-white h-[28px] px-[clamp(26px,5vw,50px)]">
+          @for (tab of tabs; track tab.key) {
+          <button (click)="activeTab = tab.key" class="flex-1 max-w-[200px] flex flex-col items-center justify-center relative outline-none h-full">
+            <span class="text-[14px] font-medium transition-all duration-300" 
+                  [class.text-[#5732EE]]="activeTab === tab.key" 
+                  [class.font-bold]="activeTab === tab.key" 
+                  [class.text-[#ADADAD]]="activeTab !== tab.key">
+              {{ tab.label }}
+            </span>
+            @if (activeTab === tab.key) {
+            <div class="absolute bottom-0 left-[15%] right-[15%] h-[2.5px] bg-[#5732EE] rounded-t-full"></div>
+            }
+          </button>
+          }
+        </div>
+
+        <div class="h-[6px]"></div>
+
+        <div class="flex items-center gap-[10px] px-[clamp(26px,5vw,50px)] py-[15px] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+          @for (chip of chips; track chip) {
+          <button (click)="activeChip = chip" 
+                  class="h-[30px] px-[16px] rounded-[16px] text-[11px] font-medium transition-all flex-shrink-0 active:scale-95" 
+                  [class.bg-[#5732EE]]="activeChip === chip" 
+                  [class.text-white]="activeChip === chip" 
+                  [class.bg-[#F3F0FF]]="activeChip !== chip" 
+                  [class.text-[#5732EE]]="activeChip !== chip">
+            {{ chip }}
+          </button>
+          }
+        </div>
+      </div>
     </div>
 
-    <!-- Tab bar: Sticky with precise active indicator -->
-    <div class="flex border-b border-[#F1F1F1] bg-white sticky top-[56px] z-20">
-      @for (tab of tabs; track tab.key) {
-      <button (click)="activeTab = tab.key" class="flex-1 flex flex-col items-center pb-[12px] pt-[10px] relative outline-none">
-        <span class="text-[14px] font-medium transition-all duration-300" 
-              [class.text-[#5732EE]]="activeTab === tab.key" 
-              [class.font-bold]="activeTab === tab.key" 
-              [class.text-[#ADADAD]]="activeTab !== tab.key">
-          {{ tab.label }}
-        </span>
-        @if (activeTab === tab.key) {
-        <div class="absolute bottom-0 left-[25%] right-[25%] h-[2.5px] bg-[#5732EE] rounded-t-full"></div>
-        }
-      </button>
-      }
-    </div>
-
-    <!-- Filter chips: Horizontal scrollable row -->
-    <div class="flex items-center gap-[10px] px-[25px] py-[15px] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
-      @for (chip of chips; track chip) {
-      <button (click)="activeChip = chip" 
-              class="h-[30px] px-[16px] rounded-[16px] text-[11px] font-medium transition-all flex-shrink-0 active:scale-95" 
-              [class.bg-[#5732EE]]="activeChip === chip" 
-              [class.text-white]="activeChip === chip" 
-              [class.bg-[#F3F0FF]]="activeChip !== chip" 
-              [class.text-[#5732EE]]="activeChip !== chip">
-        {{ chip }}
-      </button>
-      }
-    </div>
-
-    <!-- Order list: Pixel-perfect card layout (Figma 393x99) -->
-    <div class="flex flex-col gap-0">
+    <!-- Order list: Full Width Single Column -->
+    <div class="w-full flex flex-col gap-0 bg-white">
       @for (order of filteredOrders; track order.id; let i = $index) {
-      <div class="flex items-center w-full min-h-[99px] py-[11px] px-[25px] gap-[15px] transition-all border-b border-[#F5F5F5]"
+      <div class="flex items-center w-full min-h-[99px] py-[11px] px-[clamp(26px,5vw,50px)] gap-[clamp(15px,3vw,30px)] transition-all border-b border-[#F5F5F5]"
            [class.bg-[#F8F8F8]]="selectedOrderIds.has(order.id)"
            [class.bg-white]="!selectedOrderIds.has(order.id)">
-
-        <!-- Product image: Exactly 73x77px per Figma -->
+        
+        <!-- Product image: Exactly 73x77px -->
         <div class="flex-shrink-0 w-[73px] h-[77px] rounded-[12px] overflow-hidden bg-[#F8FAFC] flex items-center justify-center border border-[#EFEFEF]">
           <img [src]="order.image" [alt]="order.name" class="w-full h-full object-contain" />
         </div>
 
-        <!-- Content box: Hug(77px) height, gap 21px vertically -->
+        <!-- Content box: Stretches responsive wise -->
         <div class="flex flex-col flex-1 min-w-0 justify-between h-[77px]">
           <div class="flex flex-col gap-[7px]">
             <div class="flex flex-col gap-[4px] h-[20px]">
-              <h3 class="text-[clamp(13px,3.8vw,14px)] font-bold text-[#1A1C1E] leading-[20px] line-clamp-1">
+              <h3 class="text-[clamp(13px,2.5vw,14px)] font-bold text-[#1A1C1E] leading-[20px] line-clamp-1">
                 {{ order.name }}
               </h3>
             </div>
@@ -76,13 +86,12 @@
                 <span class="text-[10px] text-[#464646] font-medium leading-none">{{ order.size }}</span>
               </div>
               <div class="flex items-baseline gap-[3px]">
-                <span class="text-[10px] text-[#A6A6A6] font-normal leading-none">Quantity :</span>
+                <span class="text-[10px] text-[#A6A6A6] font-normal leading-none uppercase">Quantity :</span>
                 <span class="text-[10px] text-[#464646] font-medium leading-none">{{ order.quantity }}</span>
               </div>
             </div>
           </div>
           
-          <!-- Price + Track Order button -->
           <div class="flex items-center justify-between gap-[5px] mt-auto">
             <div class="w-[54px] h-[18px] flex items-center">
               <span class="text-[13px] font-bold text-[#3E63DD] leading-none">₹{{ order.price | number }}</span>
@@ -113,7 +122,7 @@
     </div>
   </div>
 
-  <!-- Bottom Nav bar integration -->
+  <!-- Bottom Nav bar: Stretches Full Width -->
   <app-bottom-nav></app-bottom-nav>
 
 </div>
