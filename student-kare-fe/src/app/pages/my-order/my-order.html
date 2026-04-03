@@ -72,7 +72,7 @@
       <!-- Order list -->
       <div class="w-full flex flex-col gap-0 bg-white">
         @for (order of filteredOrders; track order.id; let i = $index) {
-        <div class="flex items-center w-full min-h-[clamp(90px,25vw,110px)] py-[11px] px-[24px] gap-[clamp(12px,4vw,15px)] transition-all border-b border-[#F5F5F5]"
+        <div class="flex items-center w-full h-[99px] py-[11px] px-[25px] gap-[15px] transition-all border-b border-[#F5F5F5] box-border"
              [class.bg-[#F8F8F8]]="i % 2 !== 0"
              [class.bg-white]="i % 2 === 0">
           
