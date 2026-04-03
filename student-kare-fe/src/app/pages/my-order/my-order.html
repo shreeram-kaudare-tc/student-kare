@@ -4,10 +4,10 @@
   <div class="flex-1 overflow-y-auto bg-white [scrollbar-width:none] [&::-webkit-scrollbar]:hidden pb-[100px]">
     
     <!-- Header Stack -->
-    <div class="w-full flex flex-col pt-0 bg-white sticky top-0 z-30 border-b border-[#F1F1F1]">
+    <div class="w-full flex flex-col pt-0 bg-white sticky top-0 z-30">
       
       <!-- Title Row -->
-      <div class="flex items-center justify-between px-[clamp(26px,5vw,50px)] py-[10px] h-[41px]">
+      <div class="flex items-center justify-between px-[clamp(24px,5vw,50px)] py-[10px] h-[41px]">
         <button (click)="goBack()" class="w-[24px] h-[24px] flex items-center justify-center active:scale-95 transition-transform">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1A1C1E" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M19 12H5M12 5l-7 7 7 7" />
@@ -27,7 +27,8 @@
 
       <!-- Tabs + Chips Block -->
       <div class="flex flex-col">
-        <div class="flex bg-white h-[28px] px-[clamp(26px,5vw,50px)]">
+        <!-- Tab bar: With Gray Line divider -->
+        <div class="flex bg-white h-[28px] px-[clamp(24px,5vw,50px)] border-b border-[#F1F1F1]">
           @for (tab of tabs; track tab.key) {
           <button (click)="activeTab = tab.key" class="flex-1 max-w-[200px] flex flex-col items-center justify-center relative outline-none h-full">
             <span class="text-[14px] font-medium transition-all duration-300" 
@@ -37,18 +38,19 @@
               {{ tab.label }}
             </span>
             @if (activeTab === tab.key) {
-            <div class="absolute bottom-0 left-[15%] right-[15%] h-[2.5px] bg-[#5732EE] rounded-t-full"></div>
+            <div class="absolute bottom-0 left-[15%] right-[15%] h-[2.5px] bg-[#5732EE] rounded-t-full z-10"></div>
             }
           </button>
           }
         </div>
 
-        <div class="h-[6px]"></div>
+        <div class="h-[15px]"></div>
 
-        <div class="flex items-center gap-[10px] px-[clamp(26px,5vw,50px)] py-[15px] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <!-- Filter chips: Exactly per Frame 1686563914 -->
+        <div class="flex items-center gap-[9px] px-[24px] h-[26px] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           @for (chip of chips; track chip) {
           <button (click)="activeChip = chip" 
-                  class="h-[30px] px-[16px] rounded-[16px] text-[11px] font-medium transition-all flex-shrink-0 active:scale-95" 
+                  class="h-[26px] px-[8px] py-[4px] rounded-[16px] text-[11px] font-medium transition-all flex-shrink-0 active:scale-95" 
                   [class.bg-[#5732EE]]="activeChip === chip" 
                   [class.text-white]="activeChip === chip" 
                   [class.bg-[#F3F0FF]]="activeChip !== chip" 
@@ -57,13 +59,15 @@
           </button>
           }
         </div>
+        
+        <div class="h-[15px]"></div>
       </div>
     </div>
 
     <!-- Order list -->
     <div class="w-full flex flex-col gap-0 bg-white">
       @for (order of filteredOrders; track order.id; let i = $index) {
-      <div class="flex items-center w-full min-h-[99px] py-[11px] px-[clamp(26px,5vw,50px)] gap-[clamp(15px,3vw,30px)] transition-all border-b border-[#F5F5F5]"
+      <div class="flex items-center w-full min-h-[99px] py-[11px] px-[clamp(24px,5vw,50px)] gap-[clamp(15px,3vw,30px)] transition-all border-b border-[#F5F5F5]"
            [class.bg-[#F8F8F8]]="selectedOrderIds.has(order.id)"
            [class.bg-white]="!selectedOrderIds.has(order.id)">
         
