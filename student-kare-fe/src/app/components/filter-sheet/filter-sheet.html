@@ -1,10 +1,10 @@
 @if (visible) {
 <!-- Backdrop -->
-<div class="fixed inset-0 z-30 bg-black/40" [class.backdrop-fade-in]="!isClosing" [class.backdrop-fade-out]="isClosing" (click)="close()">
+<div class="fixed inset-0 z-30 bg-black/40" (click)="close()">
 </div>
 
 <!-- Full Screen Sheet -->
-<div class="fixed inset-0 z-40 bg-white flex flex-col" [class.sheet-slide-up]="!isClosing" [class.sheet-slide-down]="isClosing">
+<div class="fixed inset-0 z-40 bg-white flex flex-col">
 
   <!-- Header -->
   <div class="flex items-center justify-between px-[20px] pt-[18px] pb-[12px] flex-shrink-0">
