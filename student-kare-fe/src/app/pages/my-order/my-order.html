@@ -70,7 +70,9 @@
     <!-- Order list -->
     <div class="w-full flex flex-col gap-0 bg-white">
       @for (order of filteredOrders; track order.id; let i = $index) {
-      <div class="flex items-center w-full min-h-[99px] py-[11px] px-[clamp(24px,5vw,50px)] gap-[clamp(15px,3vw,30px)] transition-all border-b border-[#F5F5F5] bg-white">
+      <div class="flex items-center w-full min-h-[99px] py-[11px] px-[clamp(24px,5vw,50px)] gap-[clamp(15px,3vw,30px)] transition-all border-b border-[#F5F5F5]"
+           [class.bg-[#F8F8F8]]="i % 2 !== 0"
+           [class.bg-white]="i % 2 === 0">
         
         <div class="flex-shrink-0 w-[73px] h-[77px] rounded-[12px] overflow-hidden bg-[#F8FAFC] flex items-center justify-center border border-[#EFEFEF]">
           <img [src]="order.image" [alt]="order.name" class="w-full h-full object-contain" />
