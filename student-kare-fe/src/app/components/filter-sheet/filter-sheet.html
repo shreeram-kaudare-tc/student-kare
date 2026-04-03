@@ -21,7 +21,7 @@
       <div class="border-r border-[#EFEFEF]">
         @for (sec of sections; track sec.key) {
         <button (click)="activeSection = sec.key" class="w-full text-left px-[16px] flex items-center border-b border-[#E6E6E6] h-[50px]" [class.bg-[#D8E0F8]]="activeSection === sec.key">
-          <span class="text-[14px] leading-none" [class.text-[#3E63DD]]="activeSection === sec.key" [class.font-medium]="activeSection === sec.key" [class.text-[#1A1C1E]]="activeSection !== sec.key">
+          <span class="text-[14px] leading-none font-medium" [class.text-[#3E63DD]]="activeSection === sec.key" [class.text-black]="activeSection !== sec.key">
             {{ sec.label }}
           </span>
         </button>
