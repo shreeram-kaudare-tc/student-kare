@@ -40,10 +40,10 @@
         <div class="relative pt-[8px]">
           <!-- Value labels above track -->
           <div class="flex justify-between text-[12px] text-[#1A1C1E] mb-[6px]">
-            <span>{{ priceAbsMin }}</span>
-            <span class="px-[8px] py-[2px] rounded-full bg-[#E8E4F9] text-[#5732EE] font-medium">{{ priceMin }}</span>
-            <span class="px-[8px] py-[2px] rounded-full bg-[#E8E4F9] text-[#5732EE] font-medium">{{ priceMax }}</span>
-            <span>{{ priceAbsMax }}</span>
+            <span>{{ priceAbsMin | number }}</span>
+            <span class="price-balloon">{{ priceMin }}</span>
+            <span class="price-balloon">{{ priceMax }}</span>
+            <span>{{ priceAbsMax | number }}</span>
           </div>
 
           <!-- Dual range slider -->

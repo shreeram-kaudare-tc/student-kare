@@ -113,3 +113,30 @@
 .overflow-y-auto::-webkit-scrollbar        { width: 3px; }
 .overflow-y-auto::-webkit-scrollbar-track  { background: transparent; }
 .overflow-y-auto::-webkit-scrollbar-thumb  { background: #5732EE; border-radius: 2px; }
+
+/* ── Price Balloon Tooltip ── */
+.price-balloon {
+  position: relative;
+  background: #EBF0FC;
+  color: #324FB1;
+  font-size: 12px;
+  font-weight: 500;
+  width: 27px;
+  height: 23px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.price-balloon::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border-left: 4px solid transparent;
+  border-right: 4px solid transparent;
+  border-top: 4px solid #EBF0FC;
+}
