@@ -14,7 +14,7 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, FormsModule } from '@angular/f
 export class InputField implements ControlValueAccessor {
   @Input() label: string = '';
   @Input() placeholder: string = '';
-  @Input() type: 'text' | 'password' | 'number' | 'tel' = 'text';
+  @Input() type: 'text' | 'password' | 'number' | 'tel' | 'email' = 'text';
   @Input() icon: string = '';
   @Input() error: string = '';
   @Input() disabled: boolean = false;

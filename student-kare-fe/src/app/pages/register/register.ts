@@ -4,10 +4,9 @@ import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { InputField } from '../../components/input-field/input-field';
 import { Button } from '../../components/button/button';
-import { DateInput } from '../../components/date-input/date-input';
 @Component({
   selector: 'app-register',
-  imports: [CommonModule, FormsModule, InputField, Button, DateInput],
+  imports: [CommonModule, FormsModule, InputField, Button],
   templateUrl: './register.html',
   styleUrl: './register.css',
 })
@@ -19,7 +18,7 @@ export class Register {
   phoneNumber = '';
   password = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   goBack() {
     this.router.navigate(['/login4']);
