@@ -23,7 +23,7 @@
           <div class="flex items-center gap-[8px]">
             @for (dot of slides; track dot.title; let j = $index) {
             <button (click)="goToSlide(j)" class="border-none cursor-pointer transition-all duration-[250ms]" [class]="j === currentIndex
-                ? 'w-[24px] h-[6px] rounded-full bg-[#5732ee]'
+                ? 'w-[24px] h-[6px] rounded-full dot-active'
                 : 'w-[8px] h-[8px] rounded-full bg-[#5732ee]/20'">
             </button>
             }
