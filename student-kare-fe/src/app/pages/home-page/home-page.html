@@ -64,14 +64,14 @@
         </div>
 
         <!-- Categories -->
-        <div class="px-[20px] mb-[16px]">
-            <div class="grid grid-cols-3 gap-[12px]">
+        <div class="px-[4vw] mb-[16px]">
+            <div class="grid grid-cols-3 gap-[3vw]">
                 @for (cat of categories; track cat.label + $index; let i = $index) {
                 <div class="flex flex-col items-center gap-[6px] cursor-pointer" (click)="goToPlp(i)">
-                    <div class="w-[80px] h-[80px] rounded-full flex items-center justify-center overflow-hidden">
-                        <img [src]="cat.image" [alt]="cat.label" class="w-[80px] h-[80px] object-contain" />
+                    <div class="rounded-full flex items-center justify-center overflow-hidden" style="width: min(80px, 20vw); height: min(80px, 20vw);">
+                        <img [src]="cat.image" [alt]="cat.label" class="w-full h-full object-contain" />
                     </div>
-                    <span class="text-[11px] font-medium text-[#1A1C1E] text-center">{{ cat.label }}</span>
+                    <span class="font-medium text-[#1A1C1E] text-center" style="font-size: clamp(9px, 2.8vw, 12px);">{{ cat.label }}</span>
                 </div>
                 }
             </div>
@@ -82,29 +82,32 @@
             <img src="/images/home/promo-xmas.png" alt="Promo Code" class="w-full object-contain" />
         </div>
 
-        <!-- You may also like: Figma 14px Medium Plus Jakarta Sans, 20px leading -->
+        <!-- You may also like -->
         <div class="mb-[16px]">
-            <h2 class="text-[14px] font-medium text-black px-[20px] mb-[12px] leading-[20px] font-jakarta">You may also like</h2>
-            <div class="flex gap-[12px] px-[20px] overflow-x-auto scrollbar-hide pb-[4px]">
+            <h2 class="font-medium text-black px-[4vw] mb-[12px] leading-[20px] font-jakarta" style="font-size: clamp(13px, 3.7vw, 16px);">You may also like</h2>
+            <div class="flex gap-[3vw] pl-[4vw] pr-[4vw] overflow-x-auto scrollbar-hide pb-[4px]">
                 @for (item of youMayAlsoLike; track item.label) {
-                <div class="flex-shrink-0 w-[150px] h-[150px] rounded-[16px] overflow-hidden cursor-pointer">
-                    <img [src]="item.image" [alt]="item.label" class="w-full h-full object-cover" />
+                <!-- Card = 38vw wide & tall → always shows ~2.5 cards regardless of screen size -->
+                <div class="flex-shrink-0 rounded-[16px] overflow-hidden cursor-pointer" style="width: 38vw; height: 38vw; min-width: 38vw;">
+                    <img [src]="item.image" [alt]="item.label" class="w-full h-full object-cover block" />
                 </div>
                 }
             </div>
         </div>
 
         <!-- 20% OFF Banner -->
-        <div class="px-[20px] mb-[20px] ">
-            <div class="relative h-[157px] w-full rounded-[16px] overflow-hidden px-[14px]" style="background: rgba(241, 117, 71, 1); display:flex; align-items:center;">
-                <div class="flex flex-col gap-[4px]">
-                    <span class="font-inter font-bold text-[16px] text-white">20% OFF DURING THE</span>
-                    <span class="font-inter font-bold text-[16px] text-white">WEEKEND</span>
-                    <button class="mt-[6px] flex items-center justify-center" style="width:80px; height:34.12px; border-radius:17.65px; padding:9px 12px; background:rgba(255,255,255,1); color:rgba(241,117,71,1); font-family:Inter; font-weight:700; font-size:12px; line-height:100%; letter-spacing:0%;">
+        <div class="px-[4vw] mb-[20px]">
+            <!-- Banner height = 40vw, scales with screen -->
+            <div class="relative w-full rounded-[16px] overflow-hidden flex items-center" style="background: rgba(241, 117, 71, 1); height: clamp(140px, 40vw, 200px); padding-left: 3.5vw;">
+                <div class="flex flex-col gap-[4px] z-10">
+                    <span class="font-inter font-bold text-white" style="font-size: clamp(13px, 4vw, 18px);">20% OFF DURING THE</span>
+                    <span class="font-inter font-bold text-white" style="font-size: clamp(13px, 4vw, 18px);">WEEKEND</span>
+                    <button class="mt-[6px] flex items-center justify-center" style="width: clamp(68px, 20vw, 90px); height: 34px; border-radius:17px; padding:8px 12px; background:rgba(255,255,255,1); color:rgba(241,117,71,1); font-family:Inter; font-weight:700; font-size: clamp(10px, 3vw, 13px); line-height:100%;">
                         Get Now
                     </button>
                 </div>
-                <img src="/images/home/offer-bags.png" alt="offer" class="absolute bottom-0 right-0 object-contain" style="width:233px; height:169px;" />
+                <!-- Offer image scales with banner height -->
+                <img src="/images/home/offer-bags.png" alt="offer" class="absolute bottom-0 right-0 object-contain" style="height: 108%; width: auto; max-width: 60%;" />
             </div>
 
             <!-- Banner Dots -->
@@ -115,11 +118,12 @@
             </div>
         </div>
 
-        <!-- Product Cards (Horizontal Scroll) -->
+        <!-- Product Cards (Horizontal Scroll - vw-based width so same visual feel on all phone sizes) -->
         <div class="mb-[16px]">
-            <div class="flex gap-[7px] px-[21px] overflow-x-auto scrollbar-hide pb-[4px]">
+            <div class="flex gap-[2.5vw] pl-[4vw] pr-[4vw] overflow-x-auto scrollbar-hide pb-[4px]">
                 @for (p of products; track p.id) {
-                <div class="flex-shrink-0 w-[154px]">
+                <!-- Card = 42vw → always shows ~2 full cards + peek -->
+                <div class="flex-shrink-0" style="width: 42vw; min-width: 42vw;">
                     <app-plp-product-card [product]="p"></app-plp-product-card>
                 </div>
                 }
