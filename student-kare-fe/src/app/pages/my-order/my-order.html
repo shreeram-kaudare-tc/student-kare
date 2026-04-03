@@ -102,10 +102,10 @@
             <div class="h-[21px]"></div>
 
             <!-- Bottom section -->
-            <div class="flex items-center justify-between w-full mt-auto">
+            <div class="flex items-center w-[190px] h-[23px] gap-[34px] mt-auto">
               <span class="text-[13px] font-bold text-[#3E63DD] leading-none">₹{{ order.price | number }}</span>
               <button (click)="trackOrder(order)" 
-                      class="w-[102px] h-[23px] rounded-full text-[12px] font-semibold transition-all active:scale-95 whitespace-nowrap border border-[#3E63DD] leading-none flex items-center justify-center bg-white text-[#3E63DD]">
+                      class="h-[23px] px-[12px] rounded-full text-[12px] font-semibold transition-all active:scale-95 whitespace-nowrap border border-[#3E63DD] leading-none flex items-center justify-center bg-white text-[#3E63DD]">
                 Track Order
               </button>
             </div>
