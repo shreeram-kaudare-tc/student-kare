@@ -84,17 +84,17 @@
               <div class="flex items-start justify-between pr-[10px]">
                 <span class="text-[14px] font-medium text-[#363431] leading-[20px] line-clamp-2">{{ item.name }}</span>
                 <button (click)="toggleWishlist(item); $event.stopPropagation()" 
-                        class="w-[20px] h-[20px] flex items-center justify-center transition-opacity duration-200" 
+                        class="w-[20px] h-[20px] flex items-center justify-center rounded-[70px] border border-[#DADADA] transition-opacity duration-200" 
                         [class.opacity-0]="item.swipeOffset < -15"
                         [class.opacity-40]="item.swipeOffset >= -15"
                         [class.pointer-events-none]="item.swipeOffset < -15">
-                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g transform="translate(2, 2)">
                       <path d="M10 18.35L8.55 17.03C3.4 12.36 0 9.28 0 5.5C0 2.42 2.42 0 5.5 0C7.24 0 8.91 0.81 10 2.09C11.09 0.81 12.76 0 14.5 0C17.58 0 20 2.42 20 5.5C20 9.28 16.6 12.36 11.45 17.04L10 18.35Z" 
                             [attr.fill]="item.wishlisted ? '#3D63DE' : 'none'"
-                            [attr.stroke]="item.wishlisted ? 'none' : '#909090'"
-                            [attr.stroke-width]="item.wishlisted ? '0' : '1.8'"/>
-                      <rect x="14.5" y="4.5" width="2.5" height="5.5" rx="1.25" [attr.fill]="item.wishlisted ? 'white' : '#909090'" fill-opacity="1" transform="rotate(15 14.5 4.5)"/>
+                            [attr.stroke]="item.wishlisted ? 'none' : '#464646'"
+                            [attr.stroke-width]="item.wishlisted ? '0' : '1.5'"/>
+                      <rect x="14.5" y="4.5" width="2.5" height="5.5" rx="1.25" [attr.fill]="item.wishlisted ? 'white' : '#464646'" fill-opacity="1" transform="rotate(15 14.5 4.5)"/>
                     </g>
                   </svg>
                 </button>
