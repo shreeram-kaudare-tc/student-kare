@@ -1,7 +1,7 @@
 <div class="w-full h-[100dvh] bg-[#f0f2ff] flex items-center justify-center overflow-hidden md:p-[24px]">
   <div class="w-full h-full max-h-[100dvh] bg-white overflow-hidden md:h-[min(calc(100dvh-48px),852px)] md:max-w-[393px] md:rounded-[28px] md:shadow-[0_18px_46px_rgba(49,58,118,0.14)]">
     @for (slide of slides; track slide.title; let i = $index) { @if (i === currentIndex) {
-    <div class="h-full flex flex-col overflow-hidden slide-enter">
+    <div class="h-full flex flex-col overflow-hidden" [class.slide-enter-forward]="slideDirection === 'forward'" [class.slide-enter-backward]="slideDirection === 'backward'">
 
       <!-- Hero Section -->
       <div class="relative flex-1 min-h-[280px] overflow-hidden flex items-center justify-center">

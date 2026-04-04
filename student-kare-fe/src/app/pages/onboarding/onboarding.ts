@@ -19,6 +19,7 @@ export interface OnboardingSlide {
 })
 export class Onboarding {
   currentIndex = 0;
+  slideDirection: 'forward' | 'backward' = 'forward';
 
   slides: OnboardingSlide[] = [
     {
@@ -59,6 +60,7 @@ export class Onboarding {
 
   next() {
     if (this.currentIndex < this.slides.length - 1) {
+      this.slideDirection = 'forward';
       this.currentIndex++;
     } else {
       this.router.navigate(['/home']);
@@ -66,6 +68,7 @@ export class Onboarding {
   }
 
   goToSlide(index: number) {
+    this.slideDirection = index > this.currentIndex ? 'forward' : 'backward';
     this.currentIndex = index;
   }
 }
