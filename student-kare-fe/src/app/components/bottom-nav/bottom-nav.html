@@ -5,37 +5,32 @@
     <!-- Home Icon -->
     @if (item.icon === 'home') {
       @if (isActive(item.route)) {
-        <img src="images/nav/home-filled.svg" alt="Home" width="24" height="22" />
+        <img src="images/nav/home-filled.svg" alt="Home" />
       } @else {
-        <img src="images/nav/home-outline.svg" alt="Home" width="24" height="24" />
+        <img src="images/nav/home-outline.svg" alt="Home" />
       }
     }
 
     <!-- Categories Icon -->
     @if (item.icon === 'shop') {
-      <img src="images/nav/category-outline.svg" alt="Categories" width="19" height="19" />
+      <img src="images/nav/category-outline.svg" alt="Categories" />
     }
 
     <!-- Cart Icon -->
     @if (item.icon === 'cart') {
-    <div class="relative flex flex-col items-center">
       @if (isActive(item.route)) {
-        <img src="images/nav/cart-filled.svg" alt="Cart" width="24" height="24" />
+        <img src="images/nav/cart-filled.svg" alt="Cart" />
       } @else {
-        <img src="images/nav/cart-outline.svg" alt="Cart" width="24" height="24" />
+        <img src="images/nav/cart-outline.svg" alt="Cart" />
       }
-      @if (cartCount > 0) {
-      <div class="absolute top-[0px] right-[0px] w-[6px] h-[6px] bg-[#E90101] rounded-full"></div>
-      }
-    </div>
     }
 
     <!-- Orders Icon -->
     @if (item.icon === 'orders') {
       @if (isActive(item.route)) {
-        <img src="images/nav/orders-filled.svg" alt="Orders" width="24" height="21" />
+        <img src="images/nav/orders-filled.svg" alt="Orders" />
       } @else {
-        <img src="images/nav/orders-outline.svg" alt="Orders" width="19" height="19" />
+        <img src="images/nav/orders-outline.svg" alt="Orders" />
       }
     }
 

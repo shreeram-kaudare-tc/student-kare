@@ -1,14 +1,14 @@
 .bottom-nav-container {
   height: calc(68px + env(safe-area-inset-bottom));
-  padding-bottom: env(safe-area-inset-bottom);
+  padding-top: 8px;
+  padding-bottom: calc(8px + env(safe-area-inset-bottom));
+  padding-left: 42px;
+  padding-right: 42px;
   background: #ffffff;
   box-shadow: 0px -2px 4.5px rgba(0, 0, 0, 0.11);
-  /* Switched to Y: -2 for top shadow as per visual */
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: 42px;
-  padding-right: 42px;
   gap: 48px;
   position: fixed;
   bottom: 0;
@@ -26,10 +26,14 @@
   background: transparent;
   align-items: center;
   justify-content: center;
-  width: 48px;
-  height: 52px;
-  gap: 6px;
+  gap: 4px;
   cursor: pointer;
+}
+
+.nav-item img {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
 }
 
 .nav-label {
@@ -37,27 +41,20 @@
   font-size: 12px;
   font-weight: 500;
   line-height: 18px;
-  color: rgba(0, 0, 0, 0.45);
-  /* Designer Unselected Color */
-  transition: all 0.2s ease;
+  letter-spacing: 0%;
   color: #000000;
-
-}
-
-.nav-item.active .nav-label {
-  color: #000000;
-  /* Designer Active Color (Black) */
+  white-space: nowrap;
 }
 
 .active-indicator {
   width: 24px;
-  height: 2px;
+  height: 0;
   background: linear-gradient(104.94deg, #3E63DD 44.59%, #9A84F5 100%);
   border-radius: 2px;
-  opacity: 0;
-  transition: opacity 0.2s ease;
+  overflow: hidden;
+  transition: height 0.2s ease;
 }
 
 .active-indicator.visible {
-  opacity: 1;
+  height: 2px;
 }
