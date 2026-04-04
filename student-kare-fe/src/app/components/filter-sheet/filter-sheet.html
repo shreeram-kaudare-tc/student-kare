@@ -37,15 +37,21 @@
       <div class="flex flex-col gap-[20px]">
 
         <!-- Slider track row -->
-        <div class="relative pt-[8px]">
-          <!-- Value labels above track -->
-          <div class="flex justify-between mb-[6px] px-1">
-            <span class="price-limit">{{ priceAbsMin | number }}</span>
-            <div class="flex gap-4">
-              <span class="price-balloon">{{ priceMin }}</span>
-              <span class="price-balloon">{{ priceMax }}</span>
+        <div class="relative pt-[32px]">
+          <!-- Aligned labels row: balloons and limits at same level -->
+          <div class="relative h-[23px] mb-[6px] w-full pointer-events-none px-1">
+            <span class="price-limit absolute left-0 top-0 leading-none">{{ priceAbsMin | number }}</span>
+
+            <div class="absolute inset-0">
+              <div class="absolute" [style.left]="'calc(' + minThumbPct + '% + ' + (5 - 0.1 * minThumbPct) + 'px)'" style="top: 0; transform: translateX(-50%);">
+                <span class="price-balloon">{{ priceMin }}</span>
+              </div>
+              <div class="absolute" [style.left]="'calc(' + maxThumbPct + '% + ' + (5 - 0.1 * maxThumbPct) + 'px)'" style="top: 0; transform: translateX(-50%);">
+                <span class="price-balloon">{{ priceMax }}</span>
+              </div>
             </div>
-            <span class="price-limit">{{ priceAbsMax | number }}</span>
+
+            <span class="price-limit absolute right-0 top-0 leading-none">{{ priceAbsMax | number }}</span>
           </div>
 
           <!-- Dual range slider -->
