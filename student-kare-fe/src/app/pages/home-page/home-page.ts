@@ -66,6 +66,87 @@ export class HomePage implements OnInit, OnDestroy {
     }, 3000);
   }
 
+  bannerStartX = 0;
+  bannerOffset = 0;
+  isSwiping = false;
+
+  onBannerTouchStart(e: TouchEvent | MouseEvent) {
+    this.bannerStartX = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
+    this.isSwiping = true;
+    clearInterval(this.bannerInterval);
+  }
+
+  onBannerTouchMove(e: TouchEvent | MouseEvent) {
+    if (!this.isSwiping) return;
+    const currentX = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
+    const diff = currentX - this.bannerStartX;
+    const containerWidth = (e.currentTarget as HTMLElement).offsetWidth;
+    this.bannerOffset = (diff / containerWidth) * 100;
+  }
+
+  onBannerTouchEnd(e: TouchEvent | MouseEvent) {
+    if (!this.isSwiping) return;
+    this.isSwiping = false;
+    
+    if (this.bannerOffset < -20) {
+      this.bannerIndex = (this.bannerIndex + 1) % this.banners.length;
+    } else if (this.bannerOffset > 20) {
+      this.bannerIndex = (this.bannerIndex - 1 + this.banners.length) % this.banners.length;
+    }
+    
+    this.bannerOffset = 0;
+    this.startBannerAutoScroll();
+  }
+
+  secondaryIndex = 0;
+  secondaryOffset = 0;
+  secondaryStartX = 0;
+  isSecondarySwiping = false;
+
+  secondaryBanners = [
+    { 
+      titleLines: ['20% OFF DURING THE', 'WEEKEND'], 
+      image: '/images/home/offer-bags.png', 
+      bg: 'rgba(241, 117, 71, 1)' 
+    },
+    { 
+      titleLines: ['GET READY FOR', 'NEW SESSION'], 
+      image: '/images/home/offer-bags.png', 
+      bg: '#4628BE' 
+    },
+    { 
+      titleLines: ['BACKPACK SPECIAL', 'OFFER'], 
+      image: '/images/home/offer-bags.png', 
+      bg: '#9A84F5' 
+    },
+  ];
+
+  onSecondaryTouchStart(e: TouchEvent | MouseEvent) {
+    this.secondaryStartX = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
+    this.isSecondarySwiping = true;
+  }
+
+  onSecondaryTouchMove(e: TouchEvent | MouseEvent) {
+    if (!this.isSecondarySwiping) return;
+    const currentX = 'touches' in e ? e.touches[0].clientX : (e as MouseEvent).clientX;
+    const diff = currentX - this.secondaryStartX;
+    const containerWidth = (e.currentTarget as HTMLElement).offsetWidth;
+    this.secondaryOffset = (diff / containerWidth) * 100;
+  }
+
+  onSecondaryTouchEnd(e: TouchEvent | MouseEvent) {
+    if (!this.isSecondarySwiping) return;
+    this.isSecondarySwiping = false;
+
+    if (this.secondaryOffset < -20) {
+      this.secondaryIndex = (this.secondaryIndex + 1) % this.secondaryBanners.length;
+    } else if (this.secondaryOffset > 20) {
+      this.secondaryIndex = (this.secondaryIndex - 1 + this.secondaryBanners.length) % this.secondaryBanners.length;
+    }
+
+    this.secondaryOffset = 0;
+  }
+
   setBanner(i: number) {
     this.bannerIndex = i;
     clearInterval(this.bannerInterval);

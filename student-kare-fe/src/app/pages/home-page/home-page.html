@@ -47,8 +47,19 @@
         </div>
         <!-- Banner Carousel -->
         <div class="px-[20px] mb-[20px] mt-6">
-            <div class="relative w-full rounded-[20px] overflow-hidden">
-                <img [src]="banners[bannerIndex].image" alt="Banner" class="w-full object-cover rounded-[20px] transition-opacity duration-500" />
+            <div class="relative w-full rounded-[20px] overflow-hidden"
+                 (touchstart)="onBannerTouchStart($event)" 
+                 (touchmove)="onBannerTouchMove($event)"
+                 (touchend)="onBannerTouchEnd($event)">
+                <div class="flex transition-transform duration-500 ease-out" 
+                     [class.duration-0]="isSwiping"
+                     [style.transform]="'translateX(' + (-bannerIndex * 100 + bannerOffset) + '%)'">
+                    @for (b of banners; track $index) {
+                        <div class="min-w-full w-full">
+                            <img [src]="b.image" alt="Banner" class="w-full object-cover rounded-[20px]" />
+                        </div>
+                    }
+                </div>
             </div>
             <!-- Dots -->
             <div class="flex items-center justify-center gap-[6px] mt-[10px] h-[9px]">
@@ -95,26 +106,47 @@
             </div>
         </div>
 
-        <!-- 20% OFF Banner -->
+        <!-- 20% OFF Banner (Secondary Slider) -->
         <div class="px-[4vw] mb-[20px]">
-            <!-- Banner height = 40vw, scales with screen -->
-            <div class="relative w-full rounded-[16px] overflow-hidden flex items-center" style="background: rgba(241, 117, 71, 1); height: clamp(140px, 40vw, 200px); padding-left: 3.5vw;">
-                <div class="flex flex-col gap-[4px] z-10">
-                    <span class="font-inter font-bold text-white" style="font-size: clamp(13px, 4vw, 18px);">20% OFF DURING THE</span>
-                    <span class="font-inter font-bold text-white" style="font-size: clamp(13px, 4vw, 18px);">WEEKEND</span>
-                    <button class="mt-[6px] flex items-center justify-center" style="width: clamp(68px, 20vw, 90px); height: 34px; border-radius:17px; padding:8px 12px; background:rgba(255,255,255,1); color:rgba(241,117,71,1); font-family:Inter; font-weight:700; font-size: clamp(10px, 3vw, 13px); line-height:100%;">
-                        Get Now
-                    </button>
+            <div class="relative w-full rounded-[16px] overflow-hidden" 
+                 (touchstart)="onSecondaryTouchStart($event)" 
+                 (touchmove)="onSecondaryTouchMove($event)"
+                 (touchend)="onSecondaryTouchEnd($event)">
+                
+                <div class="flex transition-transform duration-500 ease-out" 
+                     [class.duration-0]="isSecondarySwiping"
+                     [style.transform]="'translateX(' + (-secondaryIndex * 100 + secondaryOffset) + '%)'">
+                    
+                    @for (sb of secondaryBanners; track $index) {
+                    <div class="min-w-full w-full relative flex items-center" 
+                         [style.background]="sb.bg" 
+                         style="height: clamp(140px, 40vw, 200px); padding-left: 3.5vw;">
+                        <div class="flex flex-col gap-[4px] z-10">
+                            @for (line of sb.titleLines; track $index) {
+                                <span class="font-inter font-bold text-white uppercase" style="font-size: clamp(13px, 4vw, 18px);">{{ line }}</span>
+                            }
+                            <button class="mt-[6px] flex items-center justify-center pointer-events-auto" 
+                                    style="width: clamp(68px, 20vw, 90px); height: 34px; border-radius:17px; padding:8px 12px; background:rgba(255,255,255,1); color:rgba(241,117,71,1); font-family:Inter; font-weight:700; font-size: clamp(10px, 3vw, 13px); line-height:100%;">
+                                Get Now
+                            </button>
+                        </div>
+                        <img [src]="sb.image" alt="offer" class="absolute bottom-0 right-0 object-contain pointer-events-none" 
+                             style="height: 108%; width: auto; max-width: 60%;" />
+                    </div>
+                    }
                 </div>
-                <!-- Offer image scales with banner height -->
-                <img src="/images/home/offer-bags.png" alt="offer" class="absolute bottom-0 right-0 object-contain" style="height: 108%; width: auto; max-width: 60%;" />
             </div>
 
             <!-- Banner Dots -->
             <div class="flex items-center justify-center gap-[6px] mt-[10px] h-[9px]">
-                <div class="h-[5px] w-[44px] rounded-full bg-[#4628BE] transition-all duration-300"></div>
-                <div class="h-[9px] w-[9px] rounded-full bg-[#9A84F5] transition-all duration-300"></div>
-                <div class="h-[9px] w-[9px] rounded-full bg-[#DDD6FC] transition-all duration-300"></div>
+                @for (sb of secondaryBanners; track $index; let i = $index) {
+                <div [class]="i === secondaryIndex
+                            ? 'h-[5px] w-[44px] rounded-full bg-[#4628BE] transition-all duration-300'
+                            : (i === secondaryIndex + 1 || i === secondaryIndex - 1
+                                ? 'h-[9px] w-[9px] rounded-full bg-[#9A84F5] transition-all duration-300'
+                                : 'h-[9px] w-[9px] rounded-full bg-[#DDD6FC] transition-all duration-300')">
+                </div>
+                }
             </div>
         </div>
 
