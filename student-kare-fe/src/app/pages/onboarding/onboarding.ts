@@ -28,7 +28,7 @@ export class Onboarding {
       title: 'Choose your order',
       description: 'Regular Fit Half Sleeve Polo T-Shirt made of comfortable Cotton Polyester Pique fabric with Embroidered logo at left',
       imgClass: 'w-[105.38vw] h-[105.38vw]',
-      backgroundClass:  'bottom-0 w-[423.33vw] h-[123.33vw]',
+      backgroundClass: 'bottom-0 w-[423.33vw] h-[123.33vw]',
     },
     {
       image: 'images/onboarding/slide-2.png',
@@ -36,7 +36,7 @@ export class Onboarding {
       title: 'Choose your product',
       description: 'Regular Fit Half Sleeve Polo T-Shirt made of comfortable Cotton Polyester Pique fabric with Embroidered logo at left',
       imgClass: 'w-[100vw] h-[100vw]',
-      backgroundClass:  'bottom-[30px] w-[423.33vw] h-[123.33vw]',
+      backgroundClass: 'bottom-[30px] w-[423.33vw] h-[123.33vw]',
     },
     {
       image: 'images/onboarding/slide-3.png',
@@ -44,7 +44,7 @@ export class Onboarding {
       title: 'Fast Delivery',
       description: 'Regular Fit Half Sleeve Polo T-Shirt made of comfortable Cotton Polyester Pique fabric with Embroidered logo at left',
       imgClass: 'w-[119.74vw] h-[86.15vw]',
-      backgroundClass:  'bottom-[30px] w-[423.33vw] h-[123.33vw]',
+      backgroundClass: 'bottom-[30px] w-[423.33vw] h-[123.33vw]',
     },
     {
       image: 'images/onboarding/slide-4.png',
@@ -52,7 +52,7 @@ export class Onboarding {
       title: 'Promotions',
       description: 'Regular Fit Half Sleeve Polo T-Shirt made of comfortable Cotton Polyester Pique fabric with Embroidered logo at left',
       imgClass: 'w-[88.97vw] h-[88.97vw]',
-      backgroundClass:  'bottom-[90px] w-[430.00vw] h-[121.79vw]',
+      backgroundClass: 'bottom-[90px] w-[430.00vw] h-[121.79vw]',
     },
   ];
 
@@ -70,8 +70,10 @@ export class Onboarding {
 
     if (Math.abs(diff) > threshold) {
       if (diff > 0) {
-        // Swiped Left -> Go Forward
-        this.next();
+        // Swiped Left -> Go Forward (only if not on last slide)
+        if (this.currentIndex < this.slides.length - 1) {
+          this.next();
+        }
       } else {
         // Swiped Right -> Go Backward
         this.prev();

@@ -84,15 +84,18 @@
               <div class="flex items-start justify-between pr-[10px]">
                 <span class="text-[14px] font-medium text-[#363431] leading-[20px] max-w-[139px] line-clamp-1">{{ item.name }}</span>
                 <button (click)="toggleWishlist(item); $event.stopPropagation()" 
-                        class="transition-opacity duration-200" 
+                        class="w-[20px] h-[20px] flex items-center justify-center transition-opacity duration-200" 
                         [class.opacity-0]="item.swipeOffset < -15"
                         [class.opacity-40]="item.swipeOffset >= -15"
                         [class.pointer-events-none]="item.swipeOffset < -15">
-                  <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" fill="white" />
-                    <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" stroke="#DADADA" />
-                    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.67517 9.76569C4.04926 7.81152 4.78076 5.57794 6.83234 4.91702C7.91151 4.56877 9.10267 4.7741 9.99984 5.44902C10.8486 4.79277 12.0835 4.5711 13.1615 4.91702C15.2131 5.57794 15.9493 7.81152 15.3239 9.76569C14.3498 12.8632 9.99984 15.249 9.99984 15.249C9.99984 15.249 5.68201 12.8994 4.67517 9.76569Z" stroke="#464646" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M12.3333 6.90834C12.9574 7.11017 13.3984 7.66726 13.4515 8.32117" stroke="#464646" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g transform="translate(2, 2)">
+                      <path d="M10 18.35L8.55 17.03C3.4 12.36 0 9.28 0 5.5C0 2.42 2.42 0 5.5 0C7.24 0 8.91 0.81 10 2.09C11.09 0.81 12.76 0 14.5 0C17.58 0 20 2.42 20 5.5C20 9.28 16.6 12.36 11.45 17.04L10 18.35Z" 
+                            [attr.fill]="item.wishlisted ? '#3D63DE' : 'none'"
+                            [attr.stroke]="item.wishlisted ? 'none' : '#909090'"
+                            [attr.stroke-width]="item.wishlisted ? '0' : '1.8'"/>
+                      <rect x="14.5" y="4.5" width="2.5" height="5.5" rx="1.25" [attr.fill]="item.wishlisted ? 'white' : '#909090'" fill-opacity="1" transform="rotate(15 14.5 4.5)"/>
+                    </g>
                   </svg>
                 </button>
               </div>
