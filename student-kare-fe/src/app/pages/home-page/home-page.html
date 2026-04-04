@@ -56,7 +56,9 @@
                      [style.transform]="'translateX(' + (-bannerIndex * 100 + bannerOffset) + '%)'">
                     @for (b of banners; track $index) {
                         <div class="min-w-full w-full">
-                            <img [src]="b.image" alt="Banner" class="w-full object-cover rounded-[20px]" />
+                            <img [src]="b.image" alt="Banner" 
+                                 [style.filter]="b.filter"
+                                 class="w-full object-cover rounded-[20px]" />
                         </div>
                     }
                 </div>

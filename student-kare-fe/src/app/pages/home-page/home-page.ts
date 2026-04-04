@@ -15,15 +15,9 @@ export class HomePage implements OnInit, OnDestroy {
   private bannerInterval: any;
 
   banners = [
-    {
-      image: '/images/home/banner-school-bags.png',
-    },
-    {
-      image: '/images/home/banner-school-bags.png',
-    },
-    {
-      image: '/images/home/banner-school-bags.png',
-    },
+    { image: '/images/home/banner-school-bags.png', filter: 'hue-rotate(0deg)' },
+    { image: '/images/home/banner-school-bags.png', filter: 'hue-rotate(140deg)' },
+    { image: '/images/home/banner-school-bags.png', filter: 'hue-rotate(250deg)' },
   ];
 
   categories = [
