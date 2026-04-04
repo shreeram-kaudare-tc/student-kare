@@ -91,7 +91,7 @@
     <div (click)="viewCart()" class="flex items-center bg-[#795BF1] rounded-[58px] px-[10px] cursor-pointer" style="width: 211px; height: 62px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
 
       <!-- Overlapping product thumbnails -->
-      <div class="relative flex-shrink-0 w-[70px] self-stretch cursor-pointer"
+      <div #cartThumbnails class="relative flex-shrink-0 w-[70px] self-stretch cursor-pointer"
            [class.thumbnails-rotating]="isRotating"
            (click)="rotateCartThumbnails(); $event.stopPropagation()">
         @for (item of cartItems.slice(0, 3); track item.id; let i = $index) {

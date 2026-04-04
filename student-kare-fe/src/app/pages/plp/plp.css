@@ -17,7 +17,7 @@
   background: white;
   z-index: 9999;
   pointer-events: none;
-  animation: flyToCart 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  animation: flyToCart 1.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 /* ── Thumbnail Rotation Animation ── */
@@ -44,13 +44,32 @@
     transform: translate(0, 0) scale(1);
     opacity: 1;
   }
-  40% {
-    /* arc upward then curve toward target */
-    transform: translate(calc(var(--tx) * 0.3), calc(var(--ty) * 0.2 - 30px)) scale(0.9);
+  15% {
+    transform: translate(calc(var(--tx) * 0.4), calc(var(--ty) * 0.3 - 20px)) scale(0.9);
     opacity: 1;
   }
+  35% {
+    transform: translate(var(--tx), var(--ty)) scale(0.85);
+    opacity: 1;
+  }
+  50% {
+    transform: translate(var(--tx), calc(var(--ty) - 30px)) scale(0.85);
+    opacity: 1;
+  }
+  65% {
+    transform: translate(var(--tx), var(--ty)) scale(0.85);
+    opacity: 1;
+  }
+  78% {
+    transform: translate(var(--tx), calc(var(--ty) - 14px)) scale(0.85);
+    opacity: 1;
+  }
+  90% {
+    transform: translate(var(--tx), var(--ty)) scale(0.85);
+    opacity: 0.9;
+  }
   100% {
-    transform: translate(var(--tx), var(--ty)) scale(0.35);
+    transform: translate(var(--tx), var(--ty)) scale(0.85);
     opacity: 0;
   }
 }

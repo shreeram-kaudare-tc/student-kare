@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PlpProductCard, PlpProduct } from '../../components/plp-product-card/plp-product-card';
@@ -26,6 +26,7 @@ interface FlyingItem {
   styleUrl: './plp.css',
 })
 export class PlpPage implements OnInit {
+  @ViewChild('cartThumbnails') cartThumbnails!: ElementRef;
   activeCategory = 0;
   activeFilter = 'All';
   cartCount = 0;
@@ -80,9 +81,21 @@ export class PlpPage implements OnInit {
     const startX = btnRect.left + btnRect.width / 2 - 19;
     const startY = btnRect.top + btnRect.height / 2 - 19;
 
-    // Target: the cart bar (fixed bottom, ~78px from bottom, left ~120px)
-    const targetX = 120 + 30;   // sidebar(93) + left padding + thumbnail area centre
-    const targetY = window.innerHeight - 78;
+    // Target: dynamically find the cart thumbnail area, fallback to estimated position
+    let targetX: number;
+    let targetY: number;
+
+    if (this.cartThumbnails?.nativeElement) {
+      const thumbRect = this.cartThumbnails.nativeElement.getBoundingClientRect();
+      targetX = thumbRect.left + thumbRect.width / 2 - 19;
+      targetY = thumbRect.top + thumbRect.height / 2 - 19;
+    } else {
+      // Fallback for first item (cart pill not yet visible)
+      const contentLeft = 93; // sidebar width
+      const contentWidth = window.innerWidth - contentLeft;
+      targetX = contentLeft + contentWidth / 2 - 50;
+      targetY = window.innerHeight - 70;
+    }
 
     const flyId = Date.now();
     this.flyingItems = [
@@ -97,12 +110,12 @@ export class PlpPage implements OnInit {
         this.cartItems = [...this.cartItems, product];
       }
       this.updateCartCount();
-    }, 280);
+    }, 900);
 
     // Remove flying element after animation
     setTimeout(() => {
       this.flyingItems = this.flyingItems.filter(f => f.id !== flyId);
-    }, 500);
+    }, 1500);
   }
 
   private updateCartCount() {
