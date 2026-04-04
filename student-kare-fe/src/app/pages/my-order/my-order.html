@@ -52,7 +52,7 @@
         <div class="flex items-center gap-[9px] px-[24px] h-[26px] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           @for (chip of chips; track chip) {
           <button (click)="activeChip = chip"
-                  class="h-[26px] px-[8px] py-[4px] rounded-[16px] text-[11px] font-medium transition-all duration-200 flex-shrink-0 active:scale-95 flex items-center justify-center"
+                  class="h-[26px] px-[14px] py-[4px] rounded-[16px] text-[11px] font-medium transition-all duration-200 flex-shrink-0 active:scale-95 flex items-center justify-center"
                   [class.bg-[#5732EE]]="activeChip === chip"
                   [class.text-white]="activeChip === chip"
                   [class.bg-[#EEEAFD]]="activeChip !== chip"
