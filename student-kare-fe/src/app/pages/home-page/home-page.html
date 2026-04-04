@@ -124,7 +124,7 @@
                 @for (p of products; track p.id) {
                 <!-- Card = 42vw → always shows ~2 full cards + peek -->
                 <div class="flex-shrink-0" style="width: 42vw; min-width: 42vw;">
-                    <app-plp-product-card [product]="p"></app-plp-product-card>
+                    <app-plp-product-card [product]="p" (toggleWishlist)="handleWishlist(p)"></app-plp-product-card>
                 </div>
                 }
             </div>

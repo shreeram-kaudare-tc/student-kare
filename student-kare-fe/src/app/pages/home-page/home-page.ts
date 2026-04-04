@@ -73,5 +73,8 @@ export class HomePage implements OnInit, OnDestroy {
   }
   shopNow() { this.router.navigate(['/plp']); }
   addToCart(product: any) { }
+  handleWishlist(product: any) {
+    product.wishlisted = !product.wishlisted;
+  }
   goToPlp(catIndex: number) { this.router.navigate(['/plp'], { queryParams: { cat: catIndex } }); }
 }
