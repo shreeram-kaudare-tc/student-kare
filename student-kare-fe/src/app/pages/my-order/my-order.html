@@ -29,7 +29,7 @@
       <div class="flex flex-col">
 
         <!-- Tab bar -->
-        <div class="flex bg-white h-[28px] px-[26px] gap-[76px] border-b border-[#D1D1D1]">
+        <div class="flex justify-between bg-white h-[28px] px-[26px] border-b border-[#D1D1D1]">
           @for (tab of tabs; track tab.key) {
           <button (click)="activeTab = tab.key" class="flex flex-col items-center outline-none h-full">
             <div class="flex flex-col items-center w-fit gap-[10px]">
@@ -48,17 +48,14 @@
 
         <div class="h-[12px]"></div>
 
-        <!-- Filter chips -->
-        <div class="flex items-center gap-[8px] px-[16px] h-[30px] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
+        <!-- Filter chips: Figma h-26, gap-9, px-24 -->
+        <div class="flex items-center gap-[9px] px-[24px] h-[26px] overflow-x-auto [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
           @for (chip of chips; track chip) {
           <button (click)="activeChip = chip"
-                  class="h-[30px] min-w-[48px] px-[14px] rounded-full text-[12px] font-medium transition-all duration-200 flex-shrink-0 active:scale-95 flex items-center justify-center"
+                  class="h-[26px] px-[8px] py-[4px] rounded-[16px] text-[11px] font-medium transition-all duration-200 flex-shrink-0 active:scale-95 flex items-center justify-center"
                   [class.bg-[#5732EE]]="activeChip === chip"
                   [class.text-white]="activeChip === chip"
-                  [class.shadow-sm]="activeChip === chip"
-                  [class.bg-transparent]="activeChip !== chip"
-                  [class.border]="activeChip !== chip"
-                  [class.border-[#D1D1D1]]="activeChip !== chip"
+                  [class.bg-[#EEEAFD]]="activeChip !== chip"
                   [class.text-[#464646]]="activeChip !== chip">
             {{ chip }}
           </button>
@@ -73,31 +70,31 @@
     <div class="w-full flex flex-col bg-white">
       @for (order of filteredOrders; track order.id; let i = $index) {
 
-      <!-- Order Card -->
-      <div class="flex items-center w-full py-[14px] px-[16px] gap-[14px] bg-white border-b border-[#EEEEEE]">
+      <!-- Order Card: Figma h-99, gap-15, padding 11/25 -->
+      <div class="flex items-center w-full h-[99px] py-[11px] px-[25px] gap-[15px] bg-white border-b border-[#EEEEEE]">
 
-        <!-- Thumbnail -->
-        <div class="self-center flex-shrink-0 w-[90px] h-[90px] rounded-[10px] overflow-hidden flex items-center justify-center">
+        <!-- Thumbnail: Figma 76x75, border 1px #B1B1B1, radius 12 -->
+        <div class="self-center flex-shrink-0 w-[76px] h-[75px] rounded-[12px] border border-[#B1B1B1] overflow-hidden flex items-center justify-center">
           <img [src]="order.image" [alt]="order.name" class="w-full h-full object-contain" />
         </div>
 
-        <!-- Content -->
-        <div class="flex-1 min-w-0 flex flex-col justify-between gap-[8px]">
+        <!-- Content: Figma w-207, gap-21 between top and bottom -->
+        <div class="flex-1 min-w-0 flex flex-col justify-between gap-[21px]">
 
-          <!-- Name -->
-          <h3 class="text-[15px] font-bold text-[#1A1C1E] leading-[1.3] truncate">
-            {{ order.name }}
-          </h3>
-
-          <!-- Size + Quantity -->
-          <div class="flex items-center gap-[16px]">
-            <span class="text-[12px] text-[#6C6C6C] font-normal uppercase">SIZE: <span class="font-normal">{{ order.size }}</span></span>
-            <span class="text-[12px] text-[#6C6C6C] font-normal uppercase">QUANTITY: <span class="font-normal">{{ order.quantity }}</span></span>
+          <!-- Top: Name + Size/Qty -->
+          <div class="flex flex-col gap-[4px]">
+            <h3 class="text-[14px] font-medium text-[#1A1C1E] leading-[20px] truncate">
+              {{ order.name }}
+            </h3>
+            <div class="flex items-center gap-[16px]">
+              <span class="text-[10px] text-[#6C6C6C] font-normal leading-[100%]">Size: {{ order.size }}</span>
+              <span class="text-[10px] text-[#6C6C6C] font-normal leading-[100%]">Quantity: {{ order.quantity }}</span>
+            </div>
           </div>
 
-          <!-- Price + Track Order -->
-          <div class="flex items-center gap-[20px]">
-            <span class="text-[15px] font-semibold text-[#3E63DD]">
+          <!-- Bottom: Price + Track Order -->
+          <div class="flex items-center gap-[14px]">
+            <span class="text-[12px] font-semibold text-[#3E63DD] leading-[18px]">
               ₹{{ order.price | number }}
             </span>
             <button (click)="trackOrder(order)"
