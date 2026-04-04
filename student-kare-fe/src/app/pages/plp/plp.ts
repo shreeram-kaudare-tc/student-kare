@@ -131,13 +131,13 @@ export class PlpPage implements OnInit {
     if (this.cartItems.length > 1 && !this.isRotating) {
       this.isRotating = true;
 
-      // Match the 500ms CSS transition duration
+      // Match the 400ms CSS transition duration
       setTimeout(() => {
         const first = this.cartItems.shift()!;
         this.cartItems.push(first);
         this.cartItems = [...this.cartItems];
         this.isRotating = false;
-      }, 500);
+      }, 400);
     }
   }
 

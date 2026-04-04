@@ -23,16 +23,20 @@
 /* ── Thumbnail Rotation Animation ── */
 /* Target the actual circles, not the wrapper */
 .thumbnails-rotating > div > div {
-  transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  transition: transform 0.4s ease-in-out, opacity 0.4s ease-in-out;
 }
 
 .thumbnails-rotating > div > div:first-child {
-  transform: translateX(-35px) scale(0.8);
+  transform: translateY(-20px) scale(0.7);
   opacity: 0;
 }
 
-.thumbnails-rotating > div > div:nth-child(n+2) {
-  transform: translateX(-28px); 
+.thumbnails-rotating > div > div:nth-child(2) {
+  transform: translateX(-21px);
+}
+
+.thumbnails-rotating > div > div:nth-child(3) {
+  transform: translateX(-21px);
 }
 
 @keyframes flyToCart {

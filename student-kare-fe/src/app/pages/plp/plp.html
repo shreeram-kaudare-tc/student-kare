@@ -22,7 +22,7 @@
   <div class="flex flex-1 overflow-hidden">
 
     <!-- Left Sidebar (Calibrated to Figma: 60px items, 21px gap) -->
-    <div class="flex-shrink-0 bg-white overflow-y-auto overflow-x-hidden border-r border-[#F0F0F0] w-[93px] shadow-[1px_0px_4.5px_0px_rgba(0,0,0,0.06)]">
+    <div class="flex-shrink-0 bg-white overflow-y-auto overflow-x-hidden border-r border-[#F0F0F0] w-[93px] shadow-[1px_0px_4.5px_0px_rgba(0,0,0,0.06)] scrollbar-hide">
       <div class="flex flex-col py-[16px] items-start pl-[12px]" style="gap: 21px;">
         @for (cat of sideCategories; track cat.label + $index; let i = $index) {
         <button (click)="selectCategory(i)" class="relative flex flex-col items-center w-[60px] cursor-pointer" style="height: 86px; gap: 8px;">
@@ -53,8 +53,8 @@
     <div class="flex-1 flex flex-col overflow-hidden">
 
       <!-- Filter Chips Row (Force single line, icon pinned to right) -->
-      <div class="flex-shrink-0 flex items-center justify-between gap-[26px] px-[16px] py-[10px] bg-white">
-        <div class="flex-1 flex flex-nowrap items-center gap-[8px] overflow-x-auto no-scrollbar min-w-0 pr-2">
+      <div class="flex-shrink-0 flex items-center justify-between gap-[16px] px-[12px] py-[12px] bg-white">
+        <div class="flex-1 flex flex-nowrap items-center gap-[8px] overflow-x-auto min-w-0 scrollbar-hide">
           @for (f of filters; track f) {
           <app-category-chip [label]="f" [active]="activeFilter === f" (chipClick)="selectFilter($event)" class="shrink-0">
           </app-category-chip>
@@ -62,8 +62,8 @@
         </div>
 
         <!-- Sort/Filter Icon (21x18) -->
-        <button (click)="openFilter()" class="flex-shrink-0 flex items-center justify-center cursor-pointer" style="width: 21px; height: 18px;">
-          <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <button (click)="openFilter()" class="flex-shrink-0 flex items-center justify-center cursor-pointer" style="width: 28px; height: 24px;">
+          <svg width="28" height="24" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M5 4V14M5 14L2 11M5 14L8 11" stroke="#382098" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
             <path d="M11 5H19" stroke="#382098" stroke-width="1.8" stroke-linecap="round" />
             <path d="M12.5 9H19" stroke="#382098" stroke-width="1.8" stroke-linecap="round" />
@@ -87,15 +87,16 @@
 
   <!-- View Cart floating pill (Stretched) -->
   @if (cartCount > 0 && !filterSheetOpen) {
-  <div class="absolute z-[100]" style="left: 109px; right: 16px; bottom: calc(32px + env(safe-area-inset-bottom));">
-    <div (click)="viewCart()" class="w-full flex items-center justify-between bg-[#795BF1] rounded-[58px] px-[10px] cursor-pointer" style="height: 62px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
+  <div class="absolute z-[100] flex justify-center" style="left: 93px; right: 0; bottom: calc(32px + env(safe-area-inset-bottom));">
+    <div (click)="viewCart()" class="flex items-center bg-[#795BF1] rounded-[58px] px-[10px] cursor-pointer" style="width: 211px; height: 62px; box-shadow: 1px 1px 4px 0px rgba(0,0,0,0.10);">
 
       <!-- Overlapping product thumbnails -->
-      <div class="relative flex-shrink-0 w-[88px] self-stretch cursor-pointer" 
+      <div class="relative flex-shrink-0 w-[70px] self-stretch cursor-pointer"
+           [class.thumbnails-rotating]="isRotating"
            (click)="rotateCartThumbnails(); $event.stopPropagation()">
         @for (item of cartItems.slice(0, 3); track item.id; let i = $index) {
-        <div class="absolute w-[42px] h-[42px] rounded-[82px] p-[2px] bg-[#795BF1] top-1/2 -translate-y-1/2 transition-all duration-500 ease-in-out" 
-             [style.left.px]="i === 0 ? 0 : i === 1 ? 21 : 42" 
+        <div class="absolute w-[36px] h-[36px] rounded-full p-[2px] bg-[#795BF1] top-1/2 -translate-y-1/2 transition-all duration-400 ease-in-out"
+             [style.left.px]="i === 0 ? 0 : i === 1 ? 18 : 36"
              [style.zIndex]="i + 1">
           <img [src]="item.image" [alt]="item.name" class="w-full h-full rounded-full object-contain bg-white shadow-sm" />
         </div>
@@ -103,13 +104,13 @@
       </div>
 
       <!-- Text Container -->
-      <div class="flex flex-col justify-center flex-1 gap-2 ml-[10px]" (click)="viewCart()">
+      <div class="flex flex-col justify-center flex-1 gap-[1px] ml-[6px]" (click)="viewCart()">
         <span class="font-semibold text-white text-[12px]">View Cart</span>
-        <span class="font-semibold text-white text-[10px]">{{ cartCount }} items</span>
+        <span class="font-normal text-white text-[10px]">{{ cartCount }} items</span>
       </div>
 
       <!-- Arrow circle -->
-      <button (click)="rotateCartThumbnails(); $event.stopPropagation()" class="flex-shrink-0 w-[42px] h-[42px] bg-[#1A0A4B] rounded-full flex items-center justify-center text-white active:scale-95 transition-transform shadow-lg">
+      <button (click)="viewCart(); $event.stopPropagation()" class="flex-shrink-0 w-[36px] h-[36px] bg-[#1A0A4B] rounded-full flex items-center justify-center text-white active:scale-95 transition-transform shadow-lg">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
