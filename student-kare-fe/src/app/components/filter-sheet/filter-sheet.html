@@ -40,18 +40,24 @@
         <div class="relative pt-[32px]">
           <!-- Aligned labels row: balloons and limits at same level -->
           <div class="relative h-[23px] mb-[6px] w-full pointer-events-none px-1">
+            @if (minThumbPct > 15) {
             <span class="price-limit absolute left-0 top-0 leading-none">{{ priceAbsMin | number }}</span>
+            }
 
             <div class="absolute inset-0">
+              @if (!isBalloonsOverlapping) {
               <div class="absolute" [style.left]="'calc(' + minThumbPct + '% + ' + (5 - 0.1 * minThumbPct) + 'px)'" style="top: 0; transform: translateX(-50%);">
                 <span class="price-balloon">{{ priceMin }}</span>
               </div>
+              }
               <div class="absolute" [style.left]="'calc(' + maxThumbPct + '% + ' + (5 - 0.1 * maxThumbPct) + 'px)'" style="top: 0; transform: translateX(-50%);">
                 <span class="price-balloon">{{ priceMax }}</span>
               </div>
             </div>
 
+            @if (maxThumbPct < 85) {
             <span class="price-limit absolute right-0 top-0 leading-none">{{ priceAbsMax | number }}</span>
+            }
           </div>
 
           <!-- Dual range slider -->

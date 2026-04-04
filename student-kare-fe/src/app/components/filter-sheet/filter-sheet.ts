@@ -131,6 +131,10 @@ export class FilterSheet implements OnChanges {
     if (val > this.priceMin + 1) this.priceMax = val;
   }
 
+  get isBalloonsOverlapping() {
+    return Math.abs(this.maxThumbPct - this.minThumbPct) < 12;
+  }
+
   filteredBrands()  { return this.brands.filter(b  => b.name.toLowerCase().includes(this.brandSearch.toLowerCase())); }
   filteredSchools() { return this.schools.filter(s => s.name.toLowerCase().includes(this.schoolSearch.toLowerCase())); }
   filteredGrades()  { return this.grades.filter(g  => g.name.toLowerCase().includes(this.gradeSearch.toLowerCase())); }
