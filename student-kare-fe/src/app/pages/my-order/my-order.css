@@ -11,8 +11,8 @@
   justify-content: center;
   flex-shrink: 0;
   transition: all 0.2s ease;
-  background-color: #3E63DD;
-  color: white;
+  background-color: transparent;
+  color: #3E63DD;
   border: 1px solid #3E63DD;
 }
 
@@ -21,9 +21,8 @@
 }
 
 .track-order-btn.selected {
-  background-color: transparent;
-  color: #3E63DD;
-  border: 1px solid #3E63DD;
+  background-color: #3E63DD;
+  color: white;
 }
 
 /* Order card slide-in animation */
