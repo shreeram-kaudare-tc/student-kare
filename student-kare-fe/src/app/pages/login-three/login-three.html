@@ -1,8 +1,8 @@
 <app-auth-layout1>
     <div class="flex flex-col items-center justify-center w-full px-4 pb-4">
 
-        <!-- Card -->
-        <div class="flex flex-col w-full bg-white rounded-[30px] border border-[#E9EAF2] shadow-[0_20px_38px_rgba(24,25,70,0.16)] px-[20px] py-[24px] gap-[24px]">
+        <!-- Card: responsive full width, Figma gap-24, radius-23, padding 20/15 -->
+        <div class="flex flex-col w-[85vw] max-w-[500px] bg-white rounded-[23px] border border-[#E9EAF2] shadow-[0_20px_38px_rgba(24,25,70,0.16)] px-[15px] py-[20px] gap-[24px] sm:px-[24px] sm:py-[28px]">
 
             <!-- Logo -->
             <div class="flex flex-col items-center">
@@ -23,35 +23,35 @@
             </div>
 
             <!-- Toggle: With Vibgyor / Without Vibgyor -->
-            <div class="flex items-center justify-between h-[36px] rounded-[7px] gap-[1px] p-[2px] bg-[#F5F6F9] border border-[#F5F6F9] shadow-[inset_0px_3px_6px_0px_rgba(0,0,0,0.02)]">
+            <div class="flex items-center justify-between h-[40px] rounded-[7px] gap-[1px] p-[2px] bg-[#F5F6F9] border border-[#F5F6F9] shadow-[inset_0px_3px_6px_0px_rgba(0,0,0,0.02)]">
                 <button (click)="setLoginMode('vibgyor')" [class]="loginMode === 'vibgyor'
-                        ? 'flex-1 h-[32px] rounded-[7px] bg-white text-[14px] font-medium text-[#232447] text-center'
-                        : 'flex-1 h-[32px] rounded-[6px] bg-[#F5F6F9] text-[14px] font-medium text-[#7D7D91] text-center'">
+                        ? 'flex-1 h-[36px] rounded-[7px] bg-white text-[15px] font-semibold text-[#232447] text-center'
+                        : 'flex-1 h-[36px] rounded-[6px] bg-[#F5F6F9] text-[15px] font-medium text-[#7D7D91] text-center'">
                     With Vibgyor
                 </button>
                 <button (click)="setLoginMode('without')" [class]="loginMode === 'without'
-                        ? 'flex-1 h-[32px] rounded-[7px] bg-white text-[14px] font-medium text-[#232447] text-center'
-                        : 'flex-1 h-[32px] rounded-[6px] bg-[#F5F6F9] text-[14px] font-medium text-[#7D7D91] text-center'">
+                        ? 'flex-1 h-[36px] rounded-[7px] bg-white text-[15px] font-semibold text-[#232447] text-center'
+                        : 'flex-1 h-[36px] rounded-[6px] bg-[#F5F6F9] text-[15px] font-medium text-[#7D7D91] text-center'">
                     Without Vibgyor
                 </button>
             </div>
 
             <!-- Mobile Number -->
             <div class="flex flex-col gap-[10px]">
-                <label class="block text-[12px] font-normal leading-[18px] text-[#6C7278]">Mobile Number</label>
+                <label class="block text-[14px] font-medium leading-[20px] text-[#6C7278]">Mobile Number</label>
                 <app-input-field type="text" placeholder="Enter your mobile number" [(ngModel)]="mobileNumber" class="w-full">
                 </app-input-field>
             </div>
 
             <!-- OTP -->
             <div class="flex flex-col gap-[10px]">
-                <label class="block text-[12px] font-normal leading-[18px] text-[#6C7278]">OTP</label>
+                <label class="block text-[14px] font-medium leading-[20px] text-[#6C7278]">OTP</label>
                 <app-input-field type="password" placeholder="Enter OTP" [(ngModel)]="otp" class="w-full" [isOtp]="true">
                 </app-input-field>
 
                 <!-- Resend OTP -->
                 <div class="flex justify-end">
-                    <button (click)="resendOtp()" class="text-[12px] font-semibold text-[#3E63DD] hover:underline">
+                    <button (click)="resendOtp()" class="text-[14px] font-semibold text-[#3E63DD] hover:underline">
                         Resend OTP
                     </button>
                 </div>
@@ -59,11 +59,11 @@
 
             <!-- Login Button + Register link -->
             <div class="flex flex-col gap-[24px]">
-                <div class="flex justify-center items-center">
-                    <app-button variant="primary" size="lg" (click)="login()" class="w-[186px]">Log In</app-button>
+                <div class="flex justify-center items-center w-full">
+                    <app-button variant="primary" size="lg" (click)="login()" class="w-[186px]"><span class="text-[16px] font-semibold">Log In</span></app-button>
                 </div>
 
-                <p class="text-[12px] leading-[16.8px] text-[#6C7278] text-center font-medium tracking-[-0.01em]">
+                <p class="text-[14px] leading-[20px] text-[#6C7278] text-center font-medium tracking-[-0.01em]">
                     Don't have an account?
                     <a (click)="register()" class="text-[#4D81E7] font-semibold hover:underline cursor-pointer ml-1.5">Register</a>
                 </p>
