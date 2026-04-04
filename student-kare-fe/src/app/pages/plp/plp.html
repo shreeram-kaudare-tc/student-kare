@@ -94,7 +94,7 @@
       <div #cartThumbnails class="relative flex-shrink-0 w-[70px] self-stretch cursor-pointer"
            [class.thumbnails-rotating]="isRotating"
            (click)="rotateCartThumbnails(); $event.stopPropagation()">
-        @for (item of cartItems.slice(0, 3); track item.id; let i = $index) {
+        @for (item of cartItems.slice(-3); track item.id; let i = $index) {
         <div class="absolute w-[36px] h-[36px] rounded-full p-[2px] bg-[#795BF1] top-1/2 -translate-y-1/2 transition-all duration-400 ease-in-out"
              [style.left.px]="i === 0 ? 0 : i === 1 ? 18 : 36"
              [style.zIndex]="i + 1">
