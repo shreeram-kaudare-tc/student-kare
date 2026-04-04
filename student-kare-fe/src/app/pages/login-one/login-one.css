@@ -1,8 +1,8 @@
 /* Image rows container — auto-sizes based on children */
 .image-rows-container {
   flex-shrink: 0;
-  padding-top: clamp(12px, 3vh, 24px);
-  padding-bottom: clamp(4px, 0.5vh, 12px);
+  padding-top: clamp(8px, 2vh, 16px);
+  padding-bottom: clamp(2px, 0.5vh, 8px);
   width: 100%;
   overflow-x: hidden;
 }
@@ -16,10 +16,10 @@
 
 /* Responsive product image cards: using aspect-ratio for perfect scaling */
 .product-img-card {
-  /* Dynamic width: optimized for better density on small devices */
-  width: clamp(80px, 22vw, 120px);
-  aspect-ratio: 106 / 112;
-  padding: clamp(6px, 2vw, 10px);
+  /* Dynamic width: bigger cards, less empty space */
+  width: clamp(110px, 28vw, 180px);
+  aspect-ratio: 1 / 1;
+  padding: clamp(8px, 2.5vw, 14px);
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -29,14 +29,14 @@
 /* On desktop, cards stay relatively sized to the screen half */
 @media (min-width: 1024px) {
   .product-img-card {
-    width: clamp(100px, 8vw, 140px);
+    width: clamp(120px, 10vw, 180px);
   }
 }
 
 /* Scrolling marquee rows: responsive gap */
 .marquee-track {
   display: flex;
-  gap: clamp(8px, 1.5vw, 12px);
+  gap: 15px;
   width: max-content;
 }
 
@@ -65,21 +65,30 @@
 
 /* Vertical Responsiveness: Selective compression for short screens (e.g. 305x532) */
 @media (max-height: 600px) {
+  .product-img-card {
+    width: clamp(90px, 24vw, 140px);
+  }
+
   .image-rows-container {
-    transform: scale(0.88);
-    transform-origin: top;
-    /* Reduce container height to match scaled content */
-    margin-bottom: -15px;
+    padding-top: 4px;
+    padding-bottom: 2px;
   }
 
   .auth-section {
-    padding-top: 12px !important;
-    padding-bottom: 12px !important;
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
     justify-content: center !important;
   }
 
   /* Tighten logo and card within auth-section */
   .auth-section > div {
-    gap: 12px !important;
+    gap: 10px !important;
+  }
+}
+
+/* Medium height screens */
+@media (min-height: 601px) and (max-height: 750px) {
+  .product-img-card {
+    width: clamp(100px, 26vw, 160px);
   }
 }
