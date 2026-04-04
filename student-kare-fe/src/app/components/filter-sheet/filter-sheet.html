@@ -17,7 +17,7 @@
   <div class="flex flex-1 overflow-hidden">
 
     <!-- Left section list -->
-    <div class="flex-shrink-0 overflow-y-auto w-[157px]">
+    <div class="flex-shrink-0 overflow-y-auto w-[157px] relative z-[1]">
       <div class="border-r border-[#EFEFEF]">
         @for (sec of sections; track sec.key) {
         <button (click)="activeSection = sec.key" class="w-full text-left px-[16px] flex items-center border-b border-[#E6E6E6] h-[50px]" [class.bg-[#D8E0F8]]="activeSection === sec.key">
@@ -30,21 +30,21 @@
     </div>
 
     <!-- Right filter content -->
-    <div class="flex-1 overflow-y-auto px-[14px] pt-[14px] pb-[8px]">
+    <div class="flex-1 overflow-y-auto px-[14px] pt-[14px] pb-[8px] relative z-[2]">
 
       <!-- ── PRICE ── -->
       @if (activeSection === 'price') {
       <div class="flex flex-col gap-[20px]">
 
         <!-- Slider track row -->
-        <div class="relative pt-[32px]">
+        <div class="relative pt-[32px] px-[12px]">
           <!-- Aligned labels row: balloons and limits at same level -->
           <div class="relative h-[23px] mb-[6px] w-full pointer-events-none px-1">
             @if (minThumbPct > 15) {
             <span class="price-limit absolute left-0 top-0 leading-none">{{ priceAbsMin | number }}</span>
             }
 
-            <div class="absolute inset-0">
+            <div class="absolute inset-0 z-10">
               @if (!isBalloonsOverlapping) {
               <div class="absolute" [style.left]="'calc(' + minThumbPct + '% + ' + (5 - 0.1 * minThumbPct) + 'px)'" style="top: 0; transform: translateX(-50%);">
                 <span class="price-balloon">{{ priceMin }}</span>
@@ -81,11 +81,11 @@
         <div class="flex items-start gap-[12px]">
           <div class="flex flex-col gap-[6px] flex-1">
             <span class="text-[14px] font-medium text-[#262626] leading-[20px]">From</span>
-            <input type="number" [(ngModel)]="priceMin" class="w-full h-[40px] border border-[#DADADA] rounded-[8px] px-[12px] text-[14px] font-medium text-[#464646] outline-none focus:border-[#3E63DD]" />
+            <input type="number" [(ngModel)]="priceMin" [min]="priceAbsMin" [max]="priceMax" class="w-full h-[40px] border border-[#DADADA] rounded-[8px] px-[12px] text-[14px] font-medium text-[#464646] outline-none focus:border-[#3E63DD]" />
           </div>
           <div class="flex flex-col gap-[6px] flex-1">
             <span class="text-[14px] font-medium text-[#262626] leading-[20px]">To</span>
-            <input type="number" [(ngModel)]="priceMax" class="w-full h-[40px] border border-[#DADADA] rounded-[8px] px-[12px] text-[14px] font-medium text-[#464646] outline-none focus:border-[#3E63DD]" />
+            <input type="number" [(ngModel)]="priceMax" [min]="priceMin" [max]="priceAbsMax" class="w-full h-[40px] border border-[#DADADA] rounded-[8px] px-[12px] text-[14px] font-medium text-[#464646] outline-none focus:border-[#3E63DD]" />
           </div>
         </div>
       </div>
