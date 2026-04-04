@@ -1,43 +1,44 @@
 <div class="w-full h-[100dvh] bg-[#f0f2ff] flex items-center justify-center overflow-hidden md:p-[24px]" (touchstart)="onTouchStart($event)" (touchend)="onTouchEnd($event)">
-  <div class="w-full h-full max-h-[100dvh] bg-white overflow-hidden md:h-[min(calc(100dvh-48px),852px)] md:max-w-[393px] md:rounded-[28px] md:shadow-[0_18px_46px_rgba(49,58,118,0.14)]">
-    @for (slide of slides; track slide.title; let i = $index) { @if (i === currentIndex) {
-    <div class="h-full flex flex-col overflow-hidden" [class.slide-enter-forward]="slideDirection === 'forward'" [class.slide-enter-backward]="slideDirection === 'backward'">
-
-      <!-- Hero Section -->
-      <div class="relative flex-1 min-h-[280px] overflow-hidden flex items-center justify-center">
-        <img [src]="slide.bgSvg" alt="" class="absolute left-0 object-cover" [class]="slide.backgroundClass" />
-        <img [src]="slide.image" [alt]="slide.title" class="relative z-[1] object-cover" [class]="slide.imgClass" />
-      </div>
-
-      <!-- Content Section -->
-      <div class="flex flex-col items-center text-center gap-[clamp(8px,1.5vh,14px)]  px-[clamp(16px,5vw,24px)] pb-[max(16px,env(safe-area-inset-bottom))]">
-
-        <div class="w-full justify-center items-center flex flex-col ">
-          <h2 class="font-['Plus_Jakarta_Sans'] font-medium text-[18px] leading-[100%] tracking-[0%] text-center  text-[#5e4db2]">{{ slide.title }}</h2>
-          <p class="font-['Plus_Jakarta_Sans'] font-normal text-[12px] leading-[21px] tracking-[0%] text-center  text-black mt-[clamp(6px,1vh,10px)]">{{ slide.description }}</p>
+  <div class="w-full h-full max-h-[100dvh] bg-white overflow-hidden md:h-[min(calc(100dvh-48px),852px)] md:max-w-[393px] md:rounded-[28px] md:shadow-[0_18px_46px_rgba(49,58,118,0.14)] flex flex-col">
+    
+    <!-- Top Sliding Content Container -->
+    <div class="flex-1 relative overflow-hidden">
+      @for (slide of slides; track slide.title; let i = $index) { @if (i === currentIndex) {
+      <div class="absolute inset-0 flex flex-col overflow-hidden" [class.slide-enter-forward]="slideDirection === 'forward'" [class.slide-enter-backward]="slideDirection === 'backward'">
+        <!-- Hero Section -->
+        <div class="relative flex-1 min-h-[280px] overflow-hidden flex items-center justify-center">
+          <img [src]="slide.bgSvg" alt="" class="absolute left-0 object-cover" [class]="slide.backgroundClass" />
+          <img [src]="slide.image" [alt]="slide.title" class="relative z-[1] object-cover" [class]="slide.imgClass" />
         </div>
 
-        <div class="w-full flex flex-col items-center mt-[clamp(6px,1vh,10px)] gap-[clamp(10px,1.8vh,16px)] pb-[clamp(10px,1.5vh,16px)]">
-
-          <!-- Dots -->
-          <div class="flex items-center gap-[8px]">
-            @for (dot of slides; track dot.title; let j = $index) {
-            <button (click)="goToSlide(j)" class="border-none cursor-pointer transition-all duration-[250ms]" [class]="j === currentIndex
-                ? 'w-[24px] h-[6px] rounded-full dot-active'
-                : 'w-[8px] h-[8px] rounded-full bg-[#5732ee]/20'">
-            </button>
-            }
+        <!-- Text Content -->
+        <div class="flex flex-col items-center text-center gap-[clamp(8px,1.5vh,14px)] px-[clamp(16px,5vw,24px)] pt-[max(16px, env(safe-area-inset-top))]">
+          <div class="w-full justify-center items-center flex flex-col">
+            <h2 class="font-['Plus_Jakarta_Sans'] font-medium text-[18px] leading-[100%] tracking-[0%] text-center text-[#5e4db2]">{{ slide.title }}</h2>
+            <p class="font-['Plus_Jakarta_Sans'] font-normal text-[12px] leading-[21px] tracking-[0%] text-center text-black mt-[clamp(6px,1vh,10px)]">{{ slide.description }}</p>
           </div>
-
-          <!-- Next Button -->
-          <button (click)="next()" class="w-[180px] h-[46px] rounded-[99px] px-[25px] bg-[#3E63DD] text-white font-semibold border-none cursor-pointer active:scale-[0.96] transition-transform duration-200">
-            Next
-          </button>
-
         </div>
       </div>
-
+      } }
     </div>
-    } }
+
+    <!-- Static Bottom Controls Container -->
+    <div class="flex flex-col items-center gap-[clamp(10px,1.8vh,16px)] pb-[max(32px,env(safe-area-inset-bottom)+16px)] px-[24px]">
+      <!-- Dots -->
+      <div class="flex items-center gap-[8px]">
+        @for (dot of slides; track dot.title; let j = $index) {
+        <button (click)="goToSlide(j)" class="border-none cursor-pointer transition-all duration-[250ms]" [class]="j === currentIndex
+            ? 'w-[24px] h-[6px] rounded-full dot-active'
+            : 'w-[8px] h-[8px] rounded-full bg-[#5732ee]/20'">
+        </button>
+        }
+      </div>
+
+      <!-- Next Button -->
+      <button (click)="next()" class="w-[180px] h-[46px] rounded-[99px] px-[25px] bg-[#3E63DD] text-white font-semibold border-none cursor-pointer active:scale-[0.96] transition-transform duration-200">
+        Next
+      </button>
+    </div>
+
   </div>
 </div>
