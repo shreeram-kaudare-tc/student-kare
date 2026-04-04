@@ -83,7 +83,11 @@
             <div class="flex flex-col gap-[2px]">
               <div class="flex items-start justify-between pr-[10px]">
                 <span class="text-[14px] font-medium text-[#363431] leading-[20px] max-w-[139px] line-clamp-1">{{ item.name }}</span>
-                <button (click)="toggleWishlist(item); $event.stopPropagation()" class="opacity-40">
+                <button (click)="toggleWishlist(item); $event.stopPropagation()" 
+                        class="transition-opacity duration-200" 
+                        [class.opacity-0]="item.swipeOffset < -15"
+                        [class.opacity-40]="item.swipeOffset >= -15"
+                        [class.pointer-events-none]="item.swipeOffset < -15">
                   <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" fill="white" />
                     <rect x="0.5" y="0.5" width="19" height="19" rx="9.5" stroke="#DADADA" />
@@ -102,7 +106,9 @@
             
             <div class="flex items-center justify-between">
               <span class="text-[14px] font-medium text-[#3E63DD] leading-[20px]">${{ item.price }}.00</span>
-              <div class="flex items-center w-[74px] h-[20px] bg-white border border-[#DADADA] rounded-[70px] overflow-hidden mr-[10px]">
+              <div class="flex items-center w-[74px] h-[20px] bg-white border border-[#DADADA] rounded-[70px] overflow-hidden mr-[10px] transition-opacity duration-200"
+                   [class.opacity-0]="item.swipeOffset < -15"
+                   [class.pointer-events-none]="item.swipeOffset < -15">
                 <button (click)="decrement(item); $event.stopPropagation()" class="flex items-center justify-center w-[26px] h-full bg-[#F8F8F8] text-[#363431] transition-colors hover:bg-[#F2F2F2]">
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"></line>
