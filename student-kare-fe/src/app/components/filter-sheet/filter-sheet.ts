@@ -125,10 +125,12 @@ export class FilterSheet implements OnChanges {
     return ((this.priceMax - this.priceAbsMin) / (this.priceAbsMax - this.priceAbsMin)) * 100;
   }
   onMinChange(val: number) {
-    if (val < this.priceMax - 1) this.priceMin = val;
+    const numVal = Number(val);
+    this.priceMin = numVal >= this.priceMax ? this.priceMax : numVal;
   }
   onMaxChange(val: number) {
-    if (val > this.priceMin + 1) this.priceMax = val;
+    const numVal = Number(val);
+    this.priceMax = numVal <= this.priceMin ? this.priceMin : numVal;
   }
 
   get isBalloonsOverlapping() {

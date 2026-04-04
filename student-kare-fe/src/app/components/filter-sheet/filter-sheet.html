@@ -66,8 +66,14 @@
               <div class="range-fill" [style.left.%]="minThumbPct" [style.width.%]="maxThumbPct - minThumbPct">
               </div>
             </div>
-            <input type="range" class="range-input range-min" [min]="priceAbsMin" [max]="priceAbsMax" [value]="priceMin" (input)="onMinChange(+$any($event.target).value)" />
-            <input type="range" class="range-input range-max" [min]="priceAbsMin" [max]="priceAbsMax" [value]="priceMax" (input)="onMaxChange(+$any($event.target).value)" />
+            <input type="range" class="range-input range-min" 
+                   [style.z-index]="priceMin > priceAbsMax / 2 ? 5 : 3"
+                   [min]="priceAbsMin" [max]="priceAbsMax" [value]="priceMin" 
+                   (input)="onMinChange(+$any($event.target).value); $any($event.target).value = priceMin" />
+            <input type="range" class="range-input range-max" 
+                   [style.z-index]="priceMin > priceAbsMax / 2 ? 3 : 5"
+                   [min]="priceAbsMin" [max]="priceAbsMax" [value]="priceMax" 
+                   (input)="onMaxChange(+$any($event.target).value); $any($event.target).value = priceMax" />
           </div>
         </div>
 
