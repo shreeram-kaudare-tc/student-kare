@@ -116,11 +116,8 @@
               ₹{{ order.price | number }}
             </span>
             <button (click)="trackOrder(order)"
-                    class="rounded-full font-semibold font-['Plus_Jakarta_Sans'] transition-all active:scale-95 whitespace-nowrap border border-[#3E63DD] flex items-center justify-center bg-[#3E63DD] text-white flex-shrink-0"
-                    [style.font-size]="'clamp(12px, 3.2vw, 15px)'"
-                    [style.height]="'clamp(26px, 6vw, 32px)'"
-                    [style.padding-left]="'clamp(14px, 4vw, 20px)'"
-                    [style.padding-right]="'clamp(14px, 4vw, 20px)'">
+                    class="track-order-btn"
+                    [class.selected]="selectedOrderIds.has(order.id)">
               Track Order
             </button>
           </div>
