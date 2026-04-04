@@ -21,9 +21,16 @@ body {
   width: 100%;
   overflow: hidden;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  /* Keep normal scroll, but prevent unintended zoom gestures on mobile */
+  /* Prevent pinch-to-zoom on iOS Safari */
   touch-action: pan-x pan-y;
   -ms-touch-action: pan-x pan-y;
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Prevent iOS Safari double-tap and pinch zoom on all elements */
+* {
+  touch-action: pan-x pan-y;
+  -webkit-touch-callout: none;
 }
 
 /* Global: constrain all pages to mobile-like width on desktop */

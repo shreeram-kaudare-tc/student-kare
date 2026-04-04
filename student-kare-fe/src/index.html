@@ -10,5 +10,16 @@
 </head>
 <body>
   <app-root></app-root>
+  <script>
+    // Prevent iOS Safari pinch-to-zoom
+    document.addEventListener('gesturestart', function(e) { e.preventDefault(); });
+    document.addEventListener('gesturechange', function(e) { e.preventDefault(); });
+    document.addEventListener('gestureend', function(e) { e.preventDefault(); });
+    // Prevent double-tap zoom on iOS
+    document.addEventListener('touchend', function(e) {
+      if (e.timeStamp - (window._lastTap || 0) < 300) { e.preventDefault(); }
+      window._lastTap = e.timeStamp;
+    }, { passive: false });
+  </script>
 </body>
 </html>
