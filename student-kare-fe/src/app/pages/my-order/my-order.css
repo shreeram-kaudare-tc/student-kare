@@ -25,3 +25,21 @@
   color: #3E63DD;
   border: 1px solid #3E63DD;
 }
+
+/* Order card slide-in animation */
+.order-card-enter {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideInUp 0.4s ease-out forwards;
+}
+
+@keyframes slideInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -51,7 +51,7 @@ export class MyOrderPage {
     return this.orders.filter(o => o.status === this.activeTab);
   }
 
-  goBack() { this.router.navigate(['/home']); }
+  goBack() { this.router.navigate(['/cart']); }
   trackOrder(order: Order) {
     if (this.selectedOrderIds.has(order.id)) {
       this.selectedOrderIds.delete(order.id);
