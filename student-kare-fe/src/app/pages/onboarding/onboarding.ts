@@ -57,6 +57,27 @@ export class Onboarding {
   ];
 
   constructor(private router: Router) { }
+  startX = 0;
+
+  onTouchStart(e: TouchEvent) {
+    this.startX = e.touches[0].clientX;
+  }
+
+  onTouchEnd(e: TouchEvent) {
+    const endX = e.changedTouches[0].clientX;
+    const diff = this.startX - endX;
+    const threshold = 50;
+
+    if (Math.abs(diff) > threshold) {
+      if (diff > 0) {
+        // Swiped Left -> Go Forward
+        this.next();
+      } else {
+        // Swiped Right -> Go Backward
+        this.prev();
+      }
+    }
+  }
 
   next() {
     if (this.currentIndex < this.slides.length - 1) {
@@ -64,6 +85,13 @@ export class Onboarding {
       this.currentIndex++;
     } else {
       this.router.navigate(['/home']);
+    }
+  }
+
+  prev() {
+    if (this.currentIndex > 0) {
+      this.slideDirection = 'backward';
+      this.currentIndex--;
     }
   }
 
