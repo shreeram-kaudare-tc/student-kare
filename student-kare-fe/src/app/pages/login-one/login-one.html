@@ -13,7 +13,7 @@
         class="absolute bottom-0 left-0 right-0 z-10 h-[clamp(30px,8vh,80px)] bg-gradient-to-t from-white to-transparent">
       </div>
 
-      <div class="flex flex-col gap-[clamp(8px,2vh,20px)] w-full">
+      <div class="flex flex-col gap-[15px] w-full">
 
         <!-- Row 1 scroll left -->
         <div class="overflow-hidden w-full row-height">
@@ -74,8 +74,8 @@
     <div
       class="flex-1 flex flex-col items-center justify-center px-4 pt-[0.5vh] pb-[2vh] lg:py-0 lg:w-1/2 min-h-fit auth-section">
 
-      <!-- Balanced container with 18px gap as per Figma -->
-      <div class="w-full flex flex-col items-center gap-[18px]">
+      <!-- Logo + Card container: Figma w-350, gap-18px -->
+      <div class="w-[350px] max-w-full flex flex-col items-center gap-[18px]">
 
         <!-- Logo Section - Figma Fixed 172.79px width -->
         <div class="w-[172.79px] flex flex-col items-center gap-[4px]">
@@ -88,14 +88,14 @@
           </p>
         </div>
 
-        <!-- Auth Card - Figma Fixed 350px width -->
+        <!-- Auth Card - Figma Fixed 350px width, border-radius 10px -->
         <div
-          class="w-full max-w-[350px] bg-white rounded-[30px] border border-[#E9EAF2] shadow-[0_20px_38px_rgba(24,25,70,0.16)] flex flex-col overflow-hidden">
+          class="w-[350px] max-w-full rounded-[10px] flex flex-col overflow-hidden border-l border-r border-b border-[#E9EAF2] shadow-[0px_3px_4px_0px_rgba(0,0,0,0.25)]">
 
-          <!-- Buttons Area - Figma Frame 1686563795 (Fixed 200px height, 59px/26px padding) -->
-          <div class="flex flex-col items-center px-[59px] py-[26px] min-h-[200px] justify-center gap-[15px]">
+          <!-- Buttons Area - Figma: h-200, padding 26/59, gap 10px -->
+          <div class="flex flex-col items-center px-[59px] py-[26px] h-[200px] justify-center gap-[10px]">
 
-            <!-- Primary Actions Group - Figma Frame 1686563794 (219px wide, 10px gap) -->
+            <!-- Primary Actions Group - Figma 219px wide, 10px gap -->
             <div class="w-[219px] flex flex-col gap-[10px]">
               <app-button variant="primary" size="lg" [fullWidth]="true" (click)="loginWithVibgyor()">
                 <span class="flex items-center gap-1">
@@ -113,7 +113,7 @@
             </div>
 
             <!-- Secondary Action - Figma Fixed 219px width, 14px Poppins (Regular), -0.3px spacing -->
-            <div class="w-[219px] flex justify-center mt-1">
+            <div class="w-[219px] flex justify-center">
               <button (click)="loginWithPhone()"
                 class="text-[14px] text-[#269237] font-poppins font-normal leading-[100%] tracking-[-0.3px] transition-all hover:opacity-80 whitespace-nowrap">
                 or login with phone number
