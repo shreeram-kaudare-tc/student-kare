@@ -24,10 +24,10 @@ export interface CartItem {
 })
 export class CartPage {
   items: CartItem[] = [
-    { id: 1, name: 'Wireless Headphones', price: 65, image: '/images/home/prod-reebok.png', quantity: 1, reviews: 379, wishlisted: false, swipeOffset: 0, swipeStartX: 0 },
-    { id: 2, name: 'Wireless Headphones', price: 65, image: '/images/home/prod-reebok.png', quantity: 1, reviews: 379, wishlisted: false, swipeOffset: 0, swipeStartX: 0 },
-    { id: 3, name: 'Wireless Headphones', price: 65, image: '/images/home/prod-reebok.png', quantity: 1, reviews: 379, wishlisted: false, swipeOffset: 0, swipeStartX: 0 },
-    { id: 4, name: 'Wireless Headphones', price: 65, image: '/images/home/prod-literacy.png', quantity: 1, reviews: 379, wishlisted: false, swipeOffset: 0, swipeStartX: 0 },
+    { id: 1, name: 'Wireless Headphones', price: 65, image: '/images/home/wirelessheadphones.png', quantity: 1, reviews: 379, wishlisted: false, swipeOffset: 0, swipeStartX: 0 },
+    { id: 2, name: 'Wireless Headphones', price: 65, image: '/images/home/wirelessheadphones.png', quantity: 1, reviews: 379, wishlisted: false, swipeOffset: 0, swipeStartX: 0 },
+    { id: 3, name: 'Wireless Headphones', price: 65, image: '/images/home/wirelessheadphones.png', quantity: 1, reviews: 379, wishlisted: false, swipeOffset: 0, swipeStartX: 0 },
+    { id: 4, name: 'Wireless Headphones', price: 65, image: '/images/home/wirelessheadphones.png', quantity: 1, reviews: 379, wishlisted: false, swipeOffset: 0, swipeStartX: 0 },
   ];
 
   constructor(public router: Router, private location: Location) { }
